@@ -26,22 +26,34 @@
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
     "prettier": "^3.5.3",
     "stylelint": "^16.18.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-scss": "^6.11.1"
   },
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject",
-  "lint": "eslint 'src/**/*.{ts,tsx}'",
-  "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-  "format": "prettier --write 'src/**/*.{ts,tsx,scss}'",
-  "stylelint": "stylelint 'src/**/*.{css,scss}'"
-}
-,
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss}'",
+    "stylelint": "stylelint 'src/**/*.{css,scss}'",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.{scss,css}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
