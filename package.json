@@ -44,14 +44,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "**/*.{scss,css}": [
-      "stylelint --fix",
-      "git add"
-    ]
+    "**/*.{ts,tsx,js,jsx}": "eslint --fix",
+    "**/*.{scss,css}": "stylelint --fix"
   },
   "browserslist": {
     "production": [
