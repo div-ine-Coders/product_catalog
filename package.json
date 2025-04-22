@@ -41,11 +41,8 @@
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json,md}\"",
     "stylelint": "stylelint \"src/**/*.{css,scss}\"",
+    "check": "npm run lint:fix && npm run stylelint && npm run format",
     "prepare": "husky install"
-  },
-  "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": "eslint --fix",
-    "**/*.{scss,css}": "stylelint --fix"
   },
   "browserslist": {
     "production": [
