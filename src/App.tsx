@@ -1,10 +1,6 @@
 import './App.scss';
 
 export const App = () => {
-  return <div>OUR PROJECT HERE cv
-
-
-
-
-  </div>;
+  const x =   123
+  return <div>OUR PROJECT HERE cv</div>;
 };
