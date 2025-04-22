@@ -29,8 +29,13 @@ export const Footer = () => {
         </div>
 
         <div className={styles['footer__back-container']}>
-          <span className={styles['footer__back-container-text']}>Back to top</span>
-          <div className={styles['footer__back-container-button']} onClick={handleBackClick}>
+          <span className={styles['footer__back-container-text']}>
+            Back to top
+          </span>
+          <div
+            className={styles['footer__back-container-button']}
+            onClick={handleBackClick}
+          >
             <button></button>
           </div>
         </div>
