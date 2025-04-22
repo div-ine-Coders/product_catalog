@@ -1,93 +1,108 @@
-@use './variables' as *;
-@use './mixins' as *;
+@use "/variables" as *;
+@use "/mixins" as *;
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4,
-.uppercase, .button-text, .body-text, .small-text {
+h1,
+h2,
+h3,
+h4,
+.uppercase,
+.button-text,
+.body-text,
+.small-text {
   margin: 0;
   padding: 0;
-  font-family: 'Mont', sans-serif;
+  font-family: "Mont", sans-serif;
   color: inherit;
 }
 
 h1 {
-    font-weight: bold;
+  font-family: 'Mont', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+h2 {
+  font-family: 'Mont', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 31px;
+  letter-spacing: 0;
+
+
+  @include on-tablet {
     font-size: 32px;
     line-height: 41px;
     letter-spacing: -0.01em;
-
-    @include on-tablet {
-      font-size: 48px;
-      line-height: 56px;
-    }
   }
+}
 
-  h2 {
-    font-weight: bold;
+h3 {
+  font-family: 'Mont', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0;
+
+  @include on-tablet {
+    font-weight: 700;
     font-size: 22px;
     line-height: 31px;
-    letter-spacing: 0;
-
-    @include on-tablet {
-      font-size: 32px;
-      line-height: 41px;
-      letter-spacing: -0.01em;
-    }
   }
+}
 
-  h3 {
-    font-weight: 600;
+h4 {
+  font-family: 'Mont', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+
+  @include on-tablet {
     font-size: 20px;
     line-height: 26px;
-    letter-spacing: 0;
-
-    @include on-tablet {
-      font-weight: bold;
-      font-size: 22px;
-      line-height: 31px;
-    }
   }
+}
 
-  h4 {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0;
+.uppercase {
+  font-family: 'Mont', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
-    @include on-tablet {
-      font-size: 20px;
-      line-height: 26px;
-    }
-  }
+.button-text {
+  font-family: 'Mont', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0;
+}
 
-  .uppercase {
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 11px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+.body-text {
+  font-family: 'Mont', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0;
+}
 
-  .button-text {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0;
-  }
-
-  .body-text {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0;
-  }
-
-  .small-text {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    letter-spacing: 0;
-  }
+.small-text {
+  font-family: 'Mont', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0;
+}
