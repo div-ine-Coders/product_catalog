@@ -36,12 +36,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.{ts,tsx}",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss}'",
-    "stylelint": "stylelint 'src/**/*.{css,scss}'",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json,md}\"",
+    "stylelint": "stylelint \"src/**/*.{css,scss}\"",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -52,12 +51,6 @@
     "**/*.{scss,css}": [
       "stylelint --fix",
       "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
     ]
   },
   "browserslist": {
