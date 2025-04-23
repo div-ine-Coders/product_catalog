@@ -6,33 +6,33 @@
   background-image: url(../../../../../assets/icons/icon-arrow-left-white.svg);
   cursor: pointer;
 
-  &-up {
+  &Up {
     rotate: 90deg;
   }
 
-  &-down {
+  &Down {
     rotate: -90deg;
   }
 
-  &-left {
+  &Left {
     rotate: 0deg;
   }
 
-  &-right {
+  &Right {
     rotate: 180deg;
   }
 
-  &-disabled {
+  &Disabled {
     background-image: url(../../../../../assets/icons/icon-arrow-left-grey.svg);
   }
 
-  &-button {
+  &Button {
     width: 32px;
     height: 32px;
     background-color: $color-card;
     border: none;
 
-    &-disabled {
+    &Disabled {
       border: 1px solid $color-element;
       cursor: auto;
     }
