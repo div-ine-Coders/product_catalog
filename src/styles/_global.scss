@@ -1,5 +1,5 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 html {
   font-family: 'Mont', sans-serif;
@@ -9,18 +9,12 @@ html {
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
+  color: $color-text-main;
 }
 
-h1,
-h2,
-h3,
-h4,
-.uppercase,
-.body-text,
-.small-text {
-  margin: 0;
-  padding: 0;
-  color: inherit;
+button {
+  background-color: $color-bg;
+  color: $color-text-main;
 }
 
 h1 {
@@ -40,7 +34,6 @@ h2 {
   font-size: 22px;
   line-height: 31px;
   letter-spacing: 0;
-
 
   @include on-tablet {
     font-size: 32px;
@@ -75,6 +68,7 @@ h4 {
 }
 
 .uppercase {
+  font-family: 'Mont', sans-serif;
   font-weight: 800;
   font-size: 12px;
   line-height: 11px;
@@ -82,14 +76,16 @@ h4 {
   text-transform: uppercase;
 }
 
-.button-text {
+.buttonText {
+  font-family: 'Mont', sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
 }
 
-.small-text {
+.smallText {
+  font-family: 'Mont', sans-serif;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;

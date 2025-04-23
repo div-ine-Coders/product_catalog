@@ -1,0 +1,65 @@
+@import '../../../../../App.scss';
+
+.selectTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 40px;
+  padding: 12px;
+  background-color: $color-card;
+  border: 1px solid $color-card;
+  cursor: pointer;
+
+  &Big {
+    width: 200px;
+  }
+
+  &:hover {
+    border-color: $color-icon;
+  }
+
+  &:focus,
+  &[data-state='open'] {
+    border-color: $color-accent;
+    outline: none;
+  }
+}
+
+.selectIcon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+
+  .selectTrigger[data-state='open'] & {
+    transform: rotate(180deg);
+  }
+}
+
+.selectContent {
+  margin-top: 4px;
+  background-color: $color-bg;
+  border: 1px solid $color-element;
+}
+
+.selectItem {
+  position: relative;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  color: $color-text-secondary;
+  cursor: pointer;
+  user-select: none;
+  width: 100px;
+  border: none;
+  outline: none;
+
+  &Big {
+    width: 200px;
+  }
+
+  &:hover,
+  &[data-highlighted] {
+    background-color: $color-card;
+    color: $color-text-main;
+  }
+}
