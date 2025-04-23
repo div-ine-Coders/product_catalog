@@ -20,7 +20,7 @@ export const Dropdown: React.FC<Props> = ({
   return (
     <Select.Root value={activeItem.toString()} onValueChange={click}>
       <Select.Trigger
-        className={cn(styles['select-trigger'], 'button-text', {
+        className={cn(`'button-text' ${styles['select-trigger']}`, {
           [styles['select-trigger-big']]: isBig,
         })}
       >

@@ -4,6 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(../../../../../assets/icons/icon-arrow-left-white.svg);
+  cursor: pointer;
 
   &-up {
     rotate: 90deg;
@@ -33,6 +34,7 @@
 
     &-disabled {
       border: 1px solid $color-element;
+      cursor: auto;
     }
 
     &:not([disabled]):hover {

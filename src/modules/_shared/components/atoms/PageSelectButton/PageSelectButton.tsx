@@ -15,10 +15,11 @@ export const PageSelectButton: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={cn(styles.pageSelectButton, 'button-text', {
+      className={cn(`'button-text' ${styles.pageSelectButton}`, {
         [styles['pageSelectButton-selected']]: isSelected,
       })}
       onClick={click}
+      disabled={isSelected}
     >
       {children}
     </button>
