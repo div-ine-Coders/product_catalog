@@ -1,16 +1,16 @@
 .colorSelector {
   width: 32px;
   height: 32px;
-  border: 2px solid #3B3E4A;
+  border: 2px solid #3b3e4a;
   border-radius: 50%;
   padding: 2px;
 
   &:hover {
-    border-color: #75767F;
+    border-color: #75767f;
   }
 
   &-active {
-    border-color: #F1F2F9;
+    border-color: #f1f2f9;
   }
 
   &-link {
@@ -22,4 +22,3 @@
 
   //need container with not inline display
 }
-

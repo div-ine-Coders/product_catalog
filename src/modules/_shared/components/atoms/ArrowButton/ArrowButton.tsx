@@ -1,14 +1,7 @@
 import React from 'react';
 import styles from './ArrowButton.module.scss';
 import cn from 'classnames';
-
-//need to export
-export enum ArrowDirection {
-  Left = 'left',
-  Right = 'right',
-  Up = 'up',
-  Down = 'down',
-}
+import { ArrowDirection } from '../../../../../constants';
 
 type Props = {
   direction?: ArrowDirection;

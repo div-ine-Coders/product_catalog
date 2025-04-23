@@ -9,13 +9,12 @@
   border: none;
 
   &:hover {
-    background-color: #4A4D58;
+    background-color: #4a4d58;
   }
 
   &-selected {
     background-image: url(../../../../../assets/icons/icon-favorite-heart-filled.svg);
-    background-color: #0F1121;
-    border: 1px solid #3B3E4A;
+    background-color: #0f1121;
+    border: 1px solid #3b3e4a;
   }
 }
-

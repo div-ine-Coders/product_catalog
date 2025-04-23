@@ -12,11 +12,6 @@ export const FavouriteButton: React.FC<Props> = ({ isFavourite }) => {
       className={cn(styles.favouriteButton, {
         [styles['favouriteButton-selected']]: isFavourite,
       })}
-
-
-
-
-      
     ></button>
   );
 };

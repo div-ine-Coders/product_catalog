@@ -2,25 +2,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
+  width: 100px;
   height: 40px;
   padding: 12px;
   background-color: #323542;
   border: 1px solid #323542;
-  color: #F1F2F9;
+  color: #f1f2f9;
   cursor: pointer;
 
   &-big {
-    width: 250px;
+    width: 200px;
   }
 
   &:hover {
-    border-color: #4A4D58;
+    border-color: #4a4d58;
   }
 
   &:focus,
   &[data-state='open'] {
-    border-color: #905BFF;
+    border-color: #905bff;
     outline: none;
   }
 }
@@ -37,26 +37,27 @@
 
 .select-content {
   margin-top: 4px;
-  background-color: #0F1121;
-  border: 1px solid #3B3E4A;
+  background-color: #0f1121;
+  border: 1px solid #3b3e4a;
 }
 
 .select-item {
   position: relative;
   padding: 10px 16px;
-  color: #75767F;
+  color: #75767f;
   cursor: pointer;
   user-select: none;
-  width: 200px;
+  width: 100px;
+  border: none;
+  outline: none;
 
   &-big {
-    width: 250px;
+    width: 200px;
   }
-
 
   &:hover,
   &[data-highlighted] {
     background-color: #323542;
-    color: #F1F2F9;
+    color: #f1f2f9;
   }
 }
