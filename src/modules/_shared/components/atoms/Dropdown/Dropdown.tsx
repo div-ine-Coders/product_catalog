@@ -4,12 +4,12 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './Dropdown.module.scss';
 
-type Props = {
+interface Props {
   items: string[] | number[];
   activeItem?: string | number;
   isBig?: boolean;
   click?: () => void;
-};
+}
 
 export const Dropdown: React.FC<Props> = ({
   items = ['Item 1', 'Item 2', 'Item 3'],
@@ -20,25 +20,25 @@ export const Dropdown: React.FC<Props> = ({
   return (
     <Select.Root value={activeItem.toString()} onValueChange={click}>
       <Select.Trigger
-        className={cn(`'button-text' ${styles['select-trigger']}`, {
-          [styles['select-trigger-big']]: isBig,
+        className={cn('buttonText', styles.selectTrigger, {
+          [styles.selectTriggerBig]: isBig,
         })}
       >
         <Select.Value />
-        <Select.Icon className={styles['select-icon']}>
+        <Select.Icon className={styles.selectIcon}>
           <ChevronDownIcon />
         </Select.Icon>
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content className={styles['select-content']} position="popper">
-          <Select.Viewport className={styles['select-viewport']}>
+        <Select.Content className={styles.selectContent} position="popper">
+          <Select.Viewport className={styles.selectViewport}>
             {items.map((label, idx) => (
               <Select.Item
                 key={idx}
                 value={label.toString()}
-                className={cn(styles['select-item'], {
-                  [styles['select-item-big']]: isBig,
+                className={cn(styles.selectItem, {
+                  [styles.selectItemBig]: isBig,
                 })}
               >
                 <Select.ItemText>{label}</Select.ItemText>

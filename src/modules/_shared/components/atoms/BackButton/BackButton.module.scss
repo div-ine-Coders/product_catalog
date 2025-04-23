@@ -9,13 +9,13 @@
   padding-inline: 10px;
   cursor: pointer;
 
-  &-text {
+  &Text {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  &-arrow {
+  &Arrow {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(../../../../../assets/icons/icon-arrow-left-white.svg);
@@ -26,7 +26,7 @@
   &:hover {
     color: $color-accent;
 
-    .back-arrow {
+    .backArrow {
       background-image: url(../../../../../assets/icons/icon-arrow-left-purple.svg);
     }
   }

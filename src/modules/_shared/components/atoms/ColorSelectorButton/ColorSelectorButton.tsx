@@ -2,11 +2,11 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './ColorSelector.module.scss';
 
-type Props = {
+interface Props {
   isActive?: boolean;
   color?: string;
   click?: () => void;
-};
+}
 
 export const ColorSelectorButton: React.FC<Props> = ({
   isActive = false,
@@ -16,12 +16,12 @@ export const ColorSelectorButton: React.FC<Props> = ({
   return (
     <div
       className={cn(styles.colorSelector, {
-        [styles['colorSelector-active']]: isActive,
+        [styles.colorSelectorActive]: isActive,
       })}
     >
       <a
         style={{ backgroundColor: color }}
-        className={cn(styles['colorSelector-link'])}
+        className={styles.colorSelectorLink}
         onClick={click}
       ></a>
     </div>

@@ -3,11 +3,11 @@ import styles from './ArrowButton.module.scss';
 import cn from 'classnames';
 import { ArrowDirection } from '../../../../../constants/ArrowDirection';
 
-type Props = {
+interface Props {
   direction?: ArrowDirection;
   isDisabled?: boolean;
   click?: () => void;
-};
+}
 
 export const ArrowButton: React.FC<Props> = ({
   direction = ArrowDirection.Up,

@@ -1,6 +1,6 @@
 @import '../../../../../App.scss';
 
-.select-trigger {
+.selectTrigger {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   border: 1px solid $color-card;
   cursor: pointer;
 
-  &-big {
+  &Big {
     width: 200px;
   }
 
@@ -26,23 +26,23 @@
   }
 }
 
-.select-icon {
+.selectIcon {
   display: flex;
   align-items: center;
   transition: transform 0.2s ease;
 
-  .select-trigger[data-state='open'] & {
+  .selectTrigger[data-state='open'] & {
     transform: rotate(180deg);
   }
 }
 
-.select-content {
+.selectContent {
   margin-top: 4px;
   background-color: $color-bg;
   border: 1px solid $color-element;
 }
 
-.select-item {
+.selectItem {
   position: relative;
   padding: 10px 16px;
   box-sizing: border-box;
@@ -53,7 +53,7 @@
   border: none;
   outline: none;
 
-  &-big {
+  &Big {
     width: 200px;
   }
 
