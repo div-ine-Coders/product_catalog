@@ -2,11 +2,11 @@ import React, { ReactNode } from 'react';
 import styles from './DefaultButton.module.scss';
 import cn from 'classnames';
 
-type Props = {
+interface Props {
   isSelected?: boolean;
   click?: () => void;
   children: ReactNode | ReactNode[];
-};
+}
 
 export const DefaultButton: React.FC<Props> = ({
   isSelected = false,
@@ -15,8 +15,8 @@ export const DefaultButton: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={cn(`'button-text' ${styles.defaultButton}`, {
-        [styles['defaultButton-selected']]: isSelected,
+      className={cn('buttonText', styles.defaultButton, {
+        [styles.defaultButtonSelected]: isSelected,
       })}
       onClick={click}
     >
