@@ -2,6 +2,7 @@ import styles from './Footer.module.scss';
 import logo from '..//..//..//..//..//assets/icons/Logo.png';
 import * as React from 'react';
 import cn from 'classnames';
+import { ArrowButton } from '../../atoms/ArrowButton';
 
 export const Footer = () => {
   const handleBackClick = () => {
@@ -43,7 +44,7 @@ export const Footer = () => {
             className={styles['footerBackContainerButton']}
             onClick={handleBackClick}
           >
-            <button></button>
+            <ArrowButton />
           </div>
         </div>
       </div>
