@@ -1,6 +1,6 @@
 import styles from './Footer.module.scss';
 import logo from '..//..//..//..//..//assets/images/Logo.png';
-import React from 'react';
+import * as React from 'react';
 
 export const Footer = () => {
   const handleBackClick = () => {
