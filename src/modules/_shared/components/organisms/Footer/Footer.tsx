@@ -1,6 +1,7 @@
 import styles from './Footer.module.scss';
-import logo from '..//..//..//..//..//assets/images/Logo.png';
+import logo from '..//..//..//..//..//assets/icons/Logo.png';
 import * as React from 'react';
+import cn from 'classnames';
 
 export const Footer = () => {
   const handleBackClick = () => {
@@ -9,31 +10,37 @@ export const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles['footer__container']}>
-        <div className={styles['footer__logo']}>
+      <div className={styles['footerContainer']}>
+        <div className={styles['footerLogo']}>
           <img src={logo} alt="Logo" />
         </div>
 
-        <div className={styles['footer__nav-container']}>
-          <ul className={styles['footer__nav']}>
+        <div className={styles['footerNavContainer']}>
+          <ul className={styles['footerNav']}>
             <li>
-              <a href="#">GitHub</a>
+              <a href="#" className="uppercase">
+                GitHub
+              </a>
             </li>
             <li>
-              <a href="#">Contacts</a>
+              <a href="#" className="uppercase">
+                Contacts
+              </a>
             </li>
             <li>
-              <a href="#">Rights</a>
+              <a href="#" className="uppercase">
+                Rights
+              </a>
             </li>
           </ul>
         </div>
 
-        <div className={styles['footer__back-container']}>
-          <span className={styles['footer__back-container-text']}>
+        <div className={styles['footerBackContainer']}>
+          <span className={cn('smallText', styles['footerBackContainerText'])}>
             Back to top
           </span>
           <div
-            className={styles['footer__back-container-button']}
+            className={styles['footerBackContainerButton']}
             onClick={handleBackClick}
           >
             <button></button>
