@@ -1,13 +1,7 @@
 @use './variables' as *;
 
-  @mixin on-mobile {
-    @media (max-width: $breakpoint-mobile-max) {
-      @content;
-    }
-  }
-
   @mixin on-tablet {
-    @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+    @media (min-width: $breakpoint-tablet-min) {
       @content;
     }
   }
@@ -28,6 +22,7 @@
     @include on-desktop {
       max-width: 1136px;
       padding-inline: 32px;
+      margin-inline: auto;
     }
   }
 

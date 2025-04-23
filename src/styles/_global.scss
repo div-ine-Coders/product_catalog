@@ -2,7 +2,13 @@
 @use "./mixins" as *;
 
 html {
+  font-family: 'Mont', sans-serif;
   scroll-behavior: smooth;
+  background-color: $color-bg;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0;
 }
 
 h1,
@@ -10,17 +16,14 @@ h2,
 h3,
 h4,
 .uppercase,
-.button-text,
 .body-text,
 .small-text {
   margin: 0;
   padding: 0;
-  font-family: "Mont", sans-serif;
   color: inherit;
 }
 
 h1 {
-  font-family: 'Mont', sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 41px;
@@ -33,7 +36,6 @@ h1 {
 }
 
 h2 {
-  font-family: 'Mont', sans-serif;
   font-weight: 700;
   font-size: 22px;
   line-height: 31px;
@@ -48,7 +50,6 @@ h2 {
 }
 
 h3 {
-  font-family: 'Mont', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
@@ -62,7 +63,6 @@ h3 {
 }
 
 h4 {
-  font-family: 'Mont', sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
@@ -75,7 +75,6 @@ h4 {
 }
 
 .uppercase {
-  font-family: 'Mont', sans-serif;
   font-weight: 700;
   font-size: 12px;
   line-height: 11px;
@@ -84,23 +83,13 @@ h4 {
 }
 
 .button-text {
-  font-family: 'Mont', sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
 }
 
-.body-text {
-  font-family: 'Mont', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0;
-}
-
 .small-text {
-  font-family: 'Mont', sans-serif;
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
