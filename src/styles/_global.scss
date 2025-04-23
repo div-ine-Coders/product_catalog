@@ -1,5 +1,5 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 html {
   font-family: 'Mont', sans-serif;
@@ -41,7 +41,6 @@ h2 {
   font-size: 22px;
   line-height: 31px;
   letter-spacing: 0;
-
 
   @include on-tablet {
     font-size: 32px;
