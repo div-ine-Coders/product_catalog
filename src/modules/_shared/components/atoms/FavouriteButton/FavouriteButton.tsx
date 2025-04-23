@@ -4,14 +4,16 @@ import cn from 'classnames';
 
 type Props = {
   isFavourite: boolean;
+  click?: () => void;
 };
 
-export const FavouriteButton: React.FC<Props> = ({ isFavourite }) => {
+export const FavouriteButton: React.FC<Props> = ({ isFavourite, click }) => {
   return (
     <button
       className={cn(styles.favouriteButton, {
         [styles['favouriteButton-selected']]: isFavourite,
       })}
+      onClick={click}
     ></button>
   );
 };

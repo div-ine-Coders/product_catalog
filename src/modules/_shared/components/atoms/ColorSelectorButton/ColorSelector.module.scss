@@ -6,6 +6,7 @@
   border: 2px solid $color-element;
   border-radius: 50%;
   padding: 2px;
+  cursor: pointer;
 
   &:hover {
     border-color: $color-text-secondary;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ArrowButton.module.scss';
 import cn from 'classnames';
-import { ArrowDirection } from '../../../../../constants';
+import { ArrowDirection } from '../../../../../constants/ArrowDirection';
 
 type Props = {
   direction?: ArrowDirection;
@@ -12,6 +12,7 @@ type Props = {
 export const ArrowButton: React.FC<Props> = ({
   direction = ArrowDirection.Up,
   isDisabled = false,
+  click,
 }) => {
   return (
     <button
@@ -25,6 +26,7 @@ export const ArrowButton: React.FC<Props> = ({
         },
       )}
       disabled={isDisabled}
+      onClick={click}
     ></button>
   );
 };
