@@ -33,9 +33,9 @@ export const Dropdown: React.FC<Props> = ({
       <Select.Portal>
         <Select.Content className={styles.selectContent} position="popper">
           <Select.Viewport className={styles.selectViewport}>
-            {items.map((label, idx) => (
+            {items.map(label => (
               <Select.Item
-                key={idx}
+                key={label}
                 value={label.toString()}
                 className={cn(styles.selectItem, {
                   [styles.selectItemBig]: isBig,

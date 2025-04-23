@@ -4,7 +4,7 @@ import styles from './ColorSelector.module.scss';
 
 interface Props {
   isActive?: boolean;
-  color?: string;
+  color?: string; //It must be enum with all colors
   click?: () => void;
 }
 
