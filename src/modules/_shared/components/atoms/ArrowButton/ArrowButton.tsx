@@ -18,11 +18,11 @@ export const ArrowButton: React.FC<Props> = ({
     <button
       className={cn(
         styles.arrow,
-        styles[`arrow-${direction}`],
-        styles['arrow-button'],
+        styles[`arrow${direction}`],
+        styles.arrowButton,
         {
-          [styles['arrow-disabled']]: isDisabled,
-          [styles['arrow-button-disabled']]: isDisabled,
+          [styles.arrowDisabled]: isDisabled,
+          [styles.arrowButtonDisabled]: isDisabled,
         },
       )}
       disabled={isDisabled}
