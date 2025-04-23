@@ -1,5 +1,5 @@
 import React from 'react';
-import './IconWithCounter.scss';
+import './IconWithCounter.module.scss';
 
 type Props = {
   icon: string;
