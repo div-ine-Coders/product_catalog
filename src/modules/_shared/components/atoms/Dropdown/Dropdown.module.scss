@@ -1,3 +1,5 @@
+@import '../../../../../App.scss';
+
 .select-trigger {
   display: inline-flex;
   align-items: center;
@@ -5,9 +7,8 @@
   width: 100px;
   height: 40px;
   padding: 12px;
-  background-color: #323542;
-  border: 1px solid #323542;
-  color: #f1f2f9;
+  background-color: $color-card;
+  border: 1px solid $color-card;
   cursor: pointer;
 
   &-big {
@@ -15,12 +16,12 @@
   }
 
   &:hover {
-    border-color: #4a4d58;
+    border-color: $color-icon;
   }
 
   &:focus,
   &[data-state='open'] {
-    border-color: #905bff;
+    border-color: $color-accent;
     outline: none;
   }
 }
@@ -37,14 +38,15 @@
 
 .select-content {
   margin-top: 4px;
-  background-color: #0f1121;
-  border: 1px solid #3b3e4a;
+  background-color: $color-bg;
+  border: 1px solid $color-element;
 }
 
 .select-item {
   position: relative;
   padding: 10px 16px;
-  color: #75767f;
+  box-sizing: border-box;
+  color: $color-text-secondary;
   cursor: pointer;
   user-select: none;
   width: 100px;
@@ -57,7 +59,7 @@
 
   &:hover,
   &[data-highlighted] {
-    background-color: #323542;
-    color: #f1f2f9;
+    background-color: $color-card;
+    color: $color-text-main;
   }
 }
