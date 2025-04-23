@@ -1,0 +1,21 @@
+.favouriteButton {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../../../../../assets/icons/icon-favorite-heart.svg);
+
+  width: 100%;
+  height: 100%;
+  background-color: #323542;
+  border: none;
+
+  &:hover {
+    background-color: #4A4D58;
+  }
+
+  &-selected {
+    background-image: url(../../../../../assets/icons/icon-favorite-heart-filled.svg);
+    background-color: #0F1121;
+    border: 1px solid #3B3E4A;
+  }
+}
+

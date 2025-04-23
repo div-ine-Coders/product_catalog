@@ -1,0 +1,15 @@
+.defaultButton {
+  width: 100%;
+  height: 100%;
+  background-color: #905BFF;
+  color: #F1F2F9;
+  border: none;
+
+  &:hover {
+    background-color: #A378FF;
+  }
+
+  &-selected {
+    background-color: #323542;
+  }
+}

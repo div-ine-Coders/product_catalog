@@ -1,0 +1,16 @@
+.pageSelectButton {
+  width: 32px;
+  height: 32px;
+  background-color: #161827;
+  color: #F1F2F9;
+  border: none;
+
+  &:hover {
+    background-color: #3B3E4A;
+  }
+
+  &-selected {
+    background-color: #905BFF;
+  }
+}
+
