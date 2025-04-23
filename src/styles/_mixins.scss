@@ -7,7 +7,7 @@
   }
 
   @mixin on-desktop {
-    @media (min-width: $breakpoint-desctop) {
+    @media (min-width: $breakpoint-desktop) {
       @content;
     }
   }

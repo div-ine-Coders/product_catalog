@@ -1,15 +1,16 @@
+@import '../../../../../App.scss';
+
 .pageSelectButton {
   width: 32px;
   height: 32px;
-  background-color: #161827;
-  color: #f1f2f9;
+  background-color: $color-surface;
   border: none;
 
   &:hover {
-    background-color: #3b3e4a;
+    background-color: $color-element;
   }
 
   &-selected {
-    background-color: #905bff;
+    background-color: $color-accent;
   }
 }

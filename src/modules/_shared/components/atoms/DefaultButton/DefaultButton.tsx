@@ -15,7 +15,7 @@ export const DefaultButton: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={cn(styles.defaultButton, {
+      className={cn(styles.defaultButton, 'button-text', {
         [styles['defaultButton-selected']]: isSelected,
       })}
       onClick={click}

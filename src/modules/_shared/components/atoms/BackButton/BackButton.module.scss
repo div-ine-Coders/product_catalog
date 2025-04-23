@@ -1,16 +1,14 @@
+@import '../../../../../App.scss';
+
 .back {
   border: none;
-  height: 20px;
+  height: 12px;
   display: flex;
   gap: 4px;
-  color: #f1f2f9;
-  background-color: #0f1121;
   padding: 0;
   padding-inline: 10px;
 
   &-text {
-    font-size: 12px;
-    line-height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,13 +17,13 @@
   &-arrow {
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../../../../../assets/icons/icon-arrow-left-grey.svg);
-    height: 20px;
-    width: 20px;
+    background-image: url(../../../../../assets/icons/icon-arrow-left-white.svg);
+    height: 14px;
+    width: 12px;
   }
 
   &:hover {
-    color: #905bff;
+    color: $color-accent;
 
     .back-arrow {
       background-image: url(../../../../../assets/icons/icon-arrow-left-purple.svg);

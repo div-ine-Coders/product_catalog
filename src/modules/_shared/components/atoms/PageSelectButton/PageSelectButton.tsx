@@ -15,7 +15,7 @@ export const PageSelectButton: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={cn(styles.pageSelectButton, {
+      className={cn(styles.pageSelectButton, 'button-text', {
         [styles['pageSelectButton-selected']]: isSelected,
       })}
       onClick={click}

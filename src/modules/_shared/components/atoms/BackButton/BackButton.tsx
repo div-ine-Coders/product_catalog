@@ -10,7 +10,7 @@ export const BackButton: React.FC<Props> = ({ click }) => {
   return (
     <button className={styles.back} onClick={click}>
       <div className={styles['back-arrow']}></div>
-      <span className={styles['back-text']}>Back</span>
+      <span className={(styles['back-text'], 'small-text')}>Back</span>
     </button>
   );
 };
