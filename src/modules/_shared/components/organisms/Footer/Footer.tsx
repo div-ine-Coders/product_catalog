@@ -14,7 +14,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerLogo}>
-          <img src={logo} alt="Logo" />
+          <img className={styles.footerLogoIcon} src={logo} alt="Logo" />
         </div>
 
         <div className={styles.footerNavContainer}>

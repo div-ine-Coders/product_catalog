@@ -7,10 +7,11 @@ export const App = () => {
   return (
     <div className="App">
       <Header />
+
       <div className="main">
-        <h1>lorem200</h1>
-        {/* <Outlet /> */}
+        {/* тут можна тестити поки немає -> <Outlet /> */}
       </div>
+
       <div className="footer">
         <Footer />
       </div>

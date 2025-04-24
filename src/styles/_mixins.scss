@@ -26,6 +26,14 @@
   }
 }
 
+@mixin img-hover-scale($scale: 1.1, $transition: 0.3s) {
+  transition: transform $transition ease;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
 @mixin grid-layout {
   display: grid;
   gap: 16px;
