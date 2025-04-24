@@ -37,7 +37,7 @@
   justify-content: center;
   align-items: center;
 
-  img {
+  .logo {
     width: 64px;
     height: auto;
   }
@@ -134,7 +134,7 @@
   border-top: 1px solid $color-element;
   height: 64px;
 
-  a {
+  .icon {
     position: relative;
     height: 100%;
     flex: 1;
