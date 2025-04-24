@@ -1,9 +1,9 @@
 @use '../../../App.scss' as *;
 
+//sticky header
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;
   background-color: $color-bg;
   display: flex;
   align-items: center;
@@ -19,7 +19,6 @@
 .header__left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   width: 100%;
 
@@ -44,7 +43,6 @@
 }
 
 .header__nav {
-  display: flex;
   flex: 2 1 auto;
 }
 
@@ -53,6 +51,7 @@
   height: 100%;
 }
 
+//Logo
 .logoLink {
   display: flex;
   align-items: center;
@@ -67,6 +66,7 @@
   }
 }
 
+//navigation
 .nav {
   display: flex;
   align-items: center;
@@ -113,10 +113,10 @@
   }
 }
 
+//is-active
 .isActive {
   position: relative;
   color: $color-text-main;
-  transition: color 0.3s ease;
 
   &::after {
     content: '';
@@ -126,47 +126,33 @@
     left: 0;
     bottom: 0;
     background: $color-text-main;
-    transition: background 0.3s ease;
   }
 }
 
-/* Кнопки favorites і basket */
+//icon(only on tablet+)
 .icon {
   display: none;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  justify-content: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 16px 16px;
-  box-shadow: -1px 0px 0px 0px $color-element;
 
   @include on-tablet {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 100%;
+    box-shadow: -1px 0 0 0 $color-element;
+    text-decoration: none;
   }
 }
 
-.iconFavoriteHeart {
-  background-image: url('../../../assets/icons/icon-favorite-heart.svg');
-}
-
-.iconShoppingBag {
-  background-image: url('../../../assets/icons/icon-shopping-bag.svg');
-}
-
-/* Кнопка навігації на Navbar */
+//icon Burger menu (only on mobile)
 .iconBurgerMenu {
   display: block;
-  width: 100%;
+  width: 48px;
   height: 100%;
-  aspect-ratio: 1 / 1;
-  background-position: center;
+  background: url('../../../assets/icons/icon-burger-menu.svg') center/16px
+    no-repeat;
   background-color: transparent;
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-  background-image: url('../../../assets/icons/icon-burger-menu.svg');
+  border: none;
   box-shadow: -1px 0px 0px 0px $color-element;
   cursor: pointer;
 

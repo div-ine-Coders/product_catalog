@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import logo from '../../../assets/images/LogoMain.png';
 import cn from 'classnames';
+import iconFavorite from '../../../assets/icons/icon-favorite-heart.svg';
+import iconBag from '../../../assets/icons/icon-shopping-bag.svg';
+// eslint-disable-next-line max-len
+import { IconWithCounter } from '../../../modules/_shared/components/atoms/icons';
 
 interface Props {
   onClose: () => void;
+  isOpen: boolean;
 }
 
-export const Navbar: React.FC<Props> = ({ onClose }) => {
+export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
+  const currentPath = window.location.pathname;
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isOpen]);
+
   return (
     <aside className={cn(styles.menu, 'uppercase')} id="menu">
       <div className={styles.container}>
@@ -17,10 +36,9 @@ export const Navbar: React.FC<Props> = ({ onClose }) => {
           </a>
 
           <div className={styles.headerIcons}>
-            {/* Кнопка для закриття меню */}
             <button
               onClick={onClose}
-              className={`${styles.icon} ${styles.iconClose}`}
+              className={cn(styles.icon, styles.iconClose)}
               aria-label="Close Menu"
             />
           </div>
@@ -30,22 +48,42 @@ export const Navbar: React.FC<Props> = ({ onClose }) => {
           <nav className={styles.nav}>
             <ul className={styles.navList}>
               <li className={styles.navItem}>
-                <a href="/" className={`${styles.navLink} ${styles.isActive}`}>
+                <a
+                  href="/"
+                  className={cn(styles.navLink, {
+                    [styles.isActive]: currentPath === '/',
+                  })}
+                >
                   home
                 </a>
               </li>
               <li className={styles.navItem}>
-                <a href="/phones" className={styles.navLink}>
+                <a
+                  href="/phones"
+                  className={cn(styles.navLink, {
+                    [styles.isActive]: currentPath === '/phones',
+                  })}
+                >
                   phone
                 </a>
               </li>
               <li className={styles.navItem}>
-                <a href="/tablets" className={styles.navLink}>
+                <a
+                  href="/tablets"
+                  className={cn(styles.navLink, {
+                    [styles.isActive]: currentPath === '/tablets',
+                  })}
+                >
                   tablets
                 </a>
               </li>
               <li className={styles.navItem}>
-                <a href="/accessories" className={styles.navLink}>
+                <a
+                  href="/accessories"
+                  className={cn(styles.navLink, {
+                    [styles.isActive]: currentPath === '/accessories',
+                  })}
+                >
                   accessories
                 </a>
               </li>
@@ -56,12 +94,22 @@ export const Navbar: React.FC<Props> = ({ onClose }) => {
         <div className={styles.menuIcons}>
           <a
             href="/favorites"
-            className={`${styles.icon} ${styles.iconFavoriteHeart}`}
-          />
+            className={cn(styles.icon, {
+              [styles.isActive]: currentPath === '/favorites',
+            })}
+            aria-label="Go to Favorites"
+          >
+            <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
+          </a>
           <a
-            href="/cart"
-            className={`${styles.icon} ${styles.iconShoppingBag}`}
-          />
+            href="/shopping-bag"
+            className={cn(styles.icon, styles.iconShoppingBag, {
+              [styles.isActive]: currentPath === '/shopping-bag',
+            })}
+            aria-label="Go to Shopping Bag"
+          >
+            <IconWithCounter icon={iconBag} count={3} alt="Shopping Bag" />
+          </a>
         </div>
       </div>
     </aside>

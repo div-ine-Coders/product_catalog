@@ -91,3 +91,8 @@ h4 {
   line-height: 15px;
   letter-spacing: 0;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}

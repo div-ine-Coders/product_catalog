@@ -3,9 +3,14 @@ import logo from '../../../assets/images/LogoMain.png';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { Navbar } from '../Navbar/Navbar';
+import iconFavorite from '../../../assets/icons/icon-favorite-heart.svg';
+import iconBag from '../../../assets/icons/icon-shopping-bag.svg';
+// eslint-disable-next-line max-len
+import { IconWithCounter } from '../../../modules/_shared/components/atoms/icons';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentPath = window.location.pathname;
 
   return (
     <>
@@ -23,22 +28,42 @@ export const Header: React.FC = () => {
             <nav className={styles.nav}>
               <ul className={styles.nav__list}>
                 <li className={styles.nav__item}>
-                  <a href="/" className={cn(styles.nav__link, styles.isActive)}>
+                  <a
+                    href="/"
+                    className={cn(styles.nav__link, {
+                      [styles.isActive]: currentPath === '/',
+                    })}
+                  >
                     home
                   </a>
                 </li>
                 <li className={styles.nav__item}>
-                  <a href="/phones" className={styles.nav__link}>
+                  <a
+                    href="/phones"
+                    className={cn(styles.nav__link, {
+                      [styles.isActive]: currentPath === '/phones',
+                    })}
+                  >
                     phone
                   </a>
                 </li>
                 <li className={styles.nav__item}>
-                  <a href="/tablets" className={styles.nav__link}>
+                  <a
+                    href="/tablets"
+                    className={cn(styles.nav__link, {
+                      [styles.isActive]: currentPath === '/tablets',
+                    })}
+                  >
                     tablets
                   </a>
                 </li>
                 <li className={styles.nav__item}>
-                  <a href="/accessories" className={styles.nav__link}>
+                  <a
+                    href="/accessories"
+                    className={cn(styles.nav__link, {
+                      [styles.isActive]: currentPath === '/accessories',
+                    })}
+                  >
                     accessories
                   </a>
                 </li>
@@ -51,12 +76,18 @@ export const Header: React.FC = () => {
         <div className={styles.header__icons}>
           <a
             href="/favorites"
-            className={`${styles.icon} ${styles.iconFavoriteHeart}`}
-          />
+            className={styles.icon}
+            aria-label="Go to Favorites"
+          >
+            <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
+          </a>
           <a
-            href="/cart"
+            href="/shopping-bag"
             className={`${styles.icon} ${styles.iconShoppingBag}`}
-          />
+            aria-label="Go to Shopping Bag"
+          >
+            <IconWithCounter icon={iconBag} count={5} alt="Shopping Bag" />
+          </a>
           <button
             onClick={() => setIsMenuOpen(true)}
             className={styles.iconBurgerMenu}
@@ -65,7 +96,9 @@ export const Header: React.FC = () => {
         </div>
       </header>
 
-      {isMenuOpen && <Navbar onClose={() => setIsMenuOpen(false)} />}
+      {isMenuOpen && (
+        <Navbar isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      )}
     </>
   );
 };

@@ -1,16 +1,19 @@
 @use '../../../App.scss' as *;
 
+// Menu container (fixed position)
 .menu {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 100vh;
   background-color: $color-bg;
-  z-index: 1000;
   display: flex;
   flex-direction: column;
+
+  @include on-tablet {
+    display: none;
+  }
 }
 
 .container {
@@ -19,6 +22,7 @@
   height: 100vh;
 }
 
+// Top section of the menu
 .menuTop {
   display: flex;
   justify-content: space-between;
@@ -26,6 +30,7 @@
   border-bottom: 1px solid $color-element;
 }
 
+//Logo
 .logoLink {
   padding-inline: 16px;
   display: flex;
@@ -38,6 +43,7 @@
   }
 }
 
+// Header icons on the top menu
 .headerIcons {
   display: flex;
 }
@@ -45,7 +51,6 @@
 .icon {
   width: 48px;
   height: 48px;
-  aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,10 +65,12 @@
   background-size: 16px 16px;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: -1px 0px 0px 0px #323542;
+  border: none;
+  box-shadow: -1px 0px 0px 0px $color-element;
   transition: background-color 0.2s ease;
 }
 
+// Bottom section of the menu
 .menuBottom {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -74,14 +81,13 @@
   gap: 24px;
 }
 
+//navigation
 .nav {
   &List {
     display: flex;
     flex-direction: column;
     align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
   }
 
   &Item {
@@ -100,6 +106,7 @@
   }
 }
 
+//is-active
 .isActive {
   position: relative;
   color: $color-text-main;
@@ -108,15 +115,17 @@
     content: '';
     position: absolute;
     width: 100%;
-    height: 3px;
+    height: 2px;
     left: 0;
-    bottom: -4px;
+    bottom: -6px;
     background: $color-text-main;
     transition: background 0.3s ease;
   }
 }
 
+// Icons at the bottom of the menu
 .menuIcons {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,6 +133,7 @@
   height: 64px;
 
   a {
+    position: relative;
     height: 100%;
     flex: 1;
     display: flex;
@@ -133,17 +143,21 @@
     background-repeat: no-repeat;
     background-size: 16px 16px;
     border-left: 1px solid $color-element;
+    text-decoration: none;
 
     &:first-child {
       border-left: none;
     }
+
+    &.isActive::after {
+      content: '';
+      position: absolute;
+      z-index: 10000;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $color-text-main;
+    }
   }
-}
-
-.iconFavoriteHeart {
-  background-image: url('../../../assets/icons/icon-favorite-heart.svg');
-}
-
-.iconShoppingBag {
-  background-image: url('../../../assets/icons/icon-shopping-bag.svg');
 }
