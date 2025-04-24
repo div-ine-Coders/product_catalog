@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
 import './App.scss';
-import { Root } from './Root';
+import { App } from './App';
 
-createRoot(document.getElementById('root') as HTMLDivElement).render(<Root />);
+createRoot(document.getElementById('root') as HTMLDivElement).render(<App />);
