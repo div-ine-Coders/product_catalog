@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import styles from './Navbar.module.scss';
-import logo from '../../../assets/images/LogoMain.png';
+import logo from '../../../../../assets/icons/Logo.png';
 import cn from 'classnames';
-import iconFavorite from '../../../assets/icons/icon-favorite-heart.svg';
-import iconBag from '../../../assets/icons/icon-shopping-bag.svg';
+import iconFavorite from '../../../../../assets/icons/icon-favorite-heart.svg';
+import iconBag from '../../../../../assets/icons/icon-shopping-bag.svg';
 // eslint-disable-next-line max-len
-import { IconWithCounter } from '../../../modules/_shared/components/atoms/icons';
+import { IconWithCounter } from '../../atoms/icons';
 
 interface Props {
   onClose: () => void;

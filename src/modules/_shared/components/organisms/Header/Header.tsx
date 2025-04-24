@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import logo from '../../../assets/images/LogoMain.png';
+import logo from '../../../../../assets/icons/Logo.png';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { Navbar } from '../Navbar/Navbar';
-import iconFavorite from '../../../assets/icons/icon-favorite-heart.svg';
-import iconBag from '../../../assets/icons/icon-shopping-bag.svg';
+import iconFavorite from '../../../../../assets/icons/icon-favorite-heart.svg';
+import iconBag from '../../../../../assets/icons/icon-shopping-bag.svg';
 // eslint-disable-next-line max-len
-import { IconWithCounter } from '../../../modules/_shared/components/atoms/icons';
+import { IconWithCounter } from '../../atoms/icons';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

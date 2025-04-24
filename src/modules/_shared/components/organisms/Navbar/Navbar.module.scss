@@ -1,4 +1,4 @@
-@use '../../../App.scss' as *;
+@use '../../../../../App.scss' as *;
 
 // Menu container (fixed position)
 .menu {
@@ -36,10 +36,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease;
 
   .logo {
     width: 64px;
     height: auto;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -60,7 +65,7 @@
 }
 
 .iconClose {
-  background-image: url('../../../assets/icons/icon-close.svg');
+  background-image: url('../../../../../assets/icons/icon-close.svg');
   background-color: transparent;
   background-size: 16px 16px;
   background-position: center;

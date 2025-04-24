@@ -29,7 +29,6 @@
 @mixin grid-layout {
   display: grid;
   gap: 16px;
-
   grid-template-columns: repeat(4, 1fr);
 
   @include on-tablet {

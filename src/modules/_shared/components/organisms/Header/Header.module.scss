@@ -1,4 +1,4 @@
-@use '../../../App.scss' as *;
+@use '../../../../../App.scss' as *;
 
 //sticky header
 .header {
@@ -38,7 +38,7 @@
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 }
 
@@ -149,8 +149,8 @@
   display: block;
   width: 48px;
   height: 100%;
-  background: url('../../../assets/icons/icon-burger-menu.svg') center/16px
-    no-repeat;
+  background: url('../../../../../assets/icons/icon-burger-menu.svg')
+    center/16px no-repeat;
   background-color: transparent;
   border: none;
   box-shadow: -1px 0px 0px 0px $color-element;
