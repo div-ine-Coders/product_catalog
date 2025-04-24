@@ -1,44 +1,79 @@
-.product-card {
-  border: 1px solid #333;
-  background-color: #1e1e1e;
-  color: #fff;
-  padding: 16px;
-  border-radius: 8px;
-  width: 250px;
+@import '../../../../../App.scss';
+
+.productCardContainer {
+  background-color: $color-surface;
+  width: 272px;
 }
 
-.product-card__image {
-  width: 100%;
-  border-radius: 4px;
-}
-
-.product-card__title {
-  font-size: 18px;
-  margin: 12px 0;
-}
-
-.product-card__prices {
+.productCard {
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  align-items: baseline;
-}
+  padding: 32px;
 
-.product-card__price--current {
-  font-weight: bold;
-  font-size: 16px;
-}
+  &Image {
+    border-radius: 4px;
+  }
 
-.product-card__price--full {
-  font-size: 14px;
-  text-decoration: line-through;
-  color: #aaa;
-}
+  &Title {
+    font-size: 14px;
+    padding-top: 16px;
+  }
 
-.product-card__details p {
-  margin: 4px 0;
-}
+  &Prices {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
 
-.product-card__buttons {
-  display: flex;
-  max-height: 100%;
+    &Current {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    &Full {
+      font-size: 22px;
+      text-decoration: line-through;
+      color: $color-text-secondary;
+    }
+  }
+
+  &Border {
+    border: 1px solid rgba(59, 62, 74, 1);
+  }
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0;
+
+    &Text {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 12px;
+      color: $color-text-secondary;
+    }
+
+    &Text span {
+      font-weight: 700;
+      font-size: 12px;
+      color: $color-text-main;
+    }
+  }
+
+  &Buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+    &Default {
+      width: 100%;
+    }
+
+    &Favourite {
+      width: 40px;
+      height: 40px;
+    }
+  }
 }

@@ -1,45 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 // eslint-disable-next-line max-len
-import { ProductCard as ProductCardType } from '../../../../../types/ProductCard';
+// import { ProductCard as ProductCardType } from '../../../../../types/ProductCard';
 import styles from './ProductCard.module.scss';
 import { DefaultButton } from '../../atoms/DefaultButton';
 import { FavouriteButton } from '../../atoms/FavouriteButton';
+import photo from './Photo mask.png';
 
-interface Props {
-  product: ProductCardType;
-}
+// interface Props {
+//   product: ProductCardType;
+// }
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard = () => {
+  const [inCart, setInCart] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
+
   return (
-    <div className={styles['product-card']}>
-      <img
-        src={`/${product.image}`}
-        alt={product.name}
-        className={styles['product-card__image']}
-      />
-      <h3 className={styles['product-card__title']}>{product.name}</h3>
+    <div className={styles.productCardContainer}>
+      <div className={styles.productCard}>
+        <img
+          // src={`/${product.image}`}
+          src={photo}
+          alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
+          className={styles.productCardImage}
+        />
+        <p className={styles.productCardTitle}>
+          Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
+        </p>
 
-      <div className={styles['product-card__prices']}>
-        <span className={styles['product-card__price--current']}>
-          ${product.price}
-        </span>
-        <span className={styles['product-card__price--full']}>
-          ${product.fullPrice}
-        </span>
-      </div>
-
-      <div className={styles['product-card__details']}>
-        <p>Screen: {product.screen}</p>
-        <p>Capacity: {product.capacity}</p>
-        <p>RAM: {product.ram}</p>
-      </div>
-
-      <div className={styles['product-card__buttons']}>
-        <div>
-          <DefaultButton>Add to card</DefaultButton>
+        <div className={styles.productCardPrices}>
+          <span className={styles.productCardPricesCurrent}>$799</span>
+          <span className={styles.productCardPricesFull}>$899</span>
         </div>
-        <div>
-          <FavouriteButton isFavourite={false} />
+
+        <div className={styles.productCardBorder}></div>
+
+        <div className={styles.productCardDetails}>
+          <p className={styles.productCardDetailsText}>
+            Screen: <span>5.8” OLED</span>
+          </p>
+          <p className={styles.productCardDetailsText}>
+            Capacity: <span>64 GB</span>
+          </p>
+          <p className={styles.productCardDetailsText}>
+            RAM: <span>4 GB</span>
+          </p>
+        </div>
+
+        <div className={styles.productCardButtons}>
+          <div className={styles.productCardButtonsDefault}>
+            <DefaultButton isSelected={inCart} click={() => setInCart(!inCart)}>
+              {inCart ? 'Added' : 'Add to cart'}
+            </DefaultButton>
+          </div>
+
+          <div className={styles.productCardButtonsFavourite}>
+            <FavouriteButton
+              isFavourite={isFavourite}
+              click={() => setIsFavourite(!isFavourite)}
+            />
+          </div>
         </div>
       </div>
     </div>
