@@ -18,17 +18,25 @@ export const Footer = () => {
         </div>
 
         <div className={styles.footerNavContainer}>
-          <a href="#" className="uppercase" aria-label="Visit GitHub page">
+          <a
+            href="#"
+            className={cn('uppercase', styles.footerNavContainerLink)}
+            aria-label="Visit GitHub page"
+          >
             GitHub
           </a>
 
-          <a href="#" className="uppercase" aria-label="Contact us">
+          <a
+            href="#"
+            className={cn('uppercase', styles.footerNavContainerLink)}
+            aria-label="Contact us"
+          >
             Contacts
           </a>
 
           <a
             href="#"
-            className="uppercase"
+            className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="View rights information"
           >
             Rights
