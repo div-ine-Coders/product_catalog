@@ -35,7 +35,7 @@
   @include on-desktop {
     padding-inline: 24px;
   }
-  @include img-hover-scale(1.1)
+  @include img-hover-scale(1.1);
 }
 
 .headerNav {
