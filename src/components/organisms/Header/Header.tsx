@@ -16,51 +16,51 @@ export const Header: React.FC = () => {
     <>
       <header className={cn(styles.header, 'uppercase')}>
         {/* Логотип та Навігація */}
-        <div className={styles.header__left}>
-          <div className={styles.header__logo}>
+        <div className={styles.headerLeft}>
+          <div className={styles.headerLogo}>
             <a href="/" className={styles.logoLink}>
               <img className={styles.navImg} src={logo} alt="Logo" />
             </a>
           </div>
 
           {/* Навігація */}
-          <div className={styles.header__nav}>
+          <div className={styles.headerNav}>
             <nav className={styles.nav}>
-              <ul className={styles.nav__list}>
-                <li className={styles.nav__item}>
+              <ul className={styles.navList}>
+                <li className={styles.navItem}>
                   <a
                     href="/"
-                    className={cn(styles.nav__link, {
+                    className={cn(styles.navLink, {
                       [styles.isActive]: currentPath === '/',
                     })}
                   >
                     home
                   </a>
                 </li>
-                <li className={styles.nav__item}>
+                <li className={styles.navItem}>
                   <a
                     href="/phones"
-                    className={cn(styles.nav__link, {
+                    className={cn(styles.navLink, {
                       [styles.isActive]: currentPath === '/phones',
                     })}
                   >
                     phone
                   </a>
                 </li>
-                <li className={styles.nav__item}>
+                <li className={styles.navItem}>
                   <a
                     href="/tablets"
-                    className={cn(styles.nav__link, {
+                    className={cn(styles.navLink, {
                       [styles.isActive]: currentPath === '/tablets',
                     })}
                   >
                     tablets
                   </a>
                 </li>
-                <li className={styles.nav__item}>
+                <li className={styles.navItem}>
                   <a
                     href="/accessories"
-                    className={cn(styles.nav__link, {
+                    className={cn(styles.navLink, {
                       [styles.isActive]: currentPath === '/accessories',
                     })}
                   >
@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Іконки та Бургер Меню */}
-        <div className={styles.header__icons}>
+        <div className={styles.headerIcons}>
           <a
             href="/favorites"
             className={styles.icon}
