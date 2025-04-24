@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ArrowButton.module.scss';
 import cn from 'classnames';
-import { ArrowDirection } from '../../../../../constants/ArrowDirection';
+import { ArrowDirection } from '@constants/ArrowDirection';
 
 interface Props {
   direction?: ArrowDirection;

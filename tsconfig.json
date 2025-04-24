@@ -9,6 +9,15 @@
     "sourceMap": false,
     "types": ["node"],
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@constants/*": ["constants/*"],
+      "@hooks/*": ["hooks/*"],
+      "@styles/*": ["styles/*"],
+      "@types/*": ["types/*"]
+    }
   }
 }
