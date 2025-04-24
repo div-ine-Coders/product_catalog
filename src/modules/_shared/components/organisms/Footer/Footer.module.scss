@@ -1,65 +1,76 @@
 @import '../../../../../App.scss';
 
 .footer {
-  padding: 40px 20px;
-  @include content-padding-in-line();
+  border-top: 1px solid grey;
+  background-color: $color-bg;
+  padding-block: 32px;
+  height: 257px;
+  box-sizing: border-box;
+  width: 100%;
+  position: sticky;
+  top: 100%;
+
+  @include on-tablet {
+    height: 96px;
+  }
 
   &Container {
-    margin: 0 auto;
-    display: grid;
-    max-width: 320px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 24px;
-
-    @include on-tablet {
-      max-width: 1200px;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 20px;
-    }
+    @include content-padding-in-line();
+    @include grid-layout;
   }
 
   &Logo {
     display: flex;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+
+    @include on-desktop {
+      grid-column: 1/8;
+    }
   }
 
   &NavContainer {
     display: flex;
-    justify-content: flex-start;
-  }
-
-  &Nav {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 0;
-    margin: 0;
+    justify-content: space-between;
+    gap: 16px;
+    grid-column: 1/-1;
 
     @include on-tablet {
       flex-direction: row;
       align-items: center;
-      width: 100%;
+      grid-column: 5/9;
     }
 
-    li a {
+    @include on-desktop {
+      grid-column: 8/17;
+    }
+
+    a {
       color: $color-text-main;
       text-decoration: none;
+      list-style: none;
     }
   }
 
   &BackContainer {
     display: flex;
     align-items: center;
-    gap: 8px;
     justify-content: center;
+    align-self: center;
+    gap: 16px;
+    grid-column: 1/-1;
 
     @include on-tablet {
-      gap: 16px;
+      grid-column: 9/-1;
       justify-content: flex-end;
+    }
+
+    @include on-desktop {
+      grid-column: 17/-1;
     }
 
     &Text {
@@ -67,23 +78,8 @@
     }
 
     &Button {
-      display: flex;
-      border: none;
-      background-color: rgba(50, 53, 66, 1);
-      cursor: pointer;
       width: 32px;
       height: 32px;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        background-color: rgba(74, 77, 88, 1);
-      }
-
-      &Icon {
-        width: 16px;
-        height: 16px;
-      }
     }
   }
 }
