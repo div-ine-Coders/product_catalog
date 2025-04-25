@@ -15,7 +15,6 @@
   }
 
   &Image {
-    border-radius: 4px;
     max-width: 100%;
 
     @include img-hover-scale();
