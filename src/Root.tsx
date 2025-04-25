@@ -6,8 +6,8 @@ import { HomePage } from 'modules/HomePage';
 import { ProductCatalogPage } from 'modules/ProductCatalogPage';
 import { ProductDetailsPage } from 'modules/ProductDetailsPage';
 import { FavoriteProductPage } from 'modules/FavoritesProductsPage';
+import { ShoppingCardPage } from 'modules/ShoppingCardPage';
 import { NotFoundPage } from 'modules/NotFoundPage';
-import { ShopingCartPage } from 'modules/ShoppingCartPage';
 
 export const Root = () => (
   <HashRouter>
@@ -22,21 +22,29 @@ export const Root = () => (
         <Route path={RouterEnum.PHONES}>
           <Route index element={<ProductCatalogPage />} />
           <Route path=":phoneId" element={<ProductDetailsPage />} />
+          <Route index element={<ProductCatalogPage />} />
+          <Route path=":phoneId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.TABLETS}>
           <Route index element={<ProductCatalogPage />} />
           <Route path=":phoneId" element={<ProductDetailsPage />} />
+          <Route index element={<ProductCatalogPage />} />
+          <Route path=":phoneId" element={<ProductDetailsPage />} />
         </Route>
 
+
         <Route path={RouterEnum.ACCESSORIES}>
+          <Route index element={<ProductCatalogPage />} />
+          <Route path=":phoneId" element={<ProductDetailsPage />} />
           <Route index element={<ProductCatalogPage />} />
           <Route path=":phoneId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.FAVORITES} element={<FavoriteProductPage />} />
-        <Route path={RouterEnum.SHOPPING_BAG} element={<ShopingCartPage />} />
+        <Route path={RouterEnum.SHOPPING_BAG} element={<ShoppingCardPage />} />
 
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
