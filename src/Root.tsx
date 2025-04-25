@@ -2,10 +2,12 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { App } from './App';
 import { RouterEnum } from './constants/RouterEnum';
 import React from 'react';
-import { ShopingCartPage } from 'modules/ShoppingCartPage';
-import { FavouritePage } from 'modules/FavoritesProductsPage/FavouritePage';
-
-const placeholderRoute = (title: string) => <div>{title} Placeholder</div>;
+import { HomePage } from 'modules/HomePage';
+import { ProductCatalogPage } from 'modules/ProductCatalogPage';
+import { ProductDetailsPage } from 'modules/ProductDetailsPage';
+import { FavoriteProductPage } from 'modules/FavoritesProductsPage';
+import { ShoppingCardPage } from 'modules/ShoppingCardPage';
+import { NotFoundPage } from 'modules/NotFoundPage';
 
 export const Root = () => (
   <HashRouter>
@@ -18,25 +20,24 @@ export const Root = () => (
         />
 
         <Route path={RouterEnum.PHONES}>
-          <Route index element={placeholderRoute('Phones')} />
-          <Route path=":phoneId" element={placeholderRoute('Phone Details')} />
+          <Route index element={<ProductCatalogPage />} />
+          <Route path=":phoneId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.TABLETS}>
-          <Route index element={placeholderRoute('Tablets')} />
-          <Route path=":phoneId" element={placeholderRoute('Tablet Details')} />
+          <Route index element={<ProductCatalogPage />} />
+          <Route path=":phoneId" element={<ProductDetailsPage />} />
         </Route>
-        <Route path={RouterEnum.ACCESSORIES}>
-          <Route index element={placeholderRoute('Accessories')} />
-          <Route
-            path=":phoneId"
-            element={placeholderRoute('Accessory Details')}
-          />
-        </Route>
-        <Route path={RouterEnum.FAVORITES} element={<FavouritePage />} />
-        <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
-        <Route path="*" element={placeholderRoute('Not Found')} />
+        <Route path={RouterEnum.ACCESSORIES}>
+          <Route index element={<ProductCatalogPage />} />
+          <Route path=":phoneId" element={<ProductDetailsPage />} />
+        </Route>
+
+        <Route path={RouterEnum.FAVORITES} element={<FavoriteProductPage />} />
+        <Route path={RouterEnum.SHOPPING_BAG} element={<ShoppingCardPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   </HashRouter>

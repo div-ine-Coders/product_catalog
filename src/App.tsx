@@ -13,7 +13,11 @@ export const App = () => {
       <Breadcrumbs />
       <HomePage />
 
-      <main>{<Outlet />}</main>
+      <div className="main">
+        {/* тут більше нічого не пишемо переходьте на сторінку, яка вам потрібна*/}
+        <Outlet />
+      </div>
+
       <div className="footer">
         <Footer />
       </div>

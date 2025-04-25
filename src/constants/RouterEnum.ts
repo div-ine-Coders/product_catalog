@@ -5,4 +5,5 @@ export enum RouterEnum {
   ACCESSORIES = '/accessories',
   FAVORITES = '/favorites',
   CART = '/cart',
+  SHOPPING_BAG = 'SHOPPING_BAG',
 }
