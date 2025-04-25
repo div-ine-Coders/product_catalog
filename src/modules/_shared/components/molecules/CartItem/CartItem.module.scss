@@ -97,6 +97,8 @@
     margin-inline: auto;
     display: block;
 
+    @include img-hover-scale(1.1);
+
     @include on-tablet {
       height: 80px;
       width: 80px;

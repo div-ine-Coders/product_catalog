@@ -16,7 +16,9 @@ interface Props {
 
 export const CartItem: React.FC<Props> = ({ good = phone }) => {
   const { itemId, name, price, image } = good;
-  const isDisabled = true; //for 'minus' button
+  const count = 1;
+  const isDisabled = count === 1; //for 'minus' button
+  const totalPrice = count * price;
   const click = () => {}; //add diferent functions for buttons click
 
   return (
@@ -40,11 +42,11 @@ export const CartItem: React.FC<Props> = ({ good = phone }) => {
             disabled={isDisabled}
             onClick={click}
           />
-          <span className={styles.cartItemQuantity}>1</span>
+          <span className={styles.cartItemQuantity}>{count}</span>
           <button className={styles.cartItemBtnPlus} onClick={click} />
         </div>
         <div className={styles.cartItemPrice}>
-          <h3>{`$${price}`}</h3>
+          <h3>{`$${totalPrice}`}</h3>
         </div>
       </div>
     </div>
