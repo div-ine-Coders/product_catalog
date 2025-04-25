@@ -93,7 +93,6 @@
 
   &Image {
     height: 66px;
-    width: 66px;
     margin-inline: auto;
     display: block;
 
@@ -101,7 +100,6 @@
 
     @include on-tablet {
       height: 80px;
-      width: 80px;
     }
   }
 
