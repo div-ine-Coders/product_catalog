@@ -1,7 +1,9 @@
 @import '../../../../../App.scss';
 
 .productCard {
-  max-width: 272px;
+  max-width: 288px;
+  min-width: 200px;
+  height: 440px;
   background-color: $color-surface;
   display: flex;
   flex-direction: column;
@@ -10,14 +12,28 @@
   box-sizing: border-box;
   border: 1px solid $color-surface;
 
+  @include on-tablet {
+    height: 506px;
+  }
+
   &:hover {
     border-color: $color-card;
   }
 
+  &Link {
+    display: flex;
+    align-items: center;
+  }
+
   &Image {
-    max-width: 100%;
+    height: 130px;
+    margin: auto;
 
     @include img-hover-scale();
+
+    @include on-tablet {
+      height: 196px;
+    }
   }
 
   &Title {
