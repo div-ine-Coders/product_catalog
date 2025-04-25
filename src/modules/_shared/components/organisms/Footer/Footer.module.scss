@@ -17,6 +17,7 @@
   &Container {
     @include content-padding-in-line();
     @include grid-layout;
+    gap: 32px;
   }
 
   &Logo {

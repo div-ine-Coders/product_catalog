@@ -5,6 +5,9 @@ import iconFavorite from '@assets/icons/icon-favorite-heart.svg';
 import iconBag from '@assets/icons/icon-shopping-bag.svg';
 import cn from 'classnames';
 import { IconWithCounter } from '../../atoms/icons';
+import { Link, NavLink } from 'react-router-dom';
+import { RouterEnum } from '@constants/RouterEnum';
+import { getNavLinkClass, getIconLinkClass } from '../../../utils/ActiveState';
 
 interface Props {
   onClose: () => void;
@@ -12,8 +15,6 @@ interface Props {
 }
 
 export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
-  const currentPath = window.location.pathname;
-
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('no-scroll');
@@ -30,9 +31,9 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
     <aside className={cn(styles.menu, 'uppercase')} id="menu">
       <div className={styles.container}>
         <div className={styles.menuTop}>
-          <a href="/" className={styles.logoLink}>
+          <Link to="/" className={styles.logoLink}>
             <img src={logo} alt="Logo" className={styles.logo} />
-          </a>
+          </Link>
 
           <div className={styles.headerIcons}>
             <button
@@ -47,68 +48,64 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
           <nav className={styles.nav}>
             <ul className={styles.navList}>
               <li className={styles.navItem}>
-                <a
-                  href="/"
-                  className={cn(styles.navLink, {
-                    [styles.isActive]: currentPath === '/',
-                  })}
+                <NavLink
+                  to={RouterEnum.HOME}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
                 >
                   home
-                </a>
+                </NavLink>
               </li>
               <li className={styles.navItem}>
-                <a
-                  href="/phones"
-                  className={cn(styles.navLink, {
-                    [styles.isActive]: currentPath === '/phones',
-                  })}
+                <NavLink
+                  to={RouterEnum.PHONES}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
                 >
-                  phone
-                </a>
+                  phones
+                </NavLink>
               </li>
               <li className={styles.navItem}>
-                <a
-                  href="/tablets"
-                  className={cn(styles.navLink, {
-                    [styles.isActive]: currentPath === '/tablets',
-                  })}
+                <NavLink
+                  to={RouterEnum.TABLETS}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
                 >
                   tablets
-                </a>
+                </NavLink>
               </li>
               <li className={styles.navItem}>
-                <a
-                  href="/accessories"
-                  className={cn(styles.navLink, {
-                    [styles.isActive]: currentPath === '/accessories',
-                  })}
+                <NavLink
+                  to={RouterEnum.ACCESSORIES}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
                 >
                   accessories
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
         </div>
 
         <div className={styles.menuIcons}>
-          <a
-            href="/favorites"
-            className={cn(styles.icon, {
-              [styles.isActive]: currentPath === '/favorites',
-            })}
+          <NavLink
+            to={RouterEnum.FAVORITES}
+            className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Favorites"
           >
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
-          </a>
-          <a
-            href="/shopping-bag"
-            className={cn(styles.icon, styles.iconShoppingBag, {
-              [styles.isActive]: currentPath === '/shopping-bag',
-            })}
+          </NavLink>
+          <NavLink
+            to={RouterEnum.SHOPPING_BAG}
+            className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
           >
             <IconWithCounter icon={iconBag} count={3} alt="Shopping Bag" />
-          </a>
+          </NavLink>
         </div>
       </div>
     </aside>
