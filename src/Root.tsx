@@ -11,7 +11,7 @@ export const Root = () => (
   <HashRouter>
     <Routes>
       <Route path={RouterEnum.HOME} element={<App />}>
-        <Route index element={placeholderRoute('Home')} />
+        <Route index element={<HomePage />} />
         <Route
           path="/home"
           element={<Navigate to={RouterEnum.HOME} replace={true} />}
