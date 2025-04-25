@@ -3,6 +3,7 @@ import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { CartItem } from './modules/_shared/components/molecules/CartItem';
+import { ProductCard } from 'modules/_shared/components/molecules/ProductCard';
 
 const item1 = {
   id: 1,
@@ -55,6 +56,7 @@ export const App = () => {
       <Header />
 
       <div className="main">
+        <ProductCard product={item1} />
         <div style={{ margin: '20px' }}>
           <CartItem good={item1} />
         </div>
