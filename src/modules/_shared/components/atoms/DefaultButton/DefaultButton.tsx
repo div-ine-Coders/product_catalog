@@ -3,7 +3,7 @@ import styles from './DefaultButton.module.scss';
 import cn from 'classnames';
 
 interface Props {
-  isSelected?: boolean; //should remain an optional parameter
+  isSelected?: boolean;
   click?: () => void;
   children: ReactNode | ReactNode[];
 }

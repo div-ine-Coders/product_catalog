@@ -1,10 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './ColorSelector.module.scss';
+import { Color } from '../../../../../types/Color';
+import { ColorMapping } from '../../../utils/ColorMapping';
 
 interface Props {
   isActive?: boolean;
-  color?: string; //It must be enum with all colors
+  color?: Color;
   click?: () => void;
 }
 
@@ -20,7 +22,9 @@ export const ColorSelectorButton: React.FC<Props> = ({
       })}
     >
       <a
-        style={{ backgroundColor: color }}
+        style={{
+          backgroundColor: ColorMapping(color),
+        }}
         className={styles.colorSelectorLink}
         onClick={click}
       ></a>
