@@ -6,6 +6,8 @@ import iconBag from '@assets/icons/icon-shopping-bag.svg';
 import cn from 'classnames';
 import { IconWithCounter } from '../../atoms/icons';
 import { Link, NavLink } from 'react-router-dom';
+import { RouterEnum } from '@constants/RouterEnum';
+import { getNavLinkClass, getIconLinkClass } from '../../../utils/ActiveState';
 
 interface Props {
   onClose: () => void;
@@ -24,12 +26,6 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
       document.body.classList.remove('no-scroll');
     };
   }, [isOpen]);
-
-  const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    cn(styles.navLink, { [styles.isActive]: isActive });
-
-  const getIconLinkClass = ({ isActive }: { isActive: boolean }) =>
-    cn(styles.icon, { [styles.isActive]: isActive });
 
   return (
     <aside className={cn(styles.menu, 'uppercase')} id="menu">
@@ -52,22 +48,42 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
           <nav className={styles.nav}>
             <ul className={styles.navList}>
               <li className={styles.navItem}>
-                <NavLink to="/" className={getNavLinkClass}>
+                <NavLink
+                  to={RouterEnum.HOME}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
+                >
                   home
                 </NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/phones" className={getNavLinkClass}>
-                  phone
+                <NavLink
+                  to={RouterEnum.PHONES}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
+                >
+                  phones
                 </NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/tablets" className={getNavLinkClass}>
+                <NavLink
+                  to={RouterEnum.TABLETS}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
+                >
                   tablets
                 </NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/accessories" className={getNavLinkClass}>
+                <NavLink
+                  to={RouterEnum.ACCESSORIES}
+                  className={({ isActive }) =>
+                    getNavLinkClass(styles, { isActive })
+                  }
+                >
                   accessories
                 </NavLink>
               </li>
@@ -77,15 +93,15 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
 
         <div className={styles.menuIcons}>
           <NavLink
-            to="/favorites"
-            className={getIconLinkClass}
+            to={RouterEnum.FAVORITES}
+            className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Favorites"
           >
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
           </NavLink>
           <NavLink
-            to="/shopping-bag"
-            className={getIconLinkClass}
+            to={RouterEnum.SHOPPING_BAG}
+            className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
           >
             <IconWithCounter icon={iconBag} count={3} alt="Shopping Bag" />
