@@ -15,6 +15,9 @@ export const Header: React.FC = () => {
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
     cn(styles.navLink, { [styles.isActive]: isActive });
 
+  const getIconLinkClass = ({ isActive }: { isActive: boolean }) =>
+    cn(styles.icon, { [styles.isActive]: isActive });
+
   return (
     <>
       <header className={cn(styles.header, 'uppercase')}>
@@ -57,20 +60,20 @@ export const Header: React.FC = () => {
 
         {/* Іконки та Бургер Меню */}
         <div className={styles.headerIcons}>
-          <Link
+          <NavLink
             to="/favorites"
-            className={styles.icon}
+            className={getIconLinkClass}
             aria-label="Go to Favorites"
           >
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/shopping-bag"
-            className={styles.icon}
+            className={getIconLinkClass}
             aria-label="Go to Shopping Bag"
           >
             <IconWithCounter icon={iconBag} count={5} alt="Shopping Bag" />
-          </Link>
+          </NavLink>
           <button
             onClick={() => setIsMenuOpen(true)}
             className={styles.iconBurgerMenu}
