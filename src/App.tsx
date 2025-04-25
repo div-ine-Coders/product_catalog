@@ -55,9 +55,15 @@ export const App = () => {
       <Header />
 
       <div className="main">
-        <CartItem good={item1} />
-        <CartItem good={item2} />
-        <CartItem good={item3} />
+        <div style={{ margin: '20px' }}>
+          <CartItem good={item1} />
+        </div>
+        <div style={{ margin: '20px' }}>
+          <CartItem good={item2} />
+        </div>
+        <div style={{ margin: '20px' }}>
+          <CartItem good={item3} />
+        </div>
       </div>
 
       <div className="footer">
