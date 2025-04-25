@@ -4,6 +4,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { ArrowButton } from '../../atoms/ArrowButton';
 import { ArrowDirection } from '@constants/ArrowDirection';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const handleBackClick = () => {
@@ -18,29 +19,29 @@ export const Footer = () => {
         </div>
 
         <div className={styles.footerNavContainer}>
-          <a
-            href="#"
+          <Link
+            to="#"
             className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="Visit GitHub page"
           >
             GitHub
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to="#"
             className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="Contact us"
           >
             Contacts
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to="#"
             className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="View rights information"
           >
             Rights
-          </a>
+          </Link>
         </div>
 
         <div className={styles.footerBackContainer}>

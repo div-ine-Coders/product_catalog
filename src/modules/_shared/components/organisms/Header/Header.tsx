@@ -7,10 +7,13 @@ import cn from 'classnames';
 import { Navbar } from '../Navbar/Navbar';
 
 import { IconWithCounter } from '../../atoms/icons';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const currentPath = window.location.pathname;
+
+  const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
+    cn(styles.navLink, { [styles.isActive]: isActive });
 
   return (
     <>
@@ -18,9 +21,9 @@ export const Header: React.FC = () => {
         {/* Логотип та Навігація */}
         <div className={styles.headerLeft}>
           <div className={styles.headerLogo}>
-            <a href="/" className={styles.logoLink}>
+            <Link to="/" className={styles.logoLink}>
               <img className={styles.navImg} src={logo} alt="Logo" />
-            </a>
+            </Link>
           </div>
 
           {/* Навігація */}
@@ -28,44 +31,24 @@ export const Header: React.FC = () => {
             <nav className={styles.nav}>
               <ul className={styles.navList}>
                 <li className={styles.navItem}>
-                  <a
-                    href="/"
-                    className={cn(styles.navLink, {
-                      [styles.isActive]: currentPath === '/',
-                    })}
-                  >
+                  <NavLink to="/" className={getNavLinkClass}>
                     home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className={styles.navItem}>
-                  <a
-                    href="/phones"
-                    className={cn(styles.navLink, {
-                      [styles.isActive]: currentPath === '/phones',
-                    })}
-                  >
+                  <NavLink to="/phones" className={getNavLinkClass}>
                     phone
-                  </a>
+                  </NavLink>
                 </li>
                 <li className={styles.navItem}>
-                  <a
-                    href="/tablets"
-                    className={cn(styles.navLink, {
-                      [styles.isActive]: currentPath === '/tablets',
-                    })}
-                  >
+                  <NavLink to="/tablets" className={getNavLinkClass}>
                     tablets
-                  </a>
+                  </NavLink>
                 </li>
                 <li className={styles.navItem}>
-                  <a
-                    href="/accessories"
-                    className={cn(styles.navLink, {
-                      [styles.isActive]: currentPath === '/accessories',
-                    })}
-                  >
+                  <NavLink to="/accessories" className={getNavLinkClass}>
                     accessories
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </nav>
@@ -74,20 +57,20 @@ export const Header: React.FC = () => {
 
         {/* Іконки та Бургер Меню */}
         <div className={styles.headerIcons}>
-          <a
-            href="/favorites"
+          <Link
+            to="/favorites"
             className={styles.icon}
             aria-label="Go to Favorites"
           >
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
-          </a>
-          <a
-            href="/shopping-bag"
-            className={`${styles.icon} ${styles.iconShoppingBag}`}
+          </Link>
+          <Link
+            to="/shopping-bag"
+            className={styles.icon}
             aria-label="Go to Shopping Bag"
           >
             <IconWithCounter icon={iconBag} count={5} alt="Shopping Bag" />
-          </a>
+          </Link>
           <button
             onClick={() => setIsMenuOpen(true)}
             className={styles.iconBurgerMenu}
