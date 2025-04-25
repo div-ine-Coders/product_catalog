@@ -1,12 +1,12 @@
 @import '../../../../../App.scss';
 
 .productCardContainer {
-  width: 272px; //<-- remove when add grid layout
+  
 }
 
 .productCard {
+  max-width: 272px;
   background-color: $color-surface;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -20,10 +20,12 @@
 
   &Image {
     border-radius: 4px;
+    max-width: 100%;
+
+    @include img-hover-scale();
   }
 
   &Title {
-    font-size: 14px;
     padding-top: 16px;
   }
 
@@ -32,20 +34,18 @@
     gap: 8px;
     align-items: baseline;
 
-    &Current {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
     &Full {
-      font-size: 22px;
       text-decoration: line-through;
       color: $color-text-secondary;
+      font-weight: 600;
     }
   }
 
   &Border {
-    border: 1px solid $color-card;
+    background-color:$color-card;
+    height: 1px;
+    width: 100%;
+    border: none;
   }
 
   &Details {
@@ -57,14 +57,10 @@
     &Text {
       display: flex;
       justify-content: space-between;
-      font-weight: 700;
-      font-size: 12px;
       color: $color-text-secondary;
     }
 
     &Text span {
-      font-weight: 700;
-      font-size: 12px;
       color: $color-text-main;
     }
   }

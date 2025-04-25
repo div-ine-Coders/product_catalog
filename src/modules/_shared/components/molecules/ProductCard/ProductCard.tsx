@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from './ProductCard.module.scss';
 import { DefaultButton } from '../../atoms/DefaultButton';
 import { FavouriteButton } from '../../atoms/FavouriteButton';
+import cn from 'classnames';
 import photo from './Photo mask.png'; // <---delete import and photo after aprove Pull Request
 
 // interface Props {
@@ -17,33 +18,37 @@ export const ProductCard: React.FC = () => {
   return (
     <div className={styles.productCardContainer}>
       <div className={styles.productCard}>
-        <img
-          src={photo}
-          alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
-          className={styles.productCardImage}
-        />
+        <a href="#">
+          <img
+            src={photo}
+            alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
+            className={styles.productCardImage}
+          />
+        </a>
+
         <p className={styles.productCardTitle}>
           Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
         </p>
+        {/*here will be NavLink */}
 
         <div className={styles.productCardPrices}>
-          <span className={styles.productCardPricesCurrent}>$799</span>
-          <span className={styles.productCardPricesFull}>$899</span>
+          <h3 className={styles.productCardPricesCurrent}>$799</h3>
+          <h3 className={styles.productCardPricesFull}>$899</h3>
         </div>
 
-        <div className={styles.productCardBorder}></div>
+        <hr className={styles.productCardBorder} />
 
-        <div className={styles.productCardDetails}>
-          <p className={styles.productCardDetailsText}>
+        <ul className={styles.productCardDetails}>
+          <li className={cn('smallText', styles.productCardDetailsText)}>
             Screen: <span>5.8” OLED</span>
-          </p>
-          <p className={styles.productCardDetailsText}>
+          </li>
+          <li className={cn('smallText', styles.productCardDetailsText)}>
             Capacity: <span>64 GB</span>
-          </p>
-          <p className={styles.productCardDetailsText}>
+          </li>
+          <li className={cn('smallText', styles.productCardDetailsText)}>
             RAM: <span>4 GB</span>
-          </p>
-        </div>
+          </li>
+        </ul>
 
         <div className={styles.productCardButtons}>
           <div className={styles.productCardButtonsDefault}>
