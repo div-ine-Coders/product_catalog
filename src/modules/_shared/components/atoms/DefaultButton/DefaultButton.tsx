@@ -19,6 +19,7 @@ export const DefaultButton: React.FC<Props> = ({
         [styles.defaultButtonSelected]: isSelected,
       })}
       onClick={click}
+      disabled={isSelected}
     >
       {children}
     </button>
