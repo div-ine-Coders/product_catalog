@@ -1,9 +1,5 @@
 @import '../../../../../App.scss';
 
-.productCardContainer {
-  
-}
-
 .productCard {
   max-width: 272px;
   background-color: $color-surface;
@@ -42,7 +38,7 @@
   }
 
   &Border {
-    background-color:$color-card;
+    background-color: $color-card;
     height: 1px;
     width: 100%;
     border: none;
