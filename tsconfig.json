@@ -5,7 +5,19 @@
     ".eslintrc.js"
   ],
   "compilerOptions": {
+    "jsx": "react",
     "sourceMap": false,
-    "types": ["node"]
+    "types": ["node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@constants/*": ["constants/*"],
+      "@hooks/*": ["hooks/*"],
+      "@styles/*": ["styles/*"],
+      "@types/*": ["types/*"]
+    }
   }
 }

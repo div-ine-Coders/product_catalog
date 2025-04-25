@@ -1,0 +1,22 @@
+@import '../../../../../App.scss';
+
+.favouriteButton {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../../../../../assets/icons/icon-favorite-heart.svg);
+
+  width: 100%;
+  height: 100%;
+  background-color: $color-card;
+  border: none;
+
+  &:hover {
+    background-color: $color-icon;
+  }
+
+  &Selected {
+    background-image: url(../../../../../assets/icons/icon-favorite-heart-filled.svg);
+    background-color: $color-bg;
+    border: 1px solid $color-element;
+  }
+}
