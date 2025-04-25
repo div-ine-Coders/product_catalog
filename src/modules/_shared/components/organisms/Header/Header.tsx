@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import logo from '../../../../../assets/icons/Logo.png';
+import logo from '@assets/icons/Logo.png';
+import iconFavorite from '@assets/icons/icon-favorite-heart.svg';
+import iconBag from '@assets/icons/icon-shopping-bag.svg';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { Navbar } from '../Navbar/Navbar';
-import iconFavorite from '../../../../../assets/icons/icon-favorite-heart.svg';
-import iconBag from '../../../../../assets/icons/icon-shopping-bag.svg';
-// eslint-disable-next-line max-len
+
 import { IconWithCounter } from '../../atoms/icons';
 
 export const Header: React.FC = () => {

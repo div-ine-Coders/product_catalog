@@ -30,6 +30,10 @@
     @include on-desktop {
       grid-column: 1/8;
     }
+
+    &Icon {
+      @include img-hover-scale(1.1);
+    }
   }
 
   &NavContainer {

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import styles from './Navbar.module.scss';
-import logo from '../../../../../assets/icons/Logo.png';
+import logo from '@assets/icons/Logo.png';
+import iconFavorite from '@assets/icons/icon-favorite-heart.svg';
+import iconBag from '@assets/icons/icon-shopping-bag.svg';
 import cn from 'classnames';
-import iconFavorite from '../../../../../assets/icons/icon-favorite-heart.svg';
-import iconBag from '../../../../../assets/icons/icon-shopping-bag.svg';
-// eslint-disable-next-line max-len
 import { IconWithCounter } from '../../atoms/icons';
 
 interface Props {

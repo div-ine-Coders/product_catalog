@@ -1,9 +1,9 @@
 import styles from './Footer.module.scss';
-import logo from '..//..//..//..//..//assets/icons/Logo.png';
+import logo from '@assets/icons/Logo.png';
 import * as React from 'react';
 import cn from 'classnames';
 import { ArrowButton } from '../../atoms/ArrowButton';
-import { ArrowDirection } from '../../../../../constants/ArrowDirection';
+import { ArrowDirection } from '@constants/ArrowDirection';
 
 export const Footer = () => {
   const handleBackClick = () => {
@@ -14,7 +14,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerLogo}>
-          <img src={logo} alt="Logo" />
+          <img className={styles.footerLogoIcon} src={logo} alt="Logo" />
         </div>
 
         <div className={styles.footerNavContainer}>
