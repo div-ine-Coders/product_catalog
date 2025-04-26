@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
           </NavLink>
           <NavLink
-            to={RouterEnum.SHOPPING_BAG}
+            to={RouterEnum.CART}
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
           >

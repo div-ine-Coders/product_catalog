@@ -36,7 +36,7 @@ export const Root = () => (
           path={RouterEnum.FAVORITES}
           element={placeholderRoute('Favorites')}
         />
-        <Route path={RouterEnum.SHOPPING_BAG} element={<ShopingCartPage />} />
+        <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
         <Route path="*" element={placeholderRoute('Not Found')} />
       </Route>
