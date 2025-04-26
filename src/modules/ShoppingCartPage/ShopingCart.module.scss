@@ -1,0 +1,48 @@
+@import '../../App.scss';
+
+.shopingCart {
+  @include content-padding-in-line();
+  @include grid-layout;
+  margin-bottom: 56px;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 80px;
+  }
+
+  &Back {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    align-content: start;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &Title {
+    grid-column: 1 / -1;
+  }
+
+  &Cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &Confirm {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 17 / -1;
+    }
+  }
+}
