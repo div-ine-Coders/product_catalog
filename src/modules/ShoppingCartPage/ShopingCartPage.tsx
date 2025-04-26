@@ -75,9 +75,6 @@ export const ShopingCartPage = () => {
             <NavLink to={'../'} aria-label="Go back">
               <BackButton />
             </NavLink>
-          </div>
-
-          <div className={styles.shopingCartTitle}>
             <h1>Cart</h1>
           </div>
 
