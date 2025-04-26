@@ -1,7 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
+import styles from './ShopingCart.module.scss';
 import { BackButton } from 'modules/_shared/components/atoms/BackButton';
 import { CartItem } from 'modules/_shared/components/molecules/CartItem';
-import styles from './ShopingCart.module.scss';
+import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
+import { CartItem as CarItemType } from '../../types/CartItem';
 
 const item1 = {
   id: 1,
@@ -49,25 +53,73 @@ const item3 = {
 };
 
 export const ShopingCartPage = () => {
+  const cart: CarItemType[] = [
+    { id: item1.id, quantity: 1, product: item1 },
+    { id: item2.id, quantity: 3, product: item2 },
+    { id: item3.id, quantity: 2, product: item3 },
+  ]; //make the array empty to see the empty cart page)
+
+  //Values must be taken from the Redux
+
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.quantity * item.product.price,
+    0,
+  );
+  const totalItemsInCart = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <div className={styles.shopingCart}>
-      <div className={styles.shopingCartBack}>
-        <BackButton />
-      </div>
+      {cart.length ? (
+        <>
+          <div className={styles.shopingCartBack}>
+            <NavLink to={'../'} aria-label="Go back">
+              <BackButton />
+            </NavLink>
+          </div>
 
-      <div className={styles.shopingCartTitle}>
-        <h1>Cart</h1>
-      </div>
+          <div className={styles.shopingCartTitle}>
+            <h1>Cart</h1>
+          </div>
 
-      <div className={styles.shopingCartCards}>
-        <CartItem good={item1} />
-        <CartItem good={item2} />
-        <CartItem good={item3} />
-      </div>
+          <div className={styles.shopingCartCards}>
+            {cart.map(item => (
+              <CartItem
+                key={item.id}
+                good={item.product}
+                quantity={item.quantity}
+              />
+            ))}
+          </div>
 
-      <div className={styles.shopingCartConfirm}>
-        <h2>Confirm purchases</h2>
-      </div>
+          <div className={styles.shopingCartConfirm}>
+            <div className={styles.shopingCartConfirmInfo}>
+              <h2>${totalPrice}</h2>
+              <p className={styles.shopingCartConfirmInfoCount}>
+                Total for {totalItemsInCart} item
+                {totalItemsInCart > 1 ? 's' : ''}
+              </p>
+            </div>
+            <hr />
+            <div className={cn(styles.shopingCartConfirmButton, 'buttonText')}>
+              <DefaultButton>Checkout</DefaultButton>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className={styles.shopingCartEmpty}>
+          <img
+            className={styles.shopingCartEmptyImage}
+            src="img/empty-cart.png"
+            alt="Empty Cart"
+          />
+          <h2>Your cart is Empty</h2>
+          <div className={cn(styles.shopingCartEmptyButton, 'buttonText')}>
+            <NavLink to={'/'} aria-label="Go home">
+              <DefaultButton>Go back to shopping</DefaultButton>
+            </NavLink>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
