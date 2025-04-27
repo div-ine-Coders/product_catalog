@@ -5,3 +5,102 @@
   grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
   @include content-padding-in-line();
 }
+
+.productCard {
+  width: 100%;
+  max-width: 288px;
+  min-width: 200px;
+  height: 440px;
+  background-color: $color-surface;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid $color-surface;
+
+  @include on-tablet {
+    height: 506px;
+  }
+
+  &:hover {
+    border-color: $color-card;
+  }
+
+  &Link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &Image {
+    height: 130px;
+    margin: auto;
+
+    @include img-hover-scale();
+
+    @include on-tablet {
+      height: 196px;
+    }
+  }
+
+  &Title {
+    padding-top: 16px;
+  }
+
+  &Prices {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+
+    &Full {
+      text-decoration: line-through;
+      color: $color-text-secondary;
+      font-weight: 600;
+    }
+  }
+
+  &Border {
+    background-color: $color-card;
+    height: 1px;
+    width: 100%;
+    border: none;
+  }
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0;
+
+    &Text {
+      display: flex;
+      justify-content: space-between;
+      color: $color-text-secondary;
+    }
+
+    &Text span {
+      color: $color-text-main;
+    }
+  }
+
+  &Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 8px;
+
+    &Default {
+      flex: 1 1 auto;
+      height: 40px;
+    }
+
+    &Favourite {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+  }
+}
