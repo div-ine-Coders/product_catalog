@@ -7,11 +7,12 @@
   border: none;
   cursor: pointer;
 
-  &:hover {
+  &:not([disabled]):hover {
     background-color: #a378ff;
   }
 
   &Selected {
     background-color: $color-card;
+    cursor: auto;
   }
 }
