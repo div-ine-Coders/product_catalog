@@ -1,12 +1,14 @@
 @import '../../../../../App.scss';
 
 .productCard {
+  width: 100%;
   max-width: 288px;
   min-width: 200px;
   height: 440px;
   background-color: $color-surface;
   display: flex;
   flex-direction: column;
+  justify-self: center;
   gap: 8px;
   padding: 32px;
   box-sizing: border-box;
