@@ -2,17 +2,13 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './ShopByCategory.module.scss';
 import { RouterEnum } from '@constants/RouterEnum';
-
-import imgPhones from '@assets/icons/category-phones.png';
-import imgTablets from '@assets/icons/category-tablets.png';
-import imgAccessories from '@assets/icons/category-accessories.png';
 import { Link } from 'react-router-dom';
 
 const categories = [
   {
     title: 'Mobile phones',
     count: '95 models',
-    img: imgPhones,
+    img: '/public/img/category-phones.png',
     alt: 'Mobile phones',
     modifier: 'categoryPhones',
     link: RouterEnum.PHONES,
@@ -20,7 +16,7 @@ const categories = [
   {
     title: 'Tablets',
     count: '24 models',
-    img: imgTablets,
+    img: '/public/img/category-tablets.png',
     alt: 'Tablets',
     modifier: 'categoryTablets',
     link: RouterEnum.TABLETS,
@@ -28,7 +24,7 @@ const categories = [
   {
     title: 'Accessories',
     count: '100 models',
-    img: imgAccessories,
+    img: '/public/img/category-accessories.png',
     alt: 'Accessories',
     modifier: 'categoryAccessories',
     link: RouterEnum.ACCESSORIES,
@@ -41,19 +37,23 @@ export const ShopByCategory = () => {
       <h2 className={styles.shopByCategoryTitle}>Shop by category</h2>
 
       <div className={styles.shopByCategoryContainer}>
-        {categories.map(({ title, count, img, alt, modifier, link }) => (
+        {categories.map(categories => (
           <Link
-            key={title}
-            to={link}
-            className={cn(styles.category, styles[modifier])}
+            key={categories.title}
+            to={categories.link}
+            className={cn(styles.category, styles[categories.modifier])}
           >
             <div className={styles.categoryImageWrapper}>
-              <img className={styles.categoryImage} src={img} alt={alt} />
+              <img
+                className={styles.categoryImage}
+                src={categories.img}
+                alt={categories.alt}
+              />
             </div>
 
             <div className={styles.categoryContent}>
-              <h4 className={styles.categoryTitle}>{title}</h4>
-              <p className={styles.categoryCount}>{count}</p>
+              <h4 className={styles.categoryTitle}>{categories.title}</h4>
+              <p className={styles.categoryCount}>{categories.count}</p>
             </div>
           </Link>
         ))}
