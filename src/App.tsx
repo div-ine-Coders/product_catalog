@@ -3,6 +3,8 @@ import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { CartItem } from './modules/_shared/components/molecules/CartItem';
+// eslint-disable-next-line max-len
+import { ShopByCategory } from 'modules/_shared/components/organisms/ShopByCategory/ShopByCategory';
 
 const item1 = {
   id: 1,
@@ -65,6 +67,7 @@ export const App = () => {
           <CartItem good={item3} />
         </div>
       </div>
+      <ShopByCategory />
 
       <div className="footer">
         <Footer />
