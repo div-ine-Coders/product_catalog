@@ -97,6 +97,15 @@ export const CatalogList = () => {
       {products.map(product => (
         <ProductCard key={product.itemId} product={product} />
       ))}
+      <ProductCard product={undefined} />
+      {/* just for testing remain like this product={undefined}*/}
+      <ProductCard product={undefined} />
+      <ProductCard product={undefined} />
+      <ProductCard product={undefined} />
+      <ProductCard product={undefined} />
+      <ProductCard product={undefined} />
+      <ProductCard product={undefined} />
+      <ProductCard product={undefined} />
     </div>
   );
 };
