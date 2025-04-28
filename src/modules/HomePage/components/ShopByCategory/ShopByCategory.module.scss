@@ -3,22 +3,23 @@
 .shopByCategory {
   @include content-padding-in-line();
   @include grid-layout;
+  row-gap: 24px;
 
   &Title {
     grid-column: 1 / -1;
-    margin-bottom: 24px;
     text-align: left;
   }
 
   &Container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
     grid-column: 1 / -1;
 
     @include on-tablet {
       flex-direction: row;
       justify-content: space-between;
+      gap: 16px;
     }
   }
 }
