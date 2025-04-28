@@ -105,7 +105,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
           </NavLink>
           <NavLink
-            to={RouterEnum.SHOPPING_BAG}
+            to={RouterEnum.CART}
             onClick={onClose}
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
