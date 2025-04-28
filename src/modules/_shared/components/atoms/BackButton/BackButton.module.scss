@@ -2,16 +2,14 @@
 
 .back {
   border: none;
-  height: 12px;
+  height: 16px;
   display: flex;
   gap: 4px;
   padding: 0;
-  padding-inline: 10px;
   cursor: pointer;
 
   &Text {
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 

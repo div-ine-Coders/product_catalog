@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
           <div className={styles.headerNav}>
             <nav className={styles.nav}>
               <ul className={styles.navList}>
-                <li className={styles.navItem}>
+                <li>
                   <NavLink
                     to={RouterEnum.HOME}
                     className={({ isActive }) =>
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
                     home
                   </NavLink>
                 </li>
-                <li className={styles.navItem}>
+                <li>
                   <NavLink
                     to={RouterEnum.PHONES}
                     className={({ isActive }) =>
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
                     phones
                   </NavLink>
                 </li>
-                <li className={styles.navItem}>
+                <li>
                   <NavLink
                     to={RouterEnum.TABLETS}
                     className={({ isActive }) =>
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
                     tablets
                   </NavLink>
                 </li>
-                <li className={styles.navItem}>
+                <li>
                   <NavLink
                     to={RouterEnum.ACCESSORIES}
                     className={({ isActive }) =>
@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
             <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
           </NavLink>
           <NavLink
-            to={RouterEnum.SHOPPING_BAG}
+            to={RouterEnum.CART}
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
           >

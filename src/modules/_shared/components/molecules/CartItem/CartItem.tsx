@@ -12,13 +12,13 @@ const phone = {
 
 interface Props {
   good?: Product;
+  quantity?: number; //must take from Redux
 }
 
-export const CartItem: React.FC<Props> = ({ good = phone }) => {
+export const CartItem: React.FC<Props> = ({ good = phone, quantity = 1 }) => {
   const { itemId, name, price, image } = good;
-  const count = 1;
-  const isDisabled = count === 1; //for 'minus' button
-  const totalPrice = count * price;
+  const isDisabled = quantity === 1; //for 'minus' button
+  const totalPrice = quantity * price;
   const click = () => {}; //add diferent functions for buttons click
 
   return (
@@ -27,7 +27,7 @@ export const CartItem: React.FC<Props> = ({ good = phone }) => {
         <div className={styles.cartItemBlockInfoLeft}>
           <button className={styles.cartItemRemove} onClick={click} />
           <a className={styles.cartItemLink} href={itemId}>
-            <img className={styles.cartItemImage} src={image} alt="" />
+            <img className={styles.cartItemImage} src={image} alt={name} />
           </a>
         </div>
         <p>{name}</p>
@@ -42,7 +42,7 @@ export const CartItem: React.FC<Props> = ({ good = phone }) => {
             disabled={isDisabled}
             onClick={click}
           />
-          <span className={styles.cartItemQuantity}>{count}</span>
+          <span className={styles.cartItemQuantity}>{quantity}</span>
           <button className={styles.cartItemBtnPlus} onClick={click} />
         </div>
         <div className={styles.cartItemPrice}>

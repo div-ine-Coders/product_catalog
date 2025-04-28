@@ -2,6 +2,7 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { App } from './App';
 import { RouterEnum } from './constants/RouterEnum';
 import React from 'react';
+import { ShopingCartPage } from 'modules/ShoppingCartPage';
 
 const placeholderRoute = (title: string) => <div>{title} Placeholder</div>;
 
@@ -11,8 +12,8 @@ export const Root = () => (
       <Route path={RouterEnum.HOME} element={<App />}>
         <Route index element={placeholderRoute('Home')} />
         <Route
-          path="home"
-          element={<Navigate to={RouterEnum.HOME} replace />}
+          path="/home"
+          element={<Navigate to={RouterEnum.HOME} replace={true} />}
         />
 
         <Route path={RouterEnum.PHONES}>
@@ -35,10 +36,7 @@ export const Root = () => (
           path={RouterEnum.FAVORITES}
           element={placeholderRoute('Favorites')}
         />
-        <Route
-          path={RouterEnum.SHOPPING_BAG}
-          element={placeholderRoute('Shopping Bag')}
-        />
+        <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
         <Route path="*" element={placeholderRoute('Not Found')} />
       </Route>
