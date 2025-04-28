@@ -14,6 +14,8 @@
   border: 1px solid $color-surface;
   @include img-hover-scale();
 
+  
+
   @include on-tablet {
     height: 506px;
   }
