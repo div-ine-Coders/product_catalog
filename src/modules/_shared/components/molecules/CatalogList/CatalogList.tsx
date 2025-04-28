@@ -79,7 +79,7 @@ const products: Product[] = [
     id: 6,
     category: 'phones',
     itemId: 'apple-iphone-11-64gb-black',
-    name: 'Apple iPhone 11 64GB Black',
+    name: 'Apple iPhone 11 Pro Max 512GB Midnight Green (iMT9G2FS/A)',
     fullPrice: 932,
     price: 880,
     screen: "6.1' IPS",
@@ -95,7 +95,7 @@ export const CatalogList = () => {
   return (
     <div className={styles.CatalogListContainer}>
       {products.map(product => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.itemId} product={product} />
       ))}
     </div>
   );
