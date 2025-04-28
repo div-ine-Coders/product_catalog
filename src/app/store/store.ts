@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import apiSlice from '../slices/apiSlice';
-import localStorageSlice from '../slices/localStoreSlice';
+import productsSlice from 'app/slices/productsSlice/productsSlice';
+
 const store = configureStore({
   reducer: {
-    localStorage: localStorageSlice,
-    httpRequest: apiSlice,
+    // localStorage: localStorage,
+    productCatalog: productsSlice,
   },
 });
 
