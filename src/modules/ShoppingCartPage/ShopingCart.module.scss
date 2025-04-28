@@ -104,67 +104,70 @@ hr {
   margin: 0;
 }
 
-.alertDialogOverlay {
-  background: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  inset: 0;
-}
+.alertDialog {
 
-.alertDialogContent {
-  background: $color-surface;
-  border: 2px solid $color-element;
-  padding: 32px;
-  width: 70%;
-  max-width: 400px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.alertDialogTitle {
-  margin-bottom: 12px;
-}
-
-.alertDialogDescription {
-  margin-bottom: 24px;
-}
-
-.alertDialogControl {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  height: 40px;
-
-  &ButtonCancel {
-    width: 40%;
+  &Trigger {
+    width: 100%;
+    height: 48px;
     padding: 0;
-    background-color: $color-success;
-    border: 2px solid $color-success;
-    cursor: pointer;
-
-    &:hover {
-      border-color: rgb(11, 129, 11);
-    }
+    border: none;
   }
 
-  &ButtonSubmit {
-    width: 40%;
-    background-color: $color-error;
-    border: 2px solid $color-error;
-    cursor: pointer;
-    padding: 0;
+  &Overlay {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    inset: 0;
+  }
 
-    &:hover {
-      border-color: red;
+  &Content {
+    background: $color-surface;
+    border: 2px solid $color-element;
+    padding: 32px;
+    width: 70%;
+    max-width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &Title {
+    margin-bottom: 12px;
+  }
+
+  &Description {
+    margin-bottom: 24px;
+  }
+
+  &Control {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    height: 40px;
+
+    &ButtonCancel {
+      width: 40%;
+      padding: 0;
+      background-color: $color-success;
+      border: 2px solid $color-success;
+      cursor: pointer;
+
+      &:hover {
+        border-color: rgb(11, 129, 11);
+      }
+    }
+
+    &ButtonSubmit {
+      width: 40%;
+      background-color: $color-error;
+      border: 2px solid $color-error;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        border-color: red;
+      }
     }
   }
-}
-
-.alertDialogTrigger {
-  width: 100%;
-  height: 48px;
-  padding: 0;
-  border: none;
 }
 
