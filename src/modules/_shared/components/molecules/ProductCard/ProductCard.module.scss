@@ -33,14 +33,8 @@
       max-height: 100%;
       max-width: 100%;
       object-fit: contain;
-      // height: 130px;
-      // margin: auto;
-
+      
       @include img-hover-scale();
-
-      // @include on-tablet {
-      //   height: 196px;
-      // }
     }
   }
 
