@@ -3,84 +3,102 @@
 .banner {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   text-align: center;
-  background-color: black;
-  padding: 10px;
+  background-color: $color-bg;
 
   @include on-tablet {
     flex-direction: row;
     text-align: left;
-    justify-content: space-between;
-    padding: 40px;
   }
-
-  @include on-desktop {
-    padding: 60px;
-  }
-}
-
-.bannerContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: grey;
-  width: 45%;
-}
-
-.bannerTitle {
-  font-size: 24px;
-  font-weight: bold;
-  color: $color-text-main;
-
-  @include on-tablet {
-    font-size: 32px;
-  }
-
-  @include on-desktop {
-    font-size: 40px;
-  }
-}
-
-.bannerDesktopContent {
-  display: none;
-  margin-top: 8px;
-
-  @include on-tablet {
+  &Content {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+
+    @include on-tablet {
+      margin: 15px;
+      padding-left: 30px;
+      padding-top: 25px;
+      background-color: $color-icon;
+      border-radius: 15px;
+    }
+    @include on-desktop {
+      padding-left: 50px;
+    }
   }
-}
 
-.bannerText {
-  font-size: 16px;
-  color: $color-text-secondary;
-}
+  &Title {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #2f1df0;
+    line-height: 1;
+    background: linear-gradient(to right, #2f1df0, #c47ef3);
+    -webkit-background-clip: text;
+    color: transparent;
 
-.bannerButton {
-  padding: 20px 20px;
-  width: 250px;
-  background-color: $color-text-secondary;
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    @include on-tablet {
+      margin-top: 0;
+      margin-bottom: 0;
+      align-self: flex-start;
+    }
 
-  &:hover {
-    background-color: darken($color-accent, 10%);
+    @include on-desktop {
+      font-size: 32px;
+    }
   }
-}
+  &Emoji {
+    display: none;
+    color: yellow;
 
-.bannerImageWrapper {
-  @include on-tablet {
-    margin-top: 0;
-    margin-left: 40px;
+    @include on-tablet {
+      display: inline;
+      margin-left: 8px;
+    }
   }
-}
 
-.bannerImage {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
+  &DesktopContent {
+    display: none;
+    margin-top: 8px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      padding-bottom: 30px;
+    }
+  }
+
+  &Text {
+    color: #bfbfc9;
+  }
+
+  &Button {
+    padding: 15px 15px;
+    width: 150px;
+    background-color: inherit;
+    border: none;
+    border-radius: 50px;
+    border: 1px solid $color-text-secondary;
+    color: $color-text-main;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+
+    @include img-hover-scale;
+  }
+
+  &ImageWrapper {
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &Image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
