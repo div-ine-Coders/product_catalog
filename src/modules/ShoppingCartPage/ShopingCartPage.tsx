@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './ShopingCart.module.scss';
 import { BackButton } from 'modules/_shared/components/atoms/BackButton';
 import { CartItem } from 'modules/_shared/components/molecules/CartItem';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import { CartItem as CarItemType } from '../../types/CartItem';
+import { RouterEnum } from '@constants/RouterEnum';
+import emptyCart from '../../assets/empty-cart.png';
 
 const item1 = {
   id: 1,
@@ -72,9 +74,9 @@ export const ShopingCartPage = () => {
       {cart.length ? (
         <>
           <div className={styles.shopingCartBack}>
-            <NavLink to={'../'} aria-label="Go back">
+            <Link to={'../'} aria-label="Go back">
               <BackButton />
-            </NavLink>
+            </Link>
             <h1>Cart</h1>
           </div>
 
@@ -106,14 +108,14 @@ export const ShopingCartPage = () => {
         <div className={styles.shopingCartEmpty}>
           <img
             className={styles.shopingCartEmptyImage}
-            src="img/empty-cart.png"
+            src={emptyCart}
             alt="Empty Cart"
           />
           <h2>Your cart is Empty</h2>
           <div className={cn(styles.shopingCartEmptyButton, 'buttonText')}>
-            <NavLink to={'/'} aria-label="Go home">
+            <Link to={RouterEnum.HOME} aria-label="Go home">
               <DefaultButton>Go back to shopping</DefaultButton>
-            </NavLink>
+            </Link>
           </div>
         </div>
       )}
