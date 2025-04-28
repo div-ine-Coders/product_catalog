@@ -50,6 +50,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
               <li className={styles.navItem}>
                 <NavLink
                   to={RouterEnum.HOME}
+                  onClick={onClose}
                   className={({ isActive }) =>
                     getNavLinkClass(styles, { isActive })
                   }
@@ -60,6 +61,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
               <li className={styles.navItem}>
                 <NavLink
                   to={RouterEnum.PHONES}
+                  onClick={onClose}
                   className={({ isActive }) =>
                     getNavLinkClass(styles, { isActive })
                   }
@@ -70,6 +72,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
               <li className={styles.navItem}>
                 <NavLink
                   to={RouterEnum.TABLETS}
+                  onClick={onClose}
                   className={({ isActive }) =>
                     getNavLinkClass(styles, { isActive })
                   }
@@ -80,6 +83,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
               <li className={styles.navItem}>
                 <NavLink
                   to={RouterEnum.ACCESSORIES}
+                  onClick={onClose}
                   className={({ isActive }) =>
                     getNavLinkClass(styles, { isActive })
                   }
@@ -94,6 +98,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
         <div className={styles.menuIcons}>
           <NavLink
             to={RouterEnum.FAVORITES}
+            onClick={onClose}
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Favorites"
           >
@@ -101,6 +106,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
           </NavLink>
           <NavLink
             to={RouterEnum.CART}
+            onClick={onClose}
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
           >

@@ -10,6 +10,7 @@
   justify-content: space-between;
   box-shadow: 0px 1px 0px 0px $color-element;
   height: 48px;
+  z-index: 10;
 
   @include on-desktop {
     height: 64px;
@@ -130,6 +131,9 @@
     height: 100%;
     box-shadow: -1px 0 0 0 $color-element;
     text-decoration: none;
+  }
+  @include on-desktop {
+    width: 64px;
   }
 }
 
