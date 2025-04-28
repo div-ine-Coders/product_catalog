@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
