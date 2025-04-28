@@ -11,7 +11,7 @@ export const App = () => {
     <div className="App">
       <Header />
       <main>{<Outlet />}</main>
-
+      <ShopByCategory />
       <div className="footer">
         <Footer />
       </div>
