@@ -5,7 +5,7 @@
   flex-direction: column;
   max-width: 100%;
   text-align: center;
-  background-color: $color-bg;
+  background-color: #000;
 
   @include on-tablet {
     flex-direction: row;
