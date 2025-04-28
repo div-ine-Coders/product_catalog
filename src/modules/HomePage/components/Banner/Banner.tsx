@@ -9,12 +9,13 @@ export const Banner = () => {
         <h2 className={styles.bannerTitle}>
           Now available
           <br />
-          in our store!👌
+          in our store!
+          <span className={styles.bannerEmoji}>👌</span>
         </h2>
 
         {/* Цей блок буде тільки на планшеті і десктопі */}
         <div className={styles.bannerDesktopContent}>
-          <p className={styles.bannerText}>Be the first</p>
+          <p className={styles.bannerText}>Be the first!</p>
           <button className={styles.bannerButton}>Order Now</button>
         </div>
       </div>

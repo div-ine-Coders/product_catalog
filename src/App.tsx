@@ -8,7 +8,6 @@ export const App = () => {
   return (
     <div className="App">
       <Header />
-
       <main>{<Outlet />}</main>
 
       <div className="footer">
