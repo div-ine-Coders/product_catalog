@@ -1,0 +1,86 @@
+@import './../../../../App.scss';
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: black;
+  padding: 10px;
+
+  @include on-tablet {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  @include on-desktop {
+    padding: 60px;
+  }
+}
+
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: grey;
+  width: 45%;
+}
+
+.bannerTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: $color-text-main;
+
+  @include on-tablet {
+    font-size: 32px;
+  }
+
+  @include on-desktop {
+    font-size: 40px;
+  }
+}
+
+.bannerDesktopContent {
+  display: none;
+  margin-top: 8px;
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.bannerText {
+  font-size: 16px;
+  color: $color-text-secondary;
+}
+
+.bannerButton {
+  padding: 20px 20px;
+  width: 250px;
+  background-color: $color-text-secondary;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($color-accent, 10%);
+  }
+}
+
+.bannerImageWrapper {
+  @include on-tablet {
+    margin-top: 0;
+    margin-left: 40px;
+  }
+}
+
+.bannerImage {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
