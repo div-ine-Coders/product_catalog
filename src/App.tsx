@@ -5,12 +5,13 @@ import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { Outlet } from 'react-router-dom';
 // eslint-disable-next-line max-len
 import { ShopByCategory } from 'modules/HomePage/components/ShopByCategory/ShopByCategory';
+import { Banner } from 'modules/HomePage/components/Banner';
 
 export const App = () => {
   return (
     <div className="App">
       <Header />
-
+      <Banner />
       <main>{<Outlet />}</main>
       <ShopByCategory />
 

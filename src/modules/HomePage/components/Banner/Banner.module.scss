@@ -3,41 +3,60 @@
 .banner {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   text-align: center;
-  background-color: black;
-  padding: 10px;
+  background-color: rgb(0, 0, 0);
 
   @include on-tablet {
     flex-direction: row;
     text-align: left;
-    justify-content: space-between;
-    padding: 40px;
-  }
-
-  @include on-desktop {
-    padding: 60px;
   }
 }
 
 .bannerContent {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: grey;
-  width: 45%;
+
+  @include on-tablet {
+    margin: 15px;
+    padding-left: 40px;
+    padding-top: 40px;
+    background-color: #323542;
+    border-radius: 15px;
+  }
+  @include on-desktop {
+    padding-left: 50px;
+  }
 }
 
 .bannerTitle {
+  margin-top: 30px;
+  margin-bottom: 40px;
   font-size: 24px;
-  font-weight: bold;
-  color: $color-text-main;
+  color: #2f1df0;
+  line-height: 1;
+  background: linear-gradient(to right, #2f1df0, #c47ef3);
+  -webkit-background-clip: text;
+  color: transparent;
 
   @include on-tablet {
-    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: flex-start;
   }
 
   @include on-desktop {
-    font-size: 40px;
+    font-size: 32px;
+  }
+}
+.bannerEmoji {
+  display: none;
+  color: yellow;
+
+  @include on-tablet {
+    display: inline;
+    margin-left: 8px;
   }
 }
 
@@ -48,34 +67,39 @@
   @include on-tablet {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 40px;
   }
 }
 
 .bannerText {
-  font-size: 16px;
-  color: $color-text-secondary;
+  color: #85858b;
 }
 
 .bannerButton {
-  padding: 20px 20px;
-  width: 250px;
-  background-color: $color-text-secondary;
+  padding: 15px 15px;
+  width: 170px;
+  background-color: inherit;
   border: none;
   border-radius: 50px;
+  border: 1px solid $color-text-secondary;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: darken($color-accent, 10%);
+    background-color: $color-accent;
   }
 }
 
 .bannerImageWrapper {
   @include on-tablet {
     margin-top: 0;
-    margin-left: 40px;
   }
 }
 
