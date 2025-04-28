@@ -4,7 +4,6 @@ import { ProductCard } from '../ProductCard';
 import styles from './CatalogList.module.scss';
 import React from 'react';
 
-
 const products: Product[] = [
   {
     id: 1,
@@ -93,7 +92,6 @@ const products: Product[] = [
 ];
 
 export const CatalogList = () => {
-
   return (
     <div className={styles.CatalogListContainer}>
       {products.map(product => (
