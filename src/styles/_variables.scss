@@ -1,26 +1,24 @@
+// Base
+$color-bg: #0f1121;
+$color-surface: #161827;
+$color-card: #323542;
 
-  // Base
-  $color-bg: #0f1121;
-  $color-surface: #161827;
-  $color-card: #323542;
+// Text
+$color-text-main: #f1f2f9;
+$color-text-secondary: #75767f;
 
-  // Text
-  $color-text-main: #f1f2f9;
-  $color-text-secondary: #75767f;
+// UI
+$color-icon: #4a4d58;
+$color-element: #3b3e4a;
 
-  // UI
-  $color-icon: #4a4d58;
-  $color-element: #3b3e4a;
+// Accents
+$color-accent: #905bff;
+$color-success: #27ae60;
+$color-error: #eb5757;
 
-  // Accents
-  $color-accent: #905bff;
-  $color-success: #27ae60;
-  $color-error: #eb5757;
-
-  // Breakpoints
-  $breakpoint-desktop: 1200px;
-  $breakpoint-tablet: 640px;
-
+// Breakpoints
+$breakpoint-desktop: 1200px;
+$breakpoint-tablet: 640px;
 
 // // Theme Dark
 // [data-theme='dark'] {

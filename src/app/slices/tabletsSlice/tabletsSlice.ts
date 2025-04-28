@@ -1,32 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { productsStateType } from '../../../types/productsStateType';
 import { fetchTablets } from './tabletSliceAsyncThunk';
+import { createProductsSlice } from '../utils/createProductsSlice';
 
-const initialState: productsStateType = {
-  data: [],
-  isLoading: false,
-  error: null,
-};
-
-const tabletsSlice = createSlice({
+const tabletsSlice = createProductsSlice({
   name: 'tabletsSlice',
-  initialState: initialState,
-  reducers: {},
-  extraReducers(builder) {
-    builder
-      .addCase(fetchTablets.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchTablets.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.data = action.payload;
-      })
-      .addCase(fetchTablets.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message || 'Something went wrong';
-      });
-  },
+  fetchThunk: fetchTablets,
 });
 
 export default tabletsSlice.reducer;
