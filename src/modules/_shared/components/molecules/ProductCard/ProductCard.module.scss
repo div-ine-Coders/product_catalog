@@ -2,9 +2,9 @@
 
 .productCard {
   width: 100%;
-  max-width: 288px;
-  min-width: 200px;
+  min-width: 228px;
   height: 440px;
+  height: 100%;
   background-color: $color-surface;
   display: flex;
   flex-direction: column;
@@ -25,16 +25,22 @@
   &Link {
     display: flex;
     align-items: center;
-  }
+    justify-content: center;
+    flex-grow: 1;
+    overflow: hidden;
 
-  &Image {
-    height: 130px;
-    margin: auto;
-
-    @include img-hover-scale();
-
-    @include on-tablet {
-      height: 196px;
+    &Image {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      // height: 130px;
+      // margin: auto;
+  
+      @include img-hover-scale();
+  
+      // @include on-tablet {
+      //   height: 196px;
+      // }
     }
   }
 
