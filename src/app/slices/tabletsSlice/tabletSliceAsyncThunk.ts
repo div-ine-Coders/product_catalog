@@ -1,4 +1,4 @@
-import { ProductCategories } from '@constants/ProductsCategories';
+import { ProductCategories } from '@constants/productsCategories';
 import { Product } from '@models/Product';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getPaginationParams } from 'app/slices/utils/getPagiantionParams';
