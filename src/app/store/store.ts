@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import productsSlice from 'app/slices/productsSlice/productsSlice';
+import accessoriesSlice from 'app/slices/accessoriesSlice/accessoriesSlice';
+import phonesSlice from 'app/slices/phonesSlice/phonesSlice';
+import tabletsSlice from 'app/slices/tabletsSlice/tabletsSlice';
 
 const store = configureStore({
   reducer: {
-    // localStorage: localStorage,
-    productCatalog: productsSlice,
+    phones: phonesSlice,
+    tablets: tabletsSlice,
+    accessories: accessoriesSlice,
   },
 });
 
