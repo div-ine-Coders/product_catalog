@@ -29,10 +29,9 @@
   flex-direction: column;
   text-align: left;
   width: 100%;
-  text-decoration: none;
-  color: inherit;
+  color: $color-text-main;
   cursor: pointer;
-  gap: 24px;
+  row-gap: 24px;
 
   &ImageWrapper {
     width: 100%;
