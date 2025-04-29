@@ -12,7 +12,6 @@
   aspect-ratio: 1 / 1;
 
   @include on-tablet {
-
     height: 189px;
   }
 
@@ -36,8 +35,8 @@
   align-items: center;
 
   @include on-tablet {
-  grid-column: 2 / -2;
-  aspect-ratio: 0;
+    grid-column: 2 / -2;
+    aspect-ratio: 0;
   }
 }
 
