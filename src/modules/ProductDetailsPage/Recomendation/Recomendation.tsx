@@ -11,7 +11,9 @@ export const Recomendation = () => {
       }}
     >
       slider
-      <ProductCard />
+      <div style={{ width: '228px' }}>
+        <ProductCard />
+      </div>
     </div>
   );
 };
