@@ -21,6 +21,7 @@ export type Color =
   | 'space-gray'
   | 'rose gold'
   | 'rose-gold'
+  | 'skyblue'
   | 'sky blue'
   | 'sky-blue'
   | 'starlight';
