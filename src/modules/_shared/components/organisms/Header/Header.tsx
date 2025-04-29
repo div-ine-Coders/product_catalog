@@ -5,7 +5,7 @@ import iconBag from '@assets/icons/icon-shopping-bag.svg';
 import styles from './Header.module.scss';
 import cn from 'classnames';
 import { Navbar } from '../Navbar/Navbar';
-import { IconWithCounter } from '../../atoms/icons';
+import { IconWithCounter } from '../../atoms/Icons/IconWithCounter';
 import { Link, NavLink } from 'react-router-dom';
 import { RouterEnum } from '@constants/RouterEnum';
 import { getNavLinkClass, getIconLinkClass } from '../../../utils/ActiveState';

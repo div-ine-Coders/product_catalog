@@ -4,7 +4,7 @@ import logo from '@assets/icons/Logo.png';
 import iconFavorite from '@assets/icons/icon-favorite-heart.svg';
 import iconBag from '@assets/icons/icon-shopping-bag.svg';
 import cn from 'classnames';
-import { IconWithCounter } from '../../atoms/icons';
+import { IconWithCounter } from '../../atoms/Icons/IconWithCounter';
 import { Link, NavLink } from 'react-router-dom';
 import { RouterEnum } from '@constants/RouterEnum';
 import { getNavLinkClass, getIconLinkClass } from '../../../utils/ActiveState';

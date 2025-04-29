@@ -34,7 +34,7 @@ export const Slider = () => {
 
   return (
     <div className={styles.customSlider}>
-      <div className={styles.arrowButtonWrapper}>
+      <div className={`${styles.arrowButtonWrapper} ${styles.left}`}>
         <ArrowButton direction={ArrowDirection.Left} click={handlePrev} />
       </div>
 
@@ -71,7 +71,7 @@ export const Slider = () => {
         </div>
       </div>
 
-      <div className={styles.arrowButtonWrapper}>
+      <div className={`${styles.arrowButtonWrapper} ${styles.right}`}>
         <ArrowButton direction={ArrowDirection.Right} click={handleNext} />
       </div>
     </div>
