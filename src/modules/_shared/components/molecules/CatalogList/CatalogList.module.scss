@@ -1,0 +1,9 @@
+@import '../../../../../App.scss';
+.CatalogListContainer {
+  display: grid;
+  gap: 16px;
+  row-gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  @include content-padding-in-line();
+  margin-top: 24px;
+}

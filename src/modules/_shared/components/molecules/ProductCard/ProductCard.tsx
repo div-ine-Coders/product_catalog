@@ -21,7 +21,7 @@ const phone = {
 };
 
 interface Props {
-  product: Product;
+  product?: Product;
 }
 
 export const ProductCard: React.FC<Props> = ({ product = phone }) => {
@@ -33,7 +33,7 @@ export const ProductCard: React.FC<Props> = ({ product = phone }) => {
   return (
     <div className={styles.productCard}>
       <a href={itemId} className={styles.productCardLink}>
-        <img src={image} alt={name} className={styles.productCardImage} />
+        <img src={image} alt={name} className={styles.productCardLinkImage} />
       </a>
 
       <p className={styles.productCardTitle}>{name}</p>

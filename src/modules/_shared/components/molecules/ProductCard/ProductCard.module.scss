@@ -1,16 +1,18 @@
 @import '../../../../../App.scss';
 
 .productCard {
-  max-width: 288px;
-  min-width: 200px;
+  width: 100%;
+  min-width: 212px;
   height: 440px;
   background-color: $color-surface;
   display: flex;
   flex-direction: column;
+  justify-self: center;
   gap: 8px;
   padding: 32px;
   box-sizing: border-box;
   border: 1px solid $color-surface;
+  @include img-hover-scale();
 
   @include on-tablet {
     height: 506px;
@@ -23,16 +25,14 @@
   &Link {
     display: flex;
     align-items: center;
-  }
+    justify-content: center;
+    flex-grow: 1;
+    overflow: hidden;
 
-  &Image {
-    height: 130px;
-    margin: auto;
-
-    @include img-hover-scale();
-
-    @include on-tablet {
-      height: 196px;
+    &Image {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
     }
   }
 
