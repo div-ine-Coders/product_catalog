@@ -97,6 +97,8 @@
   }
 
   &ImageWrapper {
+    position: relative;
+
     @include on-tablet {
       margin-top: 0;
     }
@@ -109,7 +111,7 @@
 
   &Image {
     max-width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
   }
   &Image {

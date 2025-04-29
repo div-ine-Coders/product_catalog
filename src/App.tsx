@@ -5,8 +5,6 @@ import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { CatalogList } from 'modules/_shared/components/molecules/CatalogList';
 import { Outlet } from 'react-router-dom';
 
-import { ShopByCategory } from 'modules/HomePage/components/ShopByCategory';
-
 export const App = () => {
   return (
     <div className="App">
@@ -16,6 +14,7 @@ export const App = () => {
         <CatalogList />
       </div>
       <main>{<Outlet />}</main>
+
       <div className="footer">
         <Footer />
       </div>
