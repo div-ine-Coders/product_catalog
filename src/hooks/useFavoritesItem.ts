@@ -1,5 +1,5 @@
-import { Product } from '@models/Product';
-import { useLocalStorage } from './hooksFactory/useLocalStorage';
+import { Product } from '@models/dto/Product';
+import { useLocalStorage } from './factoryHooks/useLocalStorage';
 
 export const useFavoritesItem = () => {
   const store = useLocalStorage<Product>('favorites', []);

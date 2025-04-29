@@ -3,7 +3,7 @@ import styles from './ProductCard.module.scss';
 import { DefaultButton } from '../../atoms/DefaultButton';
 import { FavouriteButton } from '../../atoms/FavouriteButton';
 import cn from 'classnames';
-import { Product } from '../../../../../types/Product';
+import { Product } from '../../../../../types/dto/Product';
 
 const phone = {
   id: 1,

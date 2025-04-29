@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import accessoriesSlice from 'app/slices/accessoriesSlice/accessoriesSlice';
 import phonesSlice from 'app/slices/phonesSlice/phonesSlice';
+import { searchParamsSlice } from 'app/slices/searchParamsSlice';
 import tabletsSlice from 'app/slices/tabletsSlice/tabletsSlice';
 
 const store = configureStore({
@@ -8,6 +9,7 @@ const store = configureStore({
     [phonesSlice.name]: phonesSlice.reducer,
     [tabletsSlice.name]: tabletsSlice.reducer,
     [accessoriesSlice.name]: accessoriesSlice.reducer,
+    [searchParamsSlice.name]: searchParamsSlice.reducer,
   },
 });
 

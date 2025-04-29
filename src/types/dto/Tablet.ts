@@ -1,7 +1,7 @@
-import { Color } from './Color';
+import { Color } from '@models/common/Color';
 import { Description } from './Description';
 
-export interface Phone {
+export interface Tablet {
   id: string;
   namespaceId: string;
   name: string;

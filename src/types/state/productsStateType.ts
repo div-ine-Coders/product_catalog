@@ -1,4 +1,4 @@
-import { Product } from '@models/Product';
+import { Product } from '@models/dto/Product';
 
 export interface productsStateType {
   data: Product[];

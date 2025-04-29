@@ -1,5 +1,5 @@
 import { fetchPhones } from './phonesSliceAsyncThunk';
-import { productsStateType } from '@models/productsStateType';
+import { productsStateType } from '@models/state/productsStateType';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: productsStateType = {
@@ -9,7 +9,7 @@ const initialState: productsStateType = {
 };
 
 const phonesSlice = createSlice({
-  name: 'productsPhones',
+  name: 'phones',
   initialState,
   reducers: {},
   extraReducers(builder) {

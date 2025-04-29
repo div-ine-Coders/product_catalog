@@ -1,10 +1,12 @@
 import { RootState } from 'app/store';
-import { useAppDispatch } from './hooksFactory/useAppDispatch';
+import { useAppDispatch } from './factoryHooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { productsStateType } from '@models/productsStateType';
+import { useEffect, useMemo } from 'react';
+import { productsStateType } from '@models/state/productsStateType';
 // eslint-disable-next-line max-len
 import { fetchAccessories } from 'app/slices/accessoriesSlice/accessoriesSliceAsyncThunk';
+import { sortFieldMap } from '@constants/sortFieldMap';
+import { sortAndPaginate } from './factoryHooks/sortAndPagination';
 
 export const useAccessories = (): productsStateType => {
   const dispatch = useAppDispatch();
@@ -14,10 +16,20 @@ export const useAccessories = (): productsStateType => {
     (state: RootState) => state.accessories.isLoading,
   );
   const error = useSelector((state: RootState) => state.accessories.error);
+  const pagination = useSelector(
+    (state: RootState) => state.searchParams.pagination,
+  );
+  const sort = useSelector((state: RootState) => state.searchParams.sort);
 
   useEffect(() => {
     dispatch(fetchAccessories());
   }, [dispatch]);
 
-  return { data, isLoading, error };
+  const processedData = useMemo(() => {
+    return pagination
+      ? sortAndPaginate(data, sort, sortFieldMap, pagination)
+      : data;
+  }, [data, sort, pagination]);
+
+  return { data: processedData, isLoading, error };
 };

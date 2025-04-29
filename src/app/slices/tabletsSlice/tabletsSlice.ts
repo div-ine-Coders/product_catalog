@@ -1,5 +1,5 @@
 import { fetchTablets } from './tabletSliceAsyncThunk';
-import { productsStateType } from '@models/productsStateType';
+import { productsStateType } from '@models/state/productsStateType';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: productsStateType = {
@@ -9,7 +9,7 @@ const initialState: productsStateType = {
 };
 
 const tabletsSlice = createSlice({
-  name: 'productsTablets',
+  name: 'tablets',
   initialState,
   reducers: {},
   extraReducers(builder) {

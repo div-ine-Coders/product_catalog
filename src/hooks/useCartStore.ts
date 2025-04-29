@@ -1,6 +1,6 @@
-import { Product } from '@models/Product';
-import { useLocalStorage } from './hooksFactory/useLocalStorage';
-import { CartItem } from '@models/CartItem';
+import { Product } from '@models/dto/Product';
+import { useLocalStorage } from './factoryHooks/useLocalStorage';
+import { CartItem } from '@models/state/CartItem';
 import { useEffect } from 'react';
 
 export const useCartItems = () => {

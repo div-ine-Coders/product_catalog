@@ -1,5 +1,5 @@
 import { ProductCategories } from '@constants/productsCategories';
-import { Product } from '@models/Product';
+import { Product } from '@models/dto/Product';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchPhones = createAsyncThunk('products/phones', async () => {

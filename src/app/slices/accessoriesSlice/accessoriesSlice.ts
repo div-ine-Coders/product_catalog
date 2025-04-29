@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAccessories } from './accessoriesSliceAsyncThunk';
-import { productsStateType } from '@models/productsStateType';
+import { productsStateType } from '@models/state/productsStateType';
 
 const initialState: productsStateType = {
   data: [],
@@ -9,7 +9,7 @@ const initialState: productsStateType = {
 };
 
 const accessoriesSlice = createSlice({
-  name: 'productsAccessories',
+  name: 'accessories',
   initialState,
   reducers: {},
   extraReducers(builder) {
