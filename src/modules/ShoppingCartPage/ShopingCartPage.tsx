@@ -8,6 +8,8 @@ import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import { CartItem as CarItemType } from '../../types/CartItem';
 import { RouterEnum } from '@constants/RouterEnum';
 import emptyCart from '../../assets/empty-cart.png';
+// import { AlertDialog } from 'radix-ui';
+import { ShopingCartDialog } from './ShopingCartDialog';
 
 const item1 = {
   id: 1,
@@ -99,9 +101,7 @@ export const ShopingCartPage = () => {
               </p>
             </div>
             <hr />
-            <div className={cn(styles.shopingCartConfirmButton, 'buttonText')}>
-              <DefaultButton>Checkout</DefaultButton>
-            </div>
+            <ShopingCartDialog />
           </div>
         </>
       ) : (

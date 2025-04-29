@@ -4,7 +4,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  width: 100px;
+  width: 128px;
   height: 40px;
   padding: 12px;
   background-color: $color-card;
@@ -12,7 +12,7 @@
   cursor: pointer;
 
   &Big {
-    width: 200px;
+    width: 176px;
   }
 
   &:hover {
@@ -49,12 +49,12 @@
   color: $color-text-secondary;
   cursor: pointer;
   user-select: none;
-  width: 100px;
+  width: 128px;
   border: none;
   outline: none;
 
   &Big {
-    width: 200px;
+    width: 176px;
   }
 
   &:hover,
