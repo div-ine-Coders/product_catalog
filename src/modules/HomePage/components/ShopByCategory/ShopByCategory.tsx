@@ -8,7 +8,7 @@ const categories = [
   {
     title: 'Mobile phones',
     count: '95 models',
-    img: '/public/img/category-phones.png',
+    img: '/img/category-phones.png',
     alt: 'Mobile phones',
     modifier: 'categoryPhones',
     link: RouterEnum.PHONES,
@@ -16,7 +16,7 @@ const categories = [
   {
     title: 'Tablets',
     count: '24 models',
-    img: '/public/img/category-tablets.png',
+    img: '/img/category-tablets.png',
     alt: 'Tablets',
     modifier: 'categoryTablets',
     link: RouterEnum.TABLETS,
@@ -24,7 +24,7 @@ const categories = [
   {
     title: 'Accessories',
     count: '100 models',
-    img: '/public/img/category-accessories.png',
+    img: '/img/category-accessories.png',
     alt: 'Accessories',
     modifier: 'categoryAccessories',
     link: RouterEnum.ACCESSORIES,

@@ -13,7 +13,7 @@ interface Props {
 
 export const Banner: React.FC<Props> = ({
   title = 'Now available | in our store!',
-  img = '/public/img/banner-phones.png',
+  img = '/img/banner-phones.png',
   description = 'Be the first!',
   alt = 'iPhone 14 Pro',
   link = '/',
