@@ -5,9 +5,9 @@ import tabletsSlice from 'app/slices/tabletsSlice/tabletsSlice';
 
 const store = configureStore({
   reducer: {
-    phones: phonesSlice,
-    tablets: tabletsSlice,
-    accessories: accessoriesSlice,
+    [phonesSlice.name]: phonesSlice.reducer,
+    [tabletsSlice.name]: tabletsSlice.reducer,
+    [accessoriesSlice.name]: accessoriesSlice.reducer,
   },
 });
 

@@ -1,7 +1,6 @@
 import { ProductCategories } from '@constants/productsCategories';
 import { Product } from '@models/Product';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getPaginationParams } from 'app/slices/utils/getPagiantionParams';
 
 export const fetchTablets = createAsyncThunk('products/tablets', async () => {
   const url = '/api/products.json';
@@ -16,15 +15,6 @@ export const fetchTablets = createAsyncThunk('products/tablets', async () => {
   const tablets = data.filter(
     item => item.category === ProductCategories.TABLETS,
   );
-
-  const { page, perPage } = getPaginationParams();
-
-  if (perPage !== null) {
-    const startIndex = (page - 1) * perPage;
-    const endIndex = startIndex + perPage;
-
-    return tablets.slice(startIndex, endIndex);
-  }
 
   return tablets;
 });

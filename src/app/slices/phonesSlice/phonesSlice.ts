@@ -1,9 +1,32 @@
 import { fetchPhones } from './phonesSliceAsyncThunk';
-import { createProductsSlice } from '../utils/createProductsSlice';
+import { productsStateType } from '@models/productsStateType';
+import { createSlice } from '@reduxjs/toolkit';
 
-const phonesSlice = createProductsSlice({
-  name: 'phonesSlice',
-  fetchThunk: fetchPhones,
+const initialState: productsStateType = {
+  data: [],
+  isLoading: false,
+  error: null,
+};
+
+const phonesSlice = createSlice({
+  name: 'productsPhones',
+  initialState,
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(fetchPhones.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchPhones.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchPhones.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'Something went wrong';
+      });
+  },
 });
 
-export default phonesSlice.reducer;
+export default phonesSlice;

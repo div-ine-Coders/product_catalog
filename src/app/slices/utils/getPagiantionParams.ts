@@ -12,3 +12,11 @@ export const getPaginationParams = () => {
 
   return { page, perPage };
 };
+// const { page, perPage } = getPaginationParams();
+
+// if (perPage !== null) {
+//   const startIndex = (page - 1) * perPage;
+//   const endIndex = startIndex + perPage;
+
+//   return accessories.slice(startIndex, endIndex);
+// }

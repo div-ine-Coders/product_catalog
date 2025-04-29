@@ -1,3 +1,5 @@
+import { useCartItems } from '@hooks/useCartStore';
+import { useFavoritesItem } from '@hooks/useFavoritesItem';
 import React from 'react';
 import { Banner } from './components/Banner';
 import { ShopByCategory } from './components/ShopByCategory';

@@ -42,7 +42,7 @@ export const Root = () => (
         </Route>
 
         <Route path={RouterEnum.FAVORITES} element={<FavoriteProductPage />} />
-        <Route path={RouterEnum.SHOPPING_BAG} element={<ShoppingCardPage />} />
+        <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
         <Route path="*" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />

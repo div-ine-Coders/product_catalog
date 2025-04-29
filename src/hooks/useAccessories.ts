@@ -1,5 +1,5 @@
 import { RootState } from 'app/store';
-import { useAppDispatch } from './useAppDispatch';
+import { useAppDispatch } from './hooksFactory/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { productsStateType } from '@models/productsStateType';
