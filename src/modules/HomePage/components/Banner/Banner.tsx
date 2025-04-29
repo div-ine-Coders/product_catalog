@@ -1,20 +1,22 @@
 import React from 'react';
 import styles from './Banner.module.scss';
-import banner from '@assets/icons/category-accessories.png';
+import { Link } from 'react-router-dom';
 
 interface Props {
   title?: string;
   img?: string;
   description?: string;
   alt?: string;
+  link?: string;
   onClick?: () => void;
 }
 
 export const Banner: React.FC<Props> = ({
   title = 'Now available | in our store!',
-  img = banner,
+  img = '/public/img/banner-phones.png',
   description = 'Be the first!',
   alt = 'iPhone 14 Pro',
+  link = '/',
   onClick = () => {},
 }) => {
   const parts = title.split('|');
@@ -33,21 +35,9 @@ export const Banner: React.FC<Props> = ({
             </>
           )}
           <span className={styles.bannerEmoji}>👌</span>
-          {firstLine}
-          {secondLine && (
-            <>
-              <br />
-              {secondLine}
-            </>
-          )}
-          <span className={styles.bannerEmoji}>👌</span>
         </h2>
 
         <div className={styles.bannerDesktopContent}>
-          <p className={styles.bannerText}>{description}</p>
-          <button onClick={onClick} className={styles.bannerButton}>
-            Order Now
-          </button>
           <p className={styles.bannerText}>{description}</p>
           <button onClick={onClick} className={styles.bannerButton}>
             Order Now
@@ -56,8 +46,9 @@ export const Banner: React.FC<Props> = ({
       </div>
 
       <div className={styles.bannerImageWrapper}>
-        <img className={styles.bannerImage} src={img} alt={alt} />
-        <img className={styles.bannerImage} src={img} alt={alt} />
+        <Link to={link}>
+          <img className={styles.bannerImage} src={img} alt={alt} />
+        </Link>
       </div>
     </div>
   );
