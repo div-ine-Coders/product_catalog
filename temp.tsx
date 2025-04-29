@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import styles from './Slider.module.scss'; // Виправив імпорт
+import styles from './Slider.module.scss';
 
 import { ArrowButton } from '../../atoms/ArrowButton';
 import { ArrowDirection } from '../../../../../constants/ArrowDirection';

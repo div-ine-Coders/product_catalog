@@ -17,7 +17,6 @@ export const App = () => {
       <main>{<Outlet />}</main>
       <div className="footer">
         {/* <ProductCarousel products={phone} title="Phone" /> */}
-        <Slider />
         <Footer />
       </div>
     </div>
