@@ -114,26 +114,27 @@ export const FavouritePage = () => {
         </div>
         <div className={styles.favouritePageQuantity}>
           <h1 className={styles.favouritePageQuantityTitle}>Favourites</h1>
-          <span className={styles.favouritePageQuantityItems}>{products.length} items</span>
+          <span className={styles.favouritePageQuantityItems}>
+            {products.length} items
+          </span>
         </div>
         {products.length ? (
           <CatalogList />
         ) : (
-            <div className={styles.favouritePageEmpty}>
-          <img
-            className={styles.favouritePageEmptyImage}
-            src={noFavourite}
-            alt="Empty Cart"
-          />
-          <h2>No favourites yet</h2>
-          <div className={cn(styles.favouritePageEmptyButton, 'buttonText')}>
-            <Link to={RouterEnum.HOME} aria-label="Go home">
-              <DefaultButton>Go back to shopping</DefaultButton>
-            </Link>
+          <div className={styles.favouritePageEmpty}>
+            <img
+              className={styles.favouritePageEmptyImage}
+              src={noFavourite}
+              alt="Empty Cart"
+            />
+            <h2>No favourites yet</h2>
+            <div className={cn(styles.favouritePageEmptyButton, 'buttonText')}>
+              <Link to={RouterEnum.HOME} aria-label="Go home">
+                <DefaultButton>Go back to shopping</DefaultButton>
+              </Link>
+            </div>
           </div>
-        </div>
         )}
-        
       </div>
     </>
   );
