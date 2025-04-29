@@ -20,8 +20,8 @@ export const useSyncSearchParamsWithStore = () => {
 
       const query = searchParams.get('query') || null;
       const sort = searchParams.get('sort') || null;
-      const page = searchParams.get('page') || null;
-      const perPage = searchParams.get('perPage') || null;
+      const page = searchParams.get('page') || 1;
+      const perPage = searchParams.get('perPage') || PaginationPerPage.Sixteen;
 
       let pagination: paginationParams | null = null;
 

@@ -3,7 +3,7 @@ import { searchParamsStateType } from '@models/state/searchParamsStateType';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: searchParamsStateType = {
-  query: null,
+  query: '',
   sort: null,
   pagination: null,
 };
