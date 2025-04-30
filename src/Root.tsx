@@ -8,6 +8,7 @@ import { ProductDetailsPage } from 'modules/ProductDetailsPage';
 import { NotFoundPage } from 'modules/NotFoundPage';
 import { ShopingCartPage } from 'modules/ShoppingCartPage';
 import { HomePage } from 'modules/HomePage/HomePage';
+import { FavouritePage } from 'modules/FavoritesProductsPage';
 
 const placeholderRoute = (title: string) => <div>{title} Placeholder</div>;
 
