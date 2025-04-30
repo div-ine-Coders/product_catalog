@@ -6,6 +6,8 @@ import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
 import { Outlet } from 'react-router-dom';
 
+import { HomePage } from 'modules/HomePage/HomePage';
+
 export const App = () => {
   useSyncSearchParamsWithStore();
 
