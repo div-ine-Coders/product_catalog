@@ -9,11 +9,30 @@ import styles from './Slider.module.scss';
 import { ArrowButton } from '../../atoms/ArrowButton';
 import { ArrowDirection } from '../../../../../constants/ArrowDirection';
 import { Swiper as SwiperType } from 'swiper/types';
+import { Banner } from 'modules/HomePage/components/Banner';
 
-const images = [
-  '/img/banner-accessories.png',
-  '/img/banner-phones.png',
-  '/img/banner-tablets.png',
+const banners = [
+  {
+    title: 'Discover accessories | for your gadgets!',
+    img: '/img/banner-accessories.png',
+    description: 'Find something special!',
+    alt: 'Accessories',
+    link: '/accessories',
+  },
+  {
+    title: 'Check out | our latest phones!',
+    img: '/img/banner-phones.png',
+    description: 'Top models available now',
+    alt: 'Phones',
+    link: '/phones',
+  },
+  {
+    title: 'Explore tablets | with best features!',
+    img: '/img/banner-tablets.png',
+    description: 'Perfect for work and fun',
+    alt: 'Tablets',
+    link: '/tablets',
+  },
 ];
 
 export const Slider = () => {
@@ -49,12 +68,14 @@ export const Slider = () => {
           }
           className={styles.customSliderSwiper}
         >
-          {images.map((src, index) => (
-            <SwiperSlide key={src}>
-              <img
-                src={src}
-                alt={`Slide ${index + 1}`}
-                className={styles.customSliderImage}
+          {banners.map((banner, index) => (
+            <SwiperSlide key={index}>
+              <Banner
+                title={banner.title}
+                img={banner.img}
+                description={banner.description}
+                alt={banner.alt}
+                link={banner.link}
               />
             </SwiperSlide>
           ))}
@@ -66,7 +87,7 @@ export const Slider = () => {
       </div>
 
       <div className={styles.customPagination}>
-        {images.map((_, index) => (
+        {banners.map((_, index) => (
           <div
             key={index}
             className={`${styles.customPaginationBullet} ${

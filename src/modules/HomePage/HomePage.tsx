@@ -1,9 +1,9 @@
 import React from 'react';
-import { Banner } from './components/Banner';
 import { ShopByCategory } from './components/ShopByCategory';
 // import { HotPrices } from './components/HotPrices';
 // import { BrandNewModels } from './components/BrandNewModels';
 import styles from './HomePage.module.scss';
+import { Slider } from './../_shared/components/organisms/Slider/Slider';
 
 export const HomePage = () => {
   return (
@@ -22,7 +22,7 @@ export const HomePage = () => {
           </h1>
         </div>
         <section className={styles.pageSection}>
-          <Banner />
+          <Slider />
         </section>
 
         {/* <section className={styles.pageSection}>
