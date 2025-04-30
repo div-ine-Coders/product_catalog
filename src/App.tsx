@@ -2,7 +2,6 @@ import React from 'react';
 import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
-import { Outlet } from 'react-router-dom';
 // eslint-disable-next-line max-len
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
