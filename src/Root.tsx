@@ -22,8 +22,6 @@ export const Root = () => (
         <Route path={RouterEnum.PHONES}>
           <Route index element={<ProductCatalogPage />} />
           <Route path=":phoneId" element={<ProductDetailsPage />} />
-          <Route index element={<ProductCatalogPage />} />
-          <Route path=":phoneId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.TABLETS}>
@@ -39,7 +37,6 @@ export const Root = () => (
         <Route path={RouterEnum.FAVORITES} element={<FavouritePage />} />
         <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

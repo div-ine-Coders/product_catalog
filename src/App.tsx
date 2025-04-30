@@ -16,12 +16,10 @@ export const App = () => {
       <Header />
       <Breadcrumbs />
       <HomePage />
-
-      <div className="main">
+      <main>
         {/* тут більше нічого не пишемо переходьте на сторінку, яка вам потрібна*/}
         <Outlet />
-      </div>
-
+      </main>
       <div className="footer">
         <Footer />
       </div>
