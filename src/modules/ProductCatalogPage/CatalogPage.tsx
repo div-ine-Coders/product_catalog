@@ -122,32 +122,33 @@ export const CatalogPage = () => {
             {products.length} items
           </span>
         </div>
-        <div className={styles.catalogPageContainerSort}>
-          <div className={styles.catalogPageSort}>
-            <div className={styles.catalogPageSortBy}>
-              <span className={cn('smallText', styles.catalogPageSortByText)}>
-                Sort by
-              </span>
-              <div className={styles.catalogPageSortByButton}>
-                <Dropdown
-                  items={['Newest', 'Price', 'A-Z']}
-                  activeItem={'Newest'}
-                />
-              </div>
+        <div className={styles.catalogPageSort}>
+          <div className={styles.catalogPageSortBy}>
+            <span className={cn('smallText', styles.catalogPageSortByText)}>
+              Sort by
+            </span>
+            <div className={styles.catalogPageSortByButton}>
+              <Dropdown
+                items={['Newest', 'Price', 'A-Z']}
+                activeItem={'Newest'}
+              />
             </div>
-            <div className={styles.catalogPageSortBy}>
-              <span className={cn('smallText', styles.catalogPageSortByText)}>
-                Items on page
-              </span>
-              <div className={styles.catalogPageSortByButton}>
-                <Dropdown items={['All', '64', '32', '16']} activeItem={'16'} />
-              </div>
+          </div>
+          <div className={styles.catalogPageSortBy}>
+            <span className={cn('smallText', styles.catalogPageSortByText)}>
+              Items on page
+            </span>
+            <div className={styles.catalogPageSortByButton}>
+              <Dropdown
+                items={['All', '64', '32', '16']}
+                activeItem={'16'}
+                isBig={false}
+              />
             </div>
           </div>
         </div>
-
         <div className={styles.catalogPageList}>
-          <CatalogList />
+          <CatalogList products={products} />
         </div>
         <div className={styles.switchButtons}>
           <div className={styles.catalogPageButtons}>
