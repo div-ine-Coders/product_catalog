@@ -1,4 +1,4 @@
-import { Color } from '../../../types/Color';
+import { Color } from '../../../types/common/Color';
 
 export const ColorMapping = (color: Color) => {
   const colorMap: Record<string, string> = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './ColorSelector.module.scss';
-import { Color } from '../../../../../types/Color';
+import { Color } from '../../../../../types/common/Color';
 import { ColorMapping } from '../../../utils/ColorMapping';
 
 interface Props {

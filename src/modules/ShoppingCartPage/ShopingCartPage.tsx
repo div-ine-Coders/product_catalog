@@ -5,7 +5,7 @@ import styles from './ShopingCart.module.scss';
 import { BackButton } from 'modules/_shared/components/atoms/BackButton';
 import { CartItem } from 'modules/_shared/components/molecules/CartItem';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
-import { CartItem as CarItemType } from '../../types/CartItem';
+import { CartItem as CarItemType } from '../../types/state/CartItem';
 import { RouterEnum } from '@constants/RouterEnum';
 import emptyCart from '../../assets/empty-cart.png';
 // import { AlertDialog } from 'radix-ui';

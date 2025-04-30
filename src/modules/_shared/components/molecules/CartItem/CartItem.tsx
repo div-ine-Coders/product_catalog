@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CartItem.module.scss';
 import cn from 'classnames';
-import { Product } from '../../../../../types/Product';
+import { Product } from '../../../../../types/dto/Product';
 
 const phone = {
   itemId: 'apple-iphone-11-128gb-black',

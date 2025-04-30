@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-import { Product } from '../../../../../types/Product';
+import { Product } from '@models/dto/Product';
 import { ProductCard } from '../ProductCard';
 import styles from './CatalogList.module.scss';
 import React from 'react';
