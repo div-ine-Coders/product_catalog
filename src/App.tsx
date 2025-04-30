@@ -9,6 +9,7 @@ export const App = () => {
   return (
     <div className="App">
       <Header />
+      <HomePage />
 
       <main>{<Outlet />}</main>
       <div className="footer">
