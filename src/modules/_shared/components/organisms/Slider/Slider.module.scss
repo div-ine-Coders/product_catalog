@@ -26,7 +26,6 @@
   @include on-tablet {
     max-height: 189px;
     aspect-ratio: auto;
-
   }
 
   @include on-desktop {
@@ -74,7 +73,7 @@
 }
 
 .arrowButtonWrapper {
-   display: none;
+  display: none;
 
   @include on-tablet {
     display: flex;
