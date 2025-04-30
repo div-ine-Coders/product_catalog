@@ -11,10 +11,6 @@
   border: 1px solid $color-card;
   cursor: pointer;
 
-  &Big {
-    // max-width: 176px;
-  }
-
   &:hover {
     border-color: $color-icon;
   }
@@ -40,6 +36,7 @@
   margin-top: 4px;
   background-color: $color-bg;
   border: 1px solid $color-element;
+  width: var(--radix-select-trigger-width)
 }
 
 .selectItem {
@@ -49,13 +46,10 @@
   color: $color-text-secondary;
   cursor: pointer;
   user-select: none;
-  width: 128px;
+  width: 100%;
+  
   border: none;
   outline: none;
-
-  &Big {
-    width: 176px;
-  }
 
   &:hover,
   &[data-highlighted] {

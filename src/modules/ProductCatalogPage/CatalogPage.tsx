@@ -123,7 +123,7 @@ export const CatalogPage = () => {
           </span>
         </div>
         <div className={styles.catalogPageSort}>
-          <div className={styles.catalogPageSortBy}>
+          <div className={cn(styles.catalogPageSortBy, styles.isWide)}>
             <span className={cn('smallText', styles.catalogPageSortByText)}>
               Sort by
             </span>
@@ -139,24 +139,22 @@ export const CatalogPage = () => {
               Items on page
             </span>
             <div className={styles.catalogPageSortByButton}>
-              <Dropdown
-                items={['All', '64', '32', '16']}
-                activeItem={'16'}
-                isBig={false}
-              />
+              <Dropdown items={['All', '64', '32', '16']} activeItem={'16'} />
             </div>
           </div>
         </div>
         <div className={styles.catalogPageList}>
           <CatalogList products={products} />
         </div>
-        <div className={styles.switchButtons}>
-          <div className={styles.catalogPageButtons}>
+        <div className={styles.catalogPageSwitch}>
+          <div className={styles.catalogPageSwitchButtons}>
             <ArrowButton direction={ArrowDirection.Left} isDisabled={false} />
-            <DefaultButton>1</DefaultButton>
-            <DefaultButton>2</DefaultButton>
-            <DefaultButton isSelected>3</DefaultButton>
-            <DefaultButton>4</DefaultButton>
+            <div className={styles.catalogPageSwitchButtonsPage}>
+              <DefaultButton isSelected>1</DefaultButton>
+              <DefaultButton>2</DefaultButton>
+              <DefaultButton isSelected>3</DefaultButton>
+              <DefaultButton isSelected>4</DefaultButton>
+            </div>
             <ArrowButton direction={ArrowDirection.Right} isDisabled={false} />
           </div>
         </div>
