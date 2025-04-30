@@ -1,6 +1,6 @@
 import { PaginationPerPage } from '@constants/PaginationPerPage';
 
-export interface PaginationParams {
+export interface PaginationParamsType {
   page: number;
   perPage: PaginationPerPage;
 }

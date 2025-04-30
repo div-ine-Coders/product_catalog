@@ -30,13 +30,9 @@ export const useCartItems = () => {
     const data = localStorage.getItem('cart');
 
     if (data) {
-      try {
-        const parsed = JSON.parse(data) as CartItem[];
+      const parsed = JSON.parse(data) as CartItem[];
 
-        dispatch(setCarts(parsed));
-      } catch (error) {
-        console.error('Failed to parse cart from localStorage:', error);
-      }
+      dispatch(setCarts(parsed));
     }
   }, [dispatch]);
 

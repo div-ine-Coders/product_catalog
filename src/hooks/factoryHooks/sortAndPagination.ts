@@ -1,10 +1,10 @@
-import { paginationParams } from '@models/common/paginationParams';
+import { PaginationParams } from '@models/common/PaginationParams';
 
 export function sortAndPaginate<T>(
   data: T[],
   sort: string | null,
   sortFieldMap: Record<string, keyof T>,
-  pagination: paginationParams,
+  pagination: PaginationParams,
 ): T[] {
   const sortedField = sort && sortFieldMap[sort];
 

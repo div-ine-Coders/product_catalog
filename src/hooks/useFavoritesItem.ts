@@ -30,13 +30,9 @@ export const useFavoritesItem = () => {
     const data = localStorage.getItem('favorites');
 
     if (data) {
-      try {
-        const parsed = JSON.parse(data) as Product[];
+      const parsed = JSON.parse(data) as Product[];
 
-        dispatch(set(parsed));
-      } catch (error) {
-        console.error('Failed to parse favorites from localStorage:', error);
-      }
+      dispatch(set(parsed));
     }
   }, [dispatch]);
 

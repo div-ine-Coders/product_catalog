@@ -1,5 +1,5 @@
 import { PaginationPerPage } from '@constants/PaginationPerPage';
-import { paginationParams } from '@models/common/paginationParams';
+import { PaginationParams } from '@models/common/PaginationParams';
 import { setParams } from 'app/slices/searchParamsSlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ export const useSyncSearchParamsWithStore = () => {
       const page = searchParams.get('page') || 1;
       const perPage = searchParams.get('perPage') || PaginationPerPage.Sixteen;
 
-      let pagination: paginationParams | null = null;
+      let pagination: PaginationParams | null = null;
 
       if (page !== null && perPage !== null) {
         pagination = {

@@ -1,8 +1,8 @@
-import { paginationParams } from '@models/common/paginationParams';
-import { searchParamsStateType } from '@models/state/searchParamsStateType';
+import { PaginationParams } from '@models/common/PaginationParams';
+import { SearchParamsStateType } from '@models/state/SearchParamsStateType';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState: searchParamsStateType = {
+const initialState: SearchParamsStateType = {
   query: '',
   sort: null,
   pagination: null,
@@ -18,10 +18,10 @@ export const searchParamsSlice = createSlice({
     setSort(state, action: PayloadAction<string>) {
       state.sort = action.payload;
     },
-    setPagination(state, action: PayloadAction<paginationParams>) {
+    setPagination(state, action: PayloadAction<PaginationParams>) {
       state.pagination = action.payload;
     },
-    setParams(state, action: PayloadAction<Partial<searchParamsStateType>>) {
+    setParams(state, action: PayloadAction<Partial<SearchParamsStateType>>) {
       Object.assign(state, action.payload);
     },
   },

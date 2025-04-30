@@ -1,16 +1,17 @@
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from './factoryHooks/useAppDispatch';
+import { useAppDispatch } from '../factoryHooks/useAppDispatch';
 import { RootState } from 'app/store';
 import { useEffect, useMemo } from 'react';
-import { productsStateType } from '@models/state/productsStateType';
-import { fetchPhones } from 'app/slices/phonesSlice/phonesSliceAsyncThunk';
+import { ProductsStateType } from '@models/state/ProductsStateType';
+// eslint-disable-next-line max-len
+import { fetchPhones } from 'app/slices/phonesSlice/AcyncThunk/phonesSliceAsyncThunk';
 import { sortFieldMap } from '@constants/sortFieldMap';
-import { sortAndPaginate } from './factoryHooks/sortAndPagination';
+import { sortAndPaginate } from '../factoryHooks/sortAndPagination';
 
-export const usePhones = (): productsStateType => {
+export const usePhones = (): ProductsStateType => {
   const dispatch = useAppDispatch();
 
-  const data = useSelector((state: RootState) => state.phones.data);
+  const data = useSelector((state: RootState) => state.phones.phones);
   const isLoading = useSelector((state: RootState) => state.phones.isLoading);
   const error = useSelector((state: RootState) => state.phones.error);
 

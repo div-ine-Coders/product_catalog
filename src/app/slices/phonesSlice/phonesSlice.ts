@@ -1,9 +1,10 @@
-import { fetchPhones } from './phonesSliceAsyncThunk';
-import { productsStateType } from '@models/state/productsStateType';
-import { createSlice } from '@reduxjs/toolkit';
+import { fetchPhones } from './AcyncThunk/phonesSliceAsyncThunk';
+import { createSlice, isPending, isRejected } from '@reduxjs/toolkit';
+import { PhonesStateType } from './PhonesStateType';
+import { fetchPhoneById } from './AcyncThunk/phonesDetailsAsyncThunk';
 
-const initialState: productsStateType = {
-  data: [],
+const initialState: PhonesStateType = {
+  phones: [],
   isLoading: false,
   error: null,
 };
@@ -12,17 +13,23 @@ const phonesSlice = createSlice({
   name: 'phones',
   initialState,
   reducers: {},
-  extraReducers(builder) {
+  extraReducers: builder => {
     builder
-      .addCase(fetchPhones.pending, state => {
+      .addCase(fetchPhones.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.phones = action.payload;
+      })
+      .addCase(fetchPhoneById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.phoneDetails = action.payload;
+      })
+
+      .addMatcher(isPending(fetchPhones, fetchPhoneById), state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchPhones.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.data = action.payload;
-      })
-      .addCase(fetchPhones.rejected, (state, action) => {
+
+      .addMatcher(isRejected(fetchPhones, fetchPhoneById), (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || 'Something went wrong';
       });

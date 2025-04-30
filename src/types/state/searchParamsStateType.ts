@@ -1,7 +1,7 @@
-import { paginationParams } from '@models/common/paginationParams';
+import { PaginationParams } from '@models/common/PaginationParams';
 
-export interface searchParamsStateType {
+export interface SearchParamsStateType {
   query: string | null;
   sort: string | null;
-  pagination: paginationParams | null;
+  pagination: PaginationParams | null;
 }

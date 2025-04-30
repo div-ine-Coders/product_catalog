@@ -1,9 +1,10 @@
-import { fetchTablets } from './tabletSliceAsyncThunk';
-import { productsStateType } from '@models/state/productsStateType';
-import { createSlice } from '@reduxjs/toolkit';
+import { fetchTablets } from './AsyncThunk/tabletSliceAsyncThunk';
+import { createSlice, isPending, isRejected } from '@reduxjs/toolkit';
+import { TabletsStateType } from './TabletsStateType';
+import { fetchTabletById } from './AsyncThunk/tabletDetailsAcyncThunk';
 
-const initialState: productsStateType = {
-  data: [],
+const initialState: TabletsStateType = {
+  tablets: [],
   isLoading: false,
   error: null,
 };
@@ -14,18 +15,27 @@ const tabletsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchTablets.pending, state => {
+      .addCase(fetchTablets.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.tablets = action.payload;
+      })
+      .addCase(fetchTabletById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.tabletDetails = action.payload;
+      })
+
+      .addMatcher(isPending(fetchTablets, fetchTabletById), state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchTablets.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.data = action.payload;
-      })
-      .addCase(fetchTablets.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message || 'Something went wrong';
-      });
+
+      .addMatcher(
+        isRejected(fetchTablets, fetchTabletById),
+        (state, action) => {
+          state.isLoading = false;
+          state.error = action.error.message || 'Something went wrong';
+        },
+      );
   },
 });
 
