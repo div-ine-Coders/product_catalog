@@ -103,15 +103,18 @@ export const FavouritePage = () => {
   return (
     <>
       <div className={styles.favouritePage}>
-        <div className={styles.breadcrumbs}>
-          <Link to="/" className={styles.breadcrumbsLink}>
-            <img src={home} alt="Home" />
-          </Link>
-          <span className={styles.breadcrumbsSeparator}>
-            <img src={arrow} alt="arrow" />
-          </span>
-          <span className={styles.breadcrumbsCurrent}>Favourite</span>
+        <div className={styles.breadcrumbsContainer}>
+          <div className={styles.breadcrumbs}>
+            <Link to="/" className={styles.breadcrumbsLink}>
+              <img src={home} alt="Home" />
+            </Link>
+            <span className={styles.breadcrumbsSeparator}>
+              <img src={arrow} alt="arrow" />
+            </span>
+            <span className={styles.breadcrumbsCurrent}>Favourite</span>
+          </div>
         </div>
+
         <div className={styles.favouritePageQuantity}>
           <h1 className={styles.favouritePageQuantityTitle}>Favourites</h1>
           <span className={styles.favouritePageQuantityItems}>
@@ -119,7 +122,9 @@ export const FavouritePage = () => {
           </span>
         </div>
         {products.length ? (
-          <CatalogList />
+          <div className={styles.favouritePageList}>
+            <CatalogList />
+          </div>
         ) : (
           <div className={styles.favouritePageEmpty}>
             <img
