@@ -13,7 +13,6 @@ import noFavourite from '../../assets/shopping-bag.svg';
 import cn from 'classnames';
 import { Product } from '@models/dto/Product';
 
-
 const products: Product[] = [
   {
     id: 1,
