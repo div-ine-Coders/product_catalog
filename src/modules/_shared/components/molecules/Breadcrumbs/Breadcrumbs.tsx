@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 import homeIcon from '@assets/icons/icon-home.svg';
 import arrowIcon from '@assets/icons/icon-arrow-left-grey.svg';
+import React from 'react';
 
-// Умовний словник назв
 const nameMap: Record<string, string> = {
   products: 'Products',
   phones: 'Phones',
@@ -16,27 +15,7 @@ const nameMap: Record<string, string> = {
 
 export const Breadcrumbs: React.FC = () => {
   const location = useLocation();
-  const [dynamicNames, setDynamicNames] = useState<Record<string, string>>({});
-
   const pathnames = location.pathname.split('/').filter(Boolean);
-
-  useEffect(() => {
-    const lastSegment = pathnames[pathnames.length - 1];
-
-    if (lastSegment && /^\d+$/.test(lastSegment)) {
-      fetch(`/api/products/${lastSegment}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data?.name) {
-            setDynamicNames(prev => ({
-              ...prev,
-              [lastSegment]: data.name,
-            }));
-          }
-        })
-        .catch(() => {});
-    }
-  }, [pathnames]);
 
   return (
     <div className={styles.breadcrumbs}>
@@ -49,9 +28,7 @@ export const Breadcrumbs: React.FC = () => {
         const isLast = index === pathnames.length - 1;
 
         const displayName =
-          nameMap[segment] ||
-          dynamicNames[segment] ||
-          decodeURIComponent(segment);
+          nameMap[segment] || decodeURIComponent(segment).replace(/-/g, ' ');
 
         return (
           <React.Fragment key={routeTo}>
