@@ -1,5 +1,5 @@
 import { PaginationPerPage } from '@constants/PaginationPerPage';
-import { PaginationParams } from '@models/common/PaginationParams';
+import { PaginationParams } from '@models/common/PaginationParamsType';
 
 export function sortAndPaginate<T>(
   data: T[],

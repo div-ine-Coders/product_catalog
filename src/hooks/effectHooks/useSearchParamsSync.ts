@@ -1,5 +1,5 @@
 import { PaginationPerPage } from '@constants/PaginationPerPage';
-import { PaginationParams } from '@models/common/PaginationParams';
+import { PaginationParams } from '@models/common/PaginationParamsType';
 import { setParams } from 'app/slices/searchParamsSlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';

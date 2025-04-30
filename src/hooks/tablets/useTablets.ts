@@ -2,11 +2,11 @@ import { RootState } from 'app/store';
 import { useAppDispatch } from '../factoryHooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
-import { ProductsStateType } from '@models/state/ProductsStateType';
 // eslint-disable-next-line max-len
 import { fetchTablets } from 'app/slices/tabletsSlice/AsyncThunk/tabletSliceAsyncThunk';
 import { sortAndPaginate } from '../factoryHooks/sortAndPagination';
 import { sortFieldMap } from '@constants/sortFieldMap';
+import { ProductsStateType } from '@models/state/productsStateType';
 
 export const useTablets = (): ProductsStateType => {
   const dispatch = useAppDispatch();

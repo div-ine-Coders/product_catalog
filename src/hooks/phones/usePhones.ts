@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../factoryHooks/useAppDispatch';
 import { RootState } from 'app/store';
 import { useEffect, useMemo } from 'react';
-import { ProductsStateType } from '@models/state/ProductsStateType';
+import { ProductsStateType } from '@models/state/productsStateType';
 // eslint-disable-next-line max-len
 import { fetchPhones } from 'app/slices/phonesSlice/AcyncThunk/phonesSliceAsyncThunk';
 import { sortFieldMap } from '@constants/sortFieldMap';

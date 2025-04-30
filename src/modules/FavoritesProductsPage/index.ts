@@ -1,1 +1,1 @@
-export * from './FavoriteProductPage';
+export * from './FavouritePage';

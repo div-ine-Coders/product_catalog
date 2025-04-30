@@ -11,7 +11,8 @@ import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import { RouterEnum } from '@constants/RouterEnum';
 import noFavourite from '../../assets/shopping-bag.svg';
 import cn from 'classnames';
-import { Product } from '../../types/Product';
+import { Product } from '@models/dto/Product';
+
 
 const products: Product[] = [
   {

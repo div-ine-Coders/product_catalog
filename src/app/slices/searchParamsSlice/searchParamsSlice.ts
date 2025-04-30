@@ -1,5 +1,5 @@
-import { PaginationParams } from '@models/common/PaginationParams';
-import { SearchParamsStateType } from '@models/state/SearchParamsStateType';
+import { PaginationParams } from '@models/common/PaginationParamsType';
+import { SearchParamsStateType } from '@models/state/searchParamsStateType';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: SearchParamsStateType = {

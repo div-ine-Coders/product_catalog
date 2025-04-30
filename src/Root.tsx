@@ -5,9 +5,9 @@ import React from 'react';
 import { HomePage } from 'modules/HomePage';
 import { ProductCatalogPage } from 'modules/ProductCatalogPage';
 import { ProductDetailsPage } from 'modules/ProductDetailsPage';
-import { FavoriteProductPage } from 'modules/FavoritesProductsPage';
 import { NotFoundPage } from 'modules/NotFoundPage';
 import { ShopingCartPage } from 'modules/ShoppingCartPage';
+import { FavouritePage } from 'modules/FavoritesProductsPage';
 
 export const Root = () => (
   <HashRouter>
@@ -31,13 +31,12 @@ export const Root = () => (
           <Route path=":tabletId" element={<ProductDetailsPage />} />
         </Route>
 
-
         <Route path={RouterEnum.ACCESSORIES}>
           <Route index element={<ProductCatalogPage />} />
           <Route path=":accesoriesId" element={<ProductDetailsPage />} />
         </Route>
 
-        <Route path={RouterEnum.FAVORITES} element={<FavoriteProductPage />} />
+        <Route path={RouterEnum.FAVORITES} element={<FavouritePage />} />
         <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
         <Route path="*" element={<NotFoundPage />} />
