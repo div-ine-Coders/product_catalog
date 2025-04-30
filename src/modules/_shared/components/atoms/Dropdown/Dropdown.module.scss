@@ -36,7 +36,7 @@
   margin-top: 4px;
   background-color: $color-bg;
   border: 1px solid $color-element;
-  width: var(--radix-select-trigger-width)
+  width: var(--radix-select-trigger-width);
 }
 
 .selectItem {
@@ -47,7 +47,7 @@
   cursor: pointer;
   user-select: none;
   width: 100%;
-  
+
   border: none;
   outline: none;
 
