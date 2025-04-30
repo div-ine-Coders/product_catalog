@@ -3,7 +3,7 @@ import { App } from './App';
 import { RouterEnum } from './constants/RouterEnum';
 import React from 'react';
 import { ShopingCartPage } from 'modules/ShoppingCartPage';
-import { FavouritePage } from 'modules/FavoritesProductsPage';
+import { FavouritePage } from 'modules/FavoritesProductsPage/FavouritePage';
 
 const placeholderRoute = (title: string) => <div>{title} Placeholder</div>;
 
