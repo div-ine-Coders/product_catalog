@@ -8,6 +8,8 @@ import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParams
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
 import { HomePage } from 'modules/HomePage';
 
+import { HomePage } from 'modules/HomePage/HomePage';
+
 export const App = () => {
   useSyncSearchParamsWithStore();
 
