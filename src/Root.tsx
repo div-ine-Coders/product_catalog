@@ -3,6 +3,7 @@ import { App } from './App';
 import { RouterEnum } from './constants/RouterEnum';
 import React from 'react';
 import { ShopingCartPage } from 'modules/ShoppingCartPage';
+import { FavouritePage } from 'modules/FavoritesProductsPage/FavouritePage';
 
 const placeholderRoute = (title: string) => <div>{title} Placeholder</div>;
 
@@ -32,10 +33,7 @@ export const Root = () => (
             element={placeholderRoute('Accessory Details')}
           />
         </Route>
-        <Route
-          path={RouterEnum.FAVORITES}
-          element={placeholderRoute('Favorites')}
-        />
+        <Route path={RouterEnum.FAVORITES} element={<FavouritePage />} />
         <Route path={RouterEnum.CART} element={<ShopingCartPage />} />
 
         <Route path="*" element={placeholderRoute('Not Found')} />
