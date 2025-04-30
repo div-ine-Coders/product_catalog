@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import styles from './Slider.module.scss'; // Виправив імпорт
+import styles from './Slider.module.scss';
 
 import { ArrowButton } from '../../atoms/ArrowButton';
 import { ArrowDirection } from '../../../../../constants/ArrowDirection';
@@ -33,16 +33,16 @@ export const Slider = () => {
   };
 
   return (
-    <div className={styles.customSlider}>
-      <div className={styles.arrowButtonWrapper}>
-        <ArrowButton direction={ArrowDirection.Left} click={handlePrev} />
-      </div>
+    <div className={styles.sliderComponentWrapper}>
+      <div className={styles.sliderRow}>
+        <div className={styles.arrowButtonWrapper}>
+          <ArrowButton direction={ArrowDirection.Left} click={handlePrev} />
+        </div>
 
-      <div className={styles.sliderControlsWrapper}>
         <Swiper
           ref={swiperRef}
           modules={[Autoplay]}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          autoplay={{ delay: 10000, disableOnInteraction: false }}
           loop={true}
           onSlideChange={(swiper: SwiperType) =>
             setActiveIndex(swiper.realIndex)
@@ -60,19 +60,21 @@ export const Slider = () => {
           ))}
         </Swiper>
 
-        <div className={styles.customPagination}>
-          {images.map((_, index) => (
-            <div
-              key={index}
-              className={`${styles.customPaginationBullet} ${activeIndex === index ? styles.active : ''}`}
-              onClick={() => handleBulletClick(index)}
-            ></div>
-          ))}
+        <div className={styles.arrowButtonWrapper}>
+          <ArrowButton direction={ArrowDirection.Right} click={handleNext} />
         </div>
       </div>
 
-      <div className={styles.arrowButtonWrapper}>
-        <ArrowButton direction={ArrowDirection.Right} click={handleNext} />
+      <div className={styles.customPagination}>
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`${styles.customPaginationBullet} ${
+              activeIndex === index ? styles.active : ''
+            }`}
+            onClick={() => handleBulletClick(index)}
+          ></div>
+        ))}
       </div>
     </div>
   );

@@ -5,6 +5,8 @@ import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { CatalogList } from 'modules/_shared/components/molecules/CatalogList';
 import { Outlet } from 'react-router-dom';
 // eslint-disable-next-line max-len
+import { ShopByCategory } from 'modules/HomePage/components/ShopByCategory/ShopByCategory';
+import { Slider } from 'modules/_shared/components/organisms/Slider/Slider';
 
 export const App = () => {
   return (
@@ -15,8 +17,9 @@ export const App = () => {
         <CatalogList />
       </div>
       <main>{<Outlet />}</main>
+      <ShopByCategory />
+      <Slider />
       <div className="footer">
-        {/* <ProductCarousel products={phone} title="Phone" /> */}
         <Footer />
       </div>
     </div>

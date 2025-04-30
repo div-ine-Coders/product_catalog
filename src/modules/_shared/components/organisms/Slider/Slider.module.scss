@@ -1,42 +1,51 @@
 @use '../../../../../App.scss' as *;
 
-.customSlider {
-  @include grid-layout;
-  @include content-padding-in-line();
-  justify-content: center;
+.sliderComponentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 0;
 }
 
-.customSliderSwiper {
+.sliderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   width: 100%;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.customSliderSwiper {
+  flex-grow: 1;
+  flex-shrink: 1;
   aspect-ratio: 1 / 1;
+  height: 100%;
+  max-height: 320px;
 
   @include on-tablet {
-    height: 189px;
+    max-height: 189px;
+    aspect-ratio: auto;
+
   }
 
   @include on-desktop {
-    width: 1040px;
-    height: 400px;
+    max-height: 400px;
   }
 }
 
 .customSliderImage {
-  object-fit: contain;
+  display: block;
+  object-fit: cover;
   width: 100%;
   height: 100%;
-}
-
-.sliderControlsWrapper {
-  grid-column: 1 / -1;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   @include on-tablet {
-    grid-column: 2 / -2;
-    aspect-ratio: 0;
+    max-height: 189px;
+  }
+
+  @include on-desktop {
+    max-height: 430px;
   }
 }
 
@@ -44,7 +53,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8px;
 }
 
 .customPaginationBullet {
@@ -66,18 +74,13 @@
 }
 
 .arrowButtonWrapper {
-  @media (max-width: $breakpoint-tablet) {
-    display: none;
-  }
+   display: none;
 
   @include on-tablet {
-    justify-content: space-between;
-    height: 189px;
-    width: 32px;
-  }
-
-  @include on-desktop {
-    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     width: 32px;
   }
 }
