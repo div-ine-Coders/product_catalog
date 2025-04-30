@@ -1,0 +1,71 @@
+@use './../../App.scss';
+@use './../../App.scss' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 56px;
+
+  @include on-tablet {
+    @include content-padding-in-line();
+    @include grid-layout;
+    row-gap: 64px;
+  }
+  @include on-desktop {
+    row-gap: 80px;
+  }
+}
+.bannerTitle {
+  margin-top: 24px;
+  padding-inline: 16px;
+  text-align: left;
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    margin-top: 32px;
+  }
+
+  @include on-desktop {
+    margin-top: 56px;
+  }
+  &Text {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 41px;
+    color: $color-text-main;
+    white-space: normal;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      max-width: 100%;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 56px;
+    }
+
+    @include on-desktop {
+      white-space: nowrap;
+    }
+  }
+  .mobileOnly {
+    display: inline;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  .desktopOnly {
+    display: none;
+
+    @include on-desktop {
+      display: inline;
+    }
+  }
+}
+
+.pageSection {
+  @include on-tablet {
+    grid-column: 1 / -1;
+  }
+}
