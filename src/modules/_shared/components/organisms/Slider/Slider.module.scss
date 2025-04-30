@@ -1,0 +1,85 @@
+@use '../../../../../App.scss' as *;
+
+.sliderComponentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.sliderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.customSliderSwiper {
+  flex-grow: 1;
+  flex-shrink: 1;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  max-height: 320px;
+
+  @include on-tablet {
+    max-height: 189px;
+    aspect-ratio: auto;
+  }
+
+  @include on-desktop {
+    max-height: 400px;
+  }
+}
+
+.customSliderImage {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+
+  @include on-tablet {
+    max-height: 189px;
+  }
+
+  @include on-desktop {
+    max-height: 430px;
+  }
+}
+
+.customPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customPaginationBullet {
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+  background: $color-element;
+  opacity: 0.6;
+  margin: 0 5px;
+  cursor: pointer;
+  transition:
+    opacity 0.3s,
+    background 0.3s;
+}
+
+.active {
+  background: $color-text-main;
+  opacity: 1;
+}
+
+.arrowButtonWrapper {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 32px;
+  }
+}
