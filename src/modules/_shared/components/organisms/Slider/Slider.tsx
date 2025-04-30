@@ -75,7 +75,6 @@ export const Slider = () => {
                 img={banner.img}
                 description={banner.description}
                 alt={banner.alt}
-                link={banner.link}
               />
             </SwiperSlide>
           ))}
