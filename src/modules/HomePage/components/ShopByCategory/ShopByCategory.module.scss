@@ -1,7 +1,6 @@
 @use '../../../../App.scss' as *;
 
 .shopByCategory {
-  @include content-padding-in-line();
   @include grid-layout;
   row-gap: 24px;
 
