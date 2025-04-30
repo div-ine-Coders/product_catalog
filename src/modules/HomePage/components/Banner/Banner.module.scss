@@ -4,7 +4,6 @@
   position: relative;
   height: 432px;
   overflow: hidden;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,33 +28,48 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 20%;
     z-index: 1;
     display: flex;
     align-items: center;
+
+    @include on-tablet {
+      height: 50%;
+    }
+
+    @include on-desktop {
+      height: 100%;
+    }
     // justify-content: center;
   }
 
   &Content {
     position: relative;
     z-index: 2;
-    padding: 20px;
+    padding-inline: 20px;
     max-width: 1200px;
-    max-height: 80%;
-    width: 40%;
-    text-align: left;
+    text-align: center;
     display: flex;
+    width: 100%;
     flex-direction: column;
-    // align-items: center;
+    align-self: center;
+    background: linear-gradient(
+      to bottom,
+      rgb(15, 17, 33) 50%,
+      rgba(19, 8, 8, 0) 100%
+    );
 
     @include on-tablet {
       margin: 15px;
       padding-left: 30px;
-      padding-top: 25px;
-      background-color: $color-icon;
+      padding-top: 15px;
+      width: 40%;
+      text-align: left;
+      background-color: rgba(74, 77, 88, 0.9);
       border-radius: 15px;
     }
     @include on-desktop {
+      height: 80%;
       padding-left: 50px;
     }
   }
@@ -64,9 +78,9 @@
     margin-top: 30px;
     margin-bottom: 40px;
     font-size: 24px;
-    color: #2f1df0;
+    color: #1a06f4;
     line-height: 1;
-    background: linear-gradient(to right, #2f1df0, #c47ef3);
+    background: linear-gradient(to right, #4535f1fc, #930eec);
     -webkit-background-clip: text;
     color: transparent;
 
@@ -106,14 +120,21 @@
       justify-content: space-between;
       padding-bottom: 30px;
     }
+
+    @include on-desktop {
+      padding-bottom: 50px;
+    }
   }
 
   &Text {
     color: #bfbfc9;
+    padding-bottom: 50px;
   }
 
   &Button {
-    padding: 12px 12px;
+    padding: 5px 5%;
+
+    font-size: 8px;
     width: 150px;
     background-color: inherit;
     border: none;
@@ -125,33 +146,23 @@
     text-transform: uppercase;
 
     @include img-hover-scale;
-  }
 
-  &ImageWrapper {
-    flex: 1 1;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-
-    @include on-tablet {
-      margin-top: 0;
+    @include on-desktop {
+      padding: 15px 15px;
+      font-size: 14px;
+      width: 150px;
     }
   }
-  &ImageWrapper {
-    @include on-tablet {
-      margin-top: 0;
-    }
-  }
+}
+.clickableMobile {
+  cursor: pointer;
 
-  &Image {
-    width: 100%;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-    object-position: center;
+  @include on-tablet {
+    cursor: default;
+    pointer-events: none;
+
+    button {
+      pointer-events: auto;
+    }
   }
 }

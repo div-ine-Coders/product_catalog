@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './Banner.module.scss';
 
 interface Props {
@@ -21,8 +22,12 @@ export const Banner: React.FC<Props> = ({
   const secondLine = parts[1] || '';
 
   return (
-    <div className={styles.banner}>
+    <div
+      className={cn(styles.banner, styles.clickableMobile)}
+      onClick={onClick}
+    >
       <img src={img} alt={alt} className={styles.bannerImage} />
+
       <div className={styles.bannerOverlay}>
         <div className={styles.bannerContent}>
           <h2 className={styles.bannerTitle}>

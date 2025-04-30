@@ -7,12 +7,15 @@ import { ProductCatalogPage } from 'modules/ProductCatalogPage';
 import { ProductDetailsPage } from 'modules/ProductDetailsPage';
 import { NotFoundPage } from 'modules/NotFoundPage';
 import { ShopingCartPage } from 'modules/ShoppingCartPage';
-import { FavouritePage } from 'modules/FavoritesProductsPage';
+import { HomePage } from 'modules/HomePage/HomePage';
+
+const placeholderRoute = (title: string) => <div>{title} Placeholder</div>;
 
 export const Root = () => (
   <HashRouter>
     <Routes>
       <Route path={RouterEnum.HOME} element={<App />}>
+        <Route index element={<HomePage />} />
         <Route index element={<HomePage />} />
         <Route
           path="/home"

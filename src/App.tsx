@@ -2,11 +2,9 @@ import React from 'react';
 import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
+import { Outlet } from 'react-router-dom';
 // eslint-disable-next-line max-len
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
-import { Outlet } from 'react-router-dom';
-
-import { HomePage } from 'modules/HomePage/HomePage';
 
 export const App = () => {
   useSyncSearchParamsWithStore();
@@ -14,10 +12,8 @@ export const App = () => {
   return (
     <div className="App">
       <Header />
-      <main>
-        {/* тут більше нічого не пишемо переходьте на сторінку, яка вам потрібна*/}
-        <Outlet />
-      </main>
+
+      <main>{<Outlet />}</main>
       <div className="footer">
         <Footer />
       </div>
