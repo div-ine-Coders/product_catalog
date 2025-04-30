@@ -11,8 +11,9 @@ import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import { RouterEnum } from '@constants/RouterEnum';
 import noFavourite from '../../assets/shopping-bag.svg';
 import cn from 'classnames';
+import { Product } from '../../types/Product';
 
-const products = [
+const products: Product[] = [
   {
     id: 1,
     category: 'phones',
@@ -84,10 +85,10 @@ const products = [
     image: 'img/phones/apple-iphone-11/black/00.webp',
   },
   {
-    id: 6,
+    id: 5,
     category: 'phones',
     itemId: 'apple-iphone-11-64gb-black',
-    name: 'Apple iPhone 11 Pro Max 512GB Midnight Green (iMT9G2FS/A)',
+    name: 'Apple iPhone 11 64GB Black',
     fullPrice: 932,
     price: 880,
     screen: "6.1' IPS",
@@ -117,13 +118,15 @@ export const FavouritePage = () => {
 
         <div className={styles.favouritePageQuantity}>
           <h1 className={styles.favouritePageQuantityTitle}>Favourites</h1>
-          <span className={styles.favouritePageQuantityItems}>
-            {products.length} items
-          </span>
+          {products.length !== 0 && (
+            <span className={styles.favouritePageQuantityItems}>
+              {products.length} items
+            </span>
+          )}
         </div>
         {products.length ? (
           <div className={styles.favouritePageList}>
-            <CatalogList />
+            <CatalogList products={products} />
           </div>
         ) : (
           <div className={styles.favouritePageEmpty}>
