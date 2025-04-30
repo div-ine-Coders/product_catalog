@@ -6,6 +6,7 @@ import { Footer } from 'modules/_shared/components/organisms/Footer';
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
 import { HomePage } from 'modules/HomePage';
+import { Outlet } from 'react-router-dom';
 
 export const App = () => {
   useSyncSearchParamsWithStore();
