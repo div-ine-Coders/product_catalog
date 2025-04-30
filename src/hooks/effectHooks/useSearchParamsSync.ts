@@ -21,14 +21,14 @@ export const useSyncSearchParamsWithStore = () => {
       const query = searchParams.get('query') || null;
       const sort = searchParams.get('sort') || null;
       const page = searchParams.get('page') || 1;
-      const perPage = searchParams.get('perPage') || PaginationPerPage.Sixteen;
+      const perPage = searchParams.get('perPage') || PaginationPerPage.All;
 
       let pagination: PaginationParams | null = null;
 
       if (page !== null && perPage !== null) {
         pagination = {
           page: +page,
-          perPage: +perPage as PaginationPerPage,
+          perPage: perPage as PaginationPerPage,
         };
       }
 

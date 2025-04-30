@@ -1,3 +1,4 @@
+import { PaginationPerPage } from '@constants/PaginationPerPage';
 import { PaginationParams } from '@models/common/PaginationParams';
 
 export function sortAndPaginate<T>(
@@ -31,12 +32,12 @@ export function sortAndPaginate<T>(
     });
   }
 
-  if (pagination.perPage === 0) {
+  if (pagination.perPage === PaginationPerPage.All) {
     return sorted;
   }
 
-  const start = (pagination.page - 1) * pagination.perPage;
-  const end = start + pagination.perPage;
+  const start = (pagination.page - 1) * +pagination.perPage;
+  const end = start + +pagination.perPage;
 
   return sorted.slice(start, end);
 }

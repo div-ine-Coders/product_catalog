@@ -14,15 +14,11 @@ export const useFavoritesItem = () => {
     return favorites.some(item => item.id === id);
   };
 
-  const addFavorite = (product: Product) => {
-    dispatch(add(product));
-  };
-
-  const removeFavorite = (id: number) => {
-    const product = favorites.find(item => item.id === id);
-
-    if (product) {
+  const setFavorite = (product: Product) => {
+    if (isFavorite(product.id)) {
       dispatch(remove(product));
+    } else {
+      dispatch(add(product));
     }
   };
 
@@ -42,8 +38,7 @@ export const useFavoritesItem = () => {
 
   return {
     items: favorites,
-    add: addFavorite,
-    remove: removeFavorite,
+    setFavorite: setFavorite,
     isFavorite,
   };
 };
