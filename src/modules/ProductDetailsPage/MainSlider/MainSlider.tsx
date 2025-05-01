@@ -6,8 +6,6 @@ interface Props {
 }
 
 export const MainSlider: React.FC<Props> = ({ images }) => {
-  console.log(images); //delete
-
   return (
     <div
       className={styles.mainSlider}
@@ -16,7 +14,7 @@ export const MainSlider: React.FC<Props> = ({ images }) => {
         height: '400px',
       }}
     >
-      slider
+      slider {images.length}
     </div>
   );
 };

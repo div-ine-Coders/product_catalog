@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './About.module.scss';
-import { Description } from '../../../types/Description';
+import { Description } from '@models/dto/Description';
 
 interface Props {
   description: Description[];

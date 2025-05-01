@@ -1,5 +1,5 @@
-import { Color } from './Color';
-import { Description } from './Description';
+import { Color } from './common/Color';
+import { Description } from './dto/Description';
 
 export interface Gadget {
   id: string;
