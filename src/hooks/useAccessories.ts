@@ -5,7 +5,7 @@ import { useEffect, useMemo } from 'react';
 // eslint-disable-next-line max-len
 import { fetchAccessories } from 'app/slices/accessoriesSlice/accessoriesSliceAsyncThunk';
 import { sortFieldMap } from '@constants/sortFieldMap';
-import { sortAndPaginate } from '../factoryHooks/sortAndPagination';
+import { sortAndPaginate } from './factoryHooks/sortAndPagination';
 
 /*                        here: ProductsStateType */
 export const useAccessories = () => {

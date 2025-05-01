@@ -11,13 +11,15 @@ import { ArrowDirection } from '@constants/ArrowDirection';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import cn from 'classnames';
 import { PaginationPerPage } from '@constants/PaginationPerPage';
-import { usePhones } from '@hooks/phones/usePhones';
 import { sortAndPaginate } from '@hooks/factoryHooks/sortAndPagination';
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAccessories } from '@hooks/accessories/useAccessories';
-import { useTablets } from '@hooks/tablets/useTablets';
+import { useAccessories } from '@hooks/useAccessories';
+import { usePhones } from '@hooks/usePhones';
+import { useTablets } from '@hooks/useTablets';
+import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
+
 
 export const ProductCatalogPage = () => {
   useSyncSearchParamsWithStore();
@@ -187,6 +189,7 @@ export const ProductCatalogPage = () => {
 
   return (
     <div className={styles.catalogPage}>
+      <Breadcrumbs />
       <div className={styles.catalogPageQuantity}>
         <h1 className={styles.catalogPageQuantityTitle}>
           {getCategoryTitle()}
@@ -228,7 +231,7 @@ export const ProductCatalogPage = () => {
         {isLoading && <div>Loading products...</div>}
         {error && <div>Error loading products: {error}</div>}
         {!isLoading && !error && (
-          <CatalogList products={sortedAndPaginatedData} />
+          <CatalogList products={sortedAndPaginatedData}  />
         )}
       </div>
 

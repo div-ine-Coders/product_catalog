@@ -4,7 +4,8 @@ import { useEffect, useMemo } from 'react';
 // eslint-disable-next-line max-len
 import { fetchPhones } from 'app/slices/phonesSlice/phonesSliceAsyncThunk';
 import { sortFieldMap } from '@constants/sortFieldMap';
-import { sortAndPaginate } from '../factoryHooks/sortAndPagination';
+import { useAppDispatch } from './factoryHooks/useAppDispatch';
+import { sortAndPaginate } from './factoryHooks/sortAndPagination';
 /*                        here: ProductsStateType */
 export const usePhones = () => {
   const dispatch = useAppDispatch();
