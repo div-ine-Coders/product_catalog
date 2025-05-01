@@ -1,4 +1,4 @@
-@use '../../../../../App.scss' as *;
+@use '../../../../App.scss' as *;
 
 .sliderComponentWrapper {
   display: flex;
@@ -11,7 +11,7 @@
   flex-direction: row;
   align-items: stretch;
   width: 100%;
-  max-height: 432px;
+  max-height: 352px;
   height: 100%;
   gap: 16px;
   margin-bottom: 8px;

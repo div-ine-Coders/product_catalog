@@ -3,7 +3,7 @@ import { ShopByCategory } from './components/ShopByCategory';
 // import { HotPrices } from './components/HotPrices';
 // import { BrandNewModels } from './components/BrandNewModels';
 import styles from './HomePage.module.scss';
-import { Slider } from './../_shared/components/organisms/Slider/Slider';
+import { Slider } from './components/Slider/Slider';
 
 export const HomePage = () => {
   return (

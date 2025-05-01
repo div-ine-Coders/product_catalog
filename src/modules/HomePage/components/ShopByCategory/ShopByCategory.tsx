@@ -1,59 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import styles from './ShopByCategory.module.scss';
-import { RouterEnum } from '@constants/RouterEnum';
 import { Link } from 'react-router-dom';
 
-const categories = [
-  {
-    title: 'Mobile phones',
-    count: '95 models',
-    img: '/img/category-phones.png',
-    alt: 'Mobile phones',
-    modifier: 'categoryPhones',
-    link: RouterEnum.PHONES,
-  },
-  {
-    title: 'Tablets',
-    count: '24 models',
-    img: '/img/category-tablets.png',
-    alt: 'Tablets',
-    modifier: 'categoryTablets',
-    link: RouterEnum.TABLETS,
-  },
-  {
-    title: 'Accessories',
-    count: '100 models',
-    img: '/img/category-accessories.png',
-    alt: 'Accessories',
-    modifier: 'categoryAccessories',
-    link: RouterEnum.ACCESSORIES,
-  },
-];
+interface CategoriesData {
+  title: string;
+  count: string;
+  img: string;
+  alt: string;
+  modifier: string;
+  link: string;
+}
 
 export const ShopByCategory = () => {
+  const [categories, setCategories] = useState<CategoriesData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('/api/category.json');
+        const data = await response.json();
+
+        setCategories(data);
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  if (isLoading) {
+    return <div className={styles.loader}>Loading...</div>; // замінити на наш лоадер
+  }
+
   return (
     <section className={styles.shopByCategory}>
       <h2 className={styles.shopByCategoryTitle}>Shop by category</h2>
 
       <div className={styles.shopByCategoryContainer}>
-        {categories.map(categories => (
+        {categories.map(category => (
           <Link
-            key={categories.title}
-            to={categories.link}
-            className={cn(styles.category, styles[categories.modifier])}
+            key={category.title}
+            to={category.link}
+            className={cn(styles.category, styles[category.modifier])}
           >
             <div className={styles.categoryImageWrapper}>
               <img
                 className={styles.categoryImage}
-                src={categories.img}
-                alt={categories.alt}
+                src={category.img}
+                alt={category.alt}
               />
             </div>
 
             <div className={styles.categoryContent}>
-              <h4 className={styles.categoryTitle}>{categories.title}</h4>
-              <p className={styles.categoryCount}>{categories.count}</p>
+              <h4 className={styles.categoryTitle}>{category.title}</h4>
+              <p className={styles.categoryCount}>{category.count}</p>
             </div>
           </Link>
         ))}

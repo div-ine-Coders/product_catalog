@@ -1,14 +1,15 @@
-@import './../../../../App.scss';
+@import './../../../../../App.scss';
 
 .banner {
   position: relative;
-  height: 432px;
+  height: 320px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 
   @include on-tablet {
+    min-height: 189px;
     flex-direction: row;
     text-align: left;
   }
@@ -34,7 +35,7 @@
     align-items: center;
 
     @include on-tablet {
-      height: 50%;
+      height: 70%;
     }
 
     @include on-desktop {
