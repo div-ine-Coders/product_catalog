@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { showLoader, hideLoader } from 'app/slices/loaderSlice/loaderSlice';
+
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -31,6 +32,7 @@ export const Slider = () => {
     const fetchBanners = async () => {
       try {
         dispatch(showLoader());
+
         const response = await fetch('/api/banners.json');
         const data = await response.json();
 

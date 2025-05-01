@@ -14,6 +14,7 @@ export const Root = () => (
     <Routes>
       <Route path={RouterEnum.HOME} element={<App />}>
         <Route index element={<HomePage />} />
+        <Route index element={<HomePage />} />
         <Route
           path="/home"
           element={<Navigate to={RouterEnum.HOME} replace={true} />}
