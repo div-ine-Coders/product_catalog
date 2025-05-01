@@ -8,10 +8,10 @@ import { FavouriteButton } from 'modules/_shared/components/atoms/FavouriteButto
 import cn from 'classnames';
 import styles from './Info.module.scss';
 import { Color } from '@models/common/Color';
-import { Gadget } from '@models/Gadget';
 import { useCartItems } from '@hooks/useCartStore';
 import { Product } from '@models/dto/Product';
 import { useFavoritesItem } from '@hooks/useFavoritesItem';
+import { Gadget } from '@models/dto/Gadget';
 
 interface Props {
   gadget: Gadget;

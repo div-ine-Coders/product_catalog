@@ -1,6 +1,6 @@
 import { ProductCategories } from '@constants/productsCategories';
+import { Gadget } from '@models/dto/Gadget';
 import { Product } from '@models/dto/Product';
-import { Gadget } from '@models/Gadget';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './TechSpecs.module.scss';
-import { Gadget } from '../../../types/Gadget';
+import { Gadget } from '@models/dto/Gadget';
 
 interface Props {
   gadget: Gadget;
