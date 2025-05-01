@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -6,38 +6,41 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './Slider.module.scss';
 
-import { ArrowButton } from '../../atoms/ArrowButton';
-import { ArrowDirection } from '../../../../../constants/ArrowDirection';
+import { ArrowButton } from '../../../_shared/components/atoms/ArrowButton';
+import { ArrowDirection } from '../../../../constants/ArrowDirection';
 import { Swiper as SwiperType } from 'swiper/types';
-import { Banner } from 'modules/HomePage/components/Banner';
+import { Banner } from 'modules/_shared/components/molecules/Banner';
 
-const banners = [
-  {
-    title: 'Discover accessories | for your gadgets!',
-    img: '/img/banner-accessories.png',
-    description: 'Find something special!',
-    alt: 'Accessories',
-    link: '/accessories',
-  },
-  {
-    title: 'Check out | our latest phones!',
-    img: '/img/banner-phones.png',
-    description: 'Top models available now',
-    alt: 'Phones',
-    link: '/phones',
-  },
-  {
-    title: 'Explore tablets | with best features!',
-    img: '/img/banner-tablets.png',
-    description: 'Perfect for work and fun',
-    alt: 'Tablets',
-    link: '/tablets',
-  },
-];
+interface BannerData {
+  title: string;
+  img: string;
+  description: string;
+  alt: string;
+  link: string;
+}
 
 export const Slider = () => {
   const swiperRef = useRef<SwiperRef | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [banners, setBanners] = useState<BannerData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const response = await fetch('/api/banners.json');
+        const data = await response.json();
+
+        setBanners(data);
+      } catch (error) {
+        console.error('Failed to fetch banners:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBanners();
+  }, []);
 
   const handleNext = () => {
     swiperRef.current?.swiper.slideNext();
@@ -50,6 +53,10 @@ export const Slider = () => {
   const handleBulletClick = (index: number) => {
     swiperRef.current?.swiper.slideTo(index);
   };
+
+  if (isLoading) {
+    return <div className={styles.loader}>Loading...</div>;
+  }
 
   return (
     <div className={styles.sliderComponentWrapper}>
