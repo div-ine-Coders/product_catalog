@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './Banner.module.scss';
 
@@ -7,7 +8,7 @@ interface Props {
   img?: string;
   description?: string;
   alt?: string;
-  onClick?: () => void;
+  to: string;
 }
 
 export const Banner: React.FC<Props> = ({
@@ -15,16 +16,22 @@ export const Banner: React.FC<Props> = ({
   img,
   description,
   alt,
-  onClick = () => {},
+  to,
 }) => {
+  const navigate = useNavigate();
+
   const parts = title.split('|');
   const firstLine = parts[0] || '';
   const secondLine = parts[1] || '';
 
+  const handleClick = () => {
+    navigate(to);
+  };
+
   return (
     <div
       className={cn(styles.banner, styles.clickableMobile)}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <img src={img} alt={alt} className={styles.bannerImage} />
 
@@ -43,7 +50,7 @@ export const Banner: React.FC<Props> = ({
 
           <div className={styles.bannerDesktopContent}>
             <p className={styles.bannerText}>{description}</p>
-            <button onClick={onClick} className={styles.bannerButton}>
+            <button onClick={handleClick} className={styles.bannerButton}>
               Order Now
             </button>
           </div>
