@@ -5,10 +5,10 @@ import { useEffect, useMemo } from 'react';
 // eslint-disable-next-line max-len
 import { fetchAccessories } from 'app/slices/accessoriesSlice/accessoriesSliceAsyncThunk';
 import { sortFieldMap } from '@constants/sortFieldMap';
-import { sortAndPaginate } from './factoryHooks/sortAndPagination';
-import { ProductsStateType } from '@models/state/productsStateType';
+import { sortAndPaginate } from '../factoryHooks/sortAndPagination';
 
-export const useAccessories = (): ProductsStateType => {
+/*                        here: ProductsStateType */
+export const useAccessories = () => {
   const dispatch = useAppDispatch();
 
   const data = useSelector((state: RootState) => state.accessories.accessory);
@@ -31,5 +31,5 @@ export const useAccessories = (): ProductsStateType => {
       : data;
   }, [data, sort, pagination]);
 
-  return { data: processedData, isLoading, error };
+  return { data: processedData, isLoading, error, totalLength: data.length };
 };

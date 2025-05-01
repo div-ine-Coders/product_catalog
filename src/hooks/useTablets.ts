@@ -6,9 +6,9 @@ import { useEffect, useMemo } from 'react';
 import { fetchTablets } from 'app/slices/tabletsSlice/tabletSliceAsyncThunk';
 import { sortAndPaginate } from './factoryHooks/sortAndPagination';
 import { sortFieldMap } from '@constants/sortFieldMap';
-import { ProductsStateType } from '@models/state/productsStateType';
 
-export const useTablets = (): ProductsStateType => {
+/*                        here: ProductsStateType */
+export const useTablets = () => {
   const dispatch = useAppDispatch();
 
   const data = useSelector((state: RootState) => state.tablets.tablets);
@@ -29,5 +29,5 @@ export const useTablets = (): ProductsStateType => {
       : data;
   }, [data, sort, pagination]);
 
-  return { data: processedData, isLoading, error };
+  return { data: processedData, isLoading, error, totalLength: data.length };
 };

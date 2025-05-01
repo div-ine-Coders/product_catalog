@@ -5,26 +5,11 @@ import { FavouriteButton } from '../../atoms/FavouriteButton';
 import cn from 'classnames';
 import { Product } from '../../../../../types/dto/Product';
 
-const phone = {
-  id: 1,
-  category: 'phones',
-  itemId: 'apple-iphone-7-32gb-black',
-  name: 'Apple iPhone 7 32GB Black',
-  fullPrice: 400,
-  price: 375,
-  screen: "4.7' IPS",
-  capacity: '32GB',
-  color: 'black',
-  ram: '2GB',
-  year: 2016,
-  image: 'img/phones/apple-iphone-7/black/00.webp',
-};
-
 interface Props {
-  product?: Product;
+  product: Product;
 }
 
-export const ProductCard: React.FC<Props> = ({ product = phone }) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const { itemId, name, price, fullPrice, screen, capacity, ram, image } =
     product;
   const [inCart, setInCart] = useState(false);

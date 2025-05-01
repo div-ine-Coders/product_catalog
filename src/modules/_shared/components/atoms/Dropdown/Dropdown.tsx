@@ -8,17 +8,17 @@ interface Props {
   items: string[] | number[];
   activeItem?: string | number;
   isBig?: boolean;
-  click?: () => void;
+  onSelect?: (value: string) => void;
 }
 
 export const Dropdown: React.FC<Props> = ({
   items = ['Item 1', 'Item 2', 'Item 3'],
   activeItem = 'Item 2',
   isBig = true,
-  click,
+  onSelect,
 }) => {
   return (
-    <Select.Root value={activeItem.toString()} onValueChange={click}>
+    <Select.Root value={activeItem.toString()} onValueChange={onSelect}>
       <Select.Trigger
         className={cn('buttonText', styles.selectTrigger, {
           [styles.selectTriggerBig]: isBig,
