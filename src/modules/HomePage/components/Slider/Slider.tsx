@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { showLoader, hideLoader } from 'app/slices/loaderSlice/loaderSlice';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -23,25 +25,23 @@ export const Slider = () => {
   const swiperRef = useRef<SwiperRef | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [banners, setBanners] = useState<BannerData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchBanners = async () => {
       try {
+        dispatch(showLoader());
         const response = await fetch('/api/banners.json');
         const data = await response.json();
 
         setBanners(data);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('Failed to fetch banners:', error);
       } finally {
-        setIsLoading(false);
+        dispatch(hideLoader());
       }
     };
 
     fetchBanners();
-  }, []);
+  }, [dispatch]);
 
   const handleNext = () => {
     swiperRef.current?.swiper.slideNext();
@@ -54,10 +54,6 @@ export const Slider = () => {
   const handleBulletClick = (index: number) => {
     swiperRef.current?.swiper.slideTo(index);
   };
-
-  if (isLoading) {
-    return <div className={styles.loader}>Loading...</div>; //замінити на лоадер або видалити
-  }
 
   return (
     <div className={styles.sliderComponentWrapper}>

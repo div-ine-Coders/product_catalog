@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { showLoader, hideLoader } from 'app/slices/loaderSlice/loaderSlice';
 // eslint-disable-next-line max-len
 import { SliderForProduct } from 'modules/_shared/components/organisms/SliderForProduct/SliderForProduct';
 import { Product } from '@models/dto/Product';
 
 export const HotPrices = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchHotPrices = async () => {
       try {
+        dispatch(showLoader());
         const response = await fetch('/api/hotPrices.json');
         const data: Product[] = await response.json();
 
@@ -18,19 +21,16 @@ export const HotPrices = () => {
         );
 
         setProducts(sortedByDiscount);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('Failed to load hot prices:', error);
       } finally {
-        setIsLoading(false);
+        dispatch(hideLoader());
       }
     };
 
     fetchHotPrices();
-  }, []);
+  }, [dispatch]);
 
-  if (isLoading) {
-    return <p>Loading...</p>; //свій лоадер, або залишити лише глобальний
+  if (!products.length) {
+    return null;
   }
 
   return <SliderForProduct title="Hot Prices" products={products} />;

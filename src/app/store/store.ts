@@ -5,6 +5,7 @@ import { favoritesSlice } from 'app/slices/favoritesSlice';
 import phonesSlice from 'app/slices/phonesSlice/phonesSlice';
 import { searchParamsSlice } from 'app/slices/searchParamsSlice';
 import tabletsSlice from 'app/slices/tabletsSlice/tabletsSlice';
+import loaderReducer from 'app/slices/loaderSlice/loaderSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     [searchParamsSlice.name]: searchParamsSlice.reducer,
     [favoritesSlice.name]: favoritesSlice.reducer,
     [cartSlice.name]: cartSlice.reducer,
+    loader: loaderReducer,
   },
 });
 

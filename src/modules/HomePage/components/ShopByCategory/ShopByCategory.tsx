@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import cn from 'classnames';
 import styles from './ShopByCategory.module.scss';
 import { Link } from 'react-router-dom';
+import { hideLoader, showLoader } from 'app/slices/loaderSlice';
 
 interface CategoriesData {
   title: string;
@@ -14,29 +16,23 @@ interface CategoriesData {
 
 export const ShopByCategory = () => {
   const [categories, setCategories] = useState<CategoriesData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
+        dispatch(showLoader());
         const response = await fetch('/api/category.json');
         const data = await response.json();
 
         setCategories(data);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('Failed to fetch categories:', error);
       } finally {
-        setIsLoading(false);
+        dispatch(hideLoader());
       }
     };
 
     fetchCategories();
-  }, []);
-
-  if (isLoading) {
-    return <div className={styles.loader}>Loading...</div>; // замінити на наш лоадер
-  }
+  }, [dispatch]);
 
   return (
     <section className={styles.shopByCategory}>
