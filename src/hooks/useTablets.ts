@@ -1,10 +1,10 @@
 import { RootState } from 'app/store';
-import { useAppDispatch } from '../factoryHooks/useAppDispatch';
+import { useAppDispatch } from './factoryHooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 // eslint-disable-next-line max-len
-import { fetchTablets } from 'app/slices/tabletsSlice/AsyncThunk/tabletSliceAsyncThunk';
-import { sortAndPaginate } from '../factoryHooks/sortAndPagination';
+import { fetchTablets } from 'app/slices/tabletsSlice/tabletSliceAsyncThunk';
+import { sortAndPaginate } from './factoryHooks/sortAndPagination';
 import { sortFieldMap } from '@constants/sortFieldMap';
 import { ProductsStateType } from '@models/state/productsStateType';
 

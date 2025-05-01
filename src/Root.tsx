@@ -21,17 +21,17 @@ export const Root = () => (
 
         <Route path={RouterEnum.PHONES}>
           <Route index element={<ProductCatalogPage />} />
-          <Route path=":phoneId" element={<ProductDetailsPage />} />
+          <Route path=":Id" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.TABLETS}>
           <Route index element={<ProductCatalogPage />} />
-          <Route path=":tabletId" element={<ProductDetailsPage />} />
+          <Route path=":Id" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.ACCESSORIES}>
           <Route index element={<ProductCatalogPage />} />
-          <Route path=":accesoriesId" element={<ProductDetailsPage />} />
+          <Route path=":Id" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.FAVORITES} element={<FavouritePage />} />
