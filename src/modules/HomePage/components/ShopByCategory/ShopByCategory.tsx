@@ -24,6 +24,7 @@ export const ShopByCategory = () => {
 
         setCategories(data);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Failed to fetch categories:', error);
       } finally {
         setIsLoading(false);
