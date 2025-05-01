@@ -20,7 +20,6 @@ import { usePhones } from '@hooks/usePhones';
 import { useTablets } from '@hooks/useTablets';
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
 
-
 export const ProductCatalogPage = () => {
   useSyncSearchParamsWithStore();
 
@@ -231,7 +230,7 @@ export const ProductCatalogPage = () => {
         {isLoading && <div>Loading products...</div>}
         {error && <div>Error loading products: {error}</div>}
         {!isLoading && !error && (
-          <CatalogList products={sortedAndPaginatedData}  />
+          <CatalogList products={sortedAndPaginatedData} />
         )}
       </div>
 
