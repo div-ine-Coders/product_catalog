@@ -42,17 +42,20 @@ export const ProductCatalogPage = () => {
     params.delete('page');
     params.delete('perPage');
 
-    navigate({
-      pathname: location.pathname,
-      search: params.toString(),
-    }, { replace: true });
+    navigate(
+      {
+        pathname: location.pathname,
+        search: params.toString(),
+      },
+      { replace: true },
+    );
 
     setSortBy('Newest');
     setPerPage({
       page: 1,
       perPage: PaginationPerPage.All,
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, navigate]);
 
   const updateUrlParams = (
@@ -108,16 +111,16 @@ export const ProductCatalogPage = () => {
 
   const { data, isLoading, error, totalLength } = useMemo(() => {
     if (location.pathname.includes('phones')) {
-return phones;
-}
+      return phones;
+    }
 
     if (location.pathname.includes('tablets')) {
-return tablets;
-}
+      return tablets;
+    }
 
     if (location.pathname.includes('accessories')) {
-return accessories;
-}
+      return accessories;
+    }
 
     return { data: [], isLoading: false, error: null, totalLength: 0 };
   }, [phones, tablets, accessories, location.pathname]);
@@ -126,8 +129,8 @@ return accessories;
     data,
     sortBy,
     {
-      'Newest': 'year',
-      'Price': 'price',
+      Newest: 'year',
+      Price: 'price',
       'A-Z': 'name',
     },
     perPage,
@@ -168,16 +171,16 @@ return accessories;
 
   const getCategoryTitle = () => {
     if (location.pathname.includes('phones')) {
-return 'Mobile phones';
-}
+      return 'Mobile phones';
+    }
 
     if (location.pathname.includes('tablets')) {
-return 'Tablets';
-}
+      return 'Tablets';
+    }
 
     if (location.pathname.includes('accessories')) {
-return 'Accessories';
-}
+      return 'Accessories';
+    }
 
     return 'Products';
   };
@@ -185,7 +188,9 @@ return 'Accessories';
   return (
     <div className={styles.catalogPage}>
       <div className={styles.catalogPageQuantity}>
-        <h1 className={styles.catalogPageQuantityTitle}>{getCategoryTitle()}</h1>
+        <h1 className={styles.catalogPageQuantityTitle}>
+          {getCategoryTitle()}
+        </h1>
         <span className={styles.catalogPageQuantityItems}>
           {isLoading ? 'Loading...' : `${totalLength} items`}
         </span>
@@ -252,7 +257,7 @@ return 'Accessories';
                   <span key={index} className={styles.paginationDots}>
                     ...
                   </span>
-                )
+                ),
               )}
             </div>
 

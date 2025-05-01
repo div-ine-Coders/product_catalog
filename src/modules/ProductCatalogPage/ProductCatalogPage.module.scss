@@ -59,20 +59,20 @@
     margin-top: 8px;
     grid-column: 1 / -1;
     justify-self: center;
-  
+
     &Buttons {
       display: flex;
       gap: 16px;
       height: 32px;
-      
+
       &Arrow {
         width: 32px;
       }
-  
+
       &Page {
         display: flex;
         gap: 8px;
-  
+
         button {
           width: 32px;
           display: flex;
@@ -81,7 +81,7 @@
           aspect-ratio: 1 / 1;
           padding: 0;
         }
-  
+
         .paginationDots {
           width: 32px;
           display: flex;
