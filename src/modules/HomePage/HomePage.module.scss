@@ -1,4 +1,3 @@
-@use './../../App.scss';
 @use './../../App.scss' as *;
 
 .page {
@@ -7,26 +6,34 @@
   display: flex;
   flex-direction: column;
   row-gap: 56px;
+  padding-block: 24px;
 
   @include on-tablet {
     row-gap: 64px;
+    padding-block: 32px;
   }
   @include on-desktop {
     row-gap: 80px;
+    padding-block: 56px;
   }
 }
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .bannerTitle {
-  margin-top: 24px;
   text-align: left;
   grid-column: 1 / -1;
 
-  @include on-tablet {
-    margin-top: 32px;
-  }
-
-  @include on-desktop {
-    margin-top: 56px;
-  }
   &Text {
     font-size: 32px;
     font-weight: 800;
@@ -66,5 +73,17 @@
 .pageSection {
   @include on-tablet {
     grid-column: 1 / -1;
+  }
+}
+
+.pageSectionSpecificate {
+  margin-right: -16px;
+
+  @include on-tablet {
+    margin-right: -24px;
+  }
+
+  @include on-desktop {
+    margin-right: 0;
   }
 }

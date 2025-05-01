@@ -84,6 +84,10 @@ export const SliderForProduct: React.FC<Props> = ({ products, title }) => {
             slidesPerView: 2.5,
             spaceBetween: 16,
           },
+          900: {
+            slidesPerView: 3.5,
+            spaceBetween: 16,
+          },
           1200: {
             slidesPerView: 4,
             spaceBetween: 16,
@@ -92,7 +96,9 @@ export const SliderForProduct: React.FC<Props> = ({ products, title }) => {
       >
         {products.map(product => (
           <SwiperSlide key={product.id} className={styles.swiperSlide}>
-            <ProductCard product={product} />
+            <div className={styles.imageOverflowWrapper}>
+              <ProductCard product={product} />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

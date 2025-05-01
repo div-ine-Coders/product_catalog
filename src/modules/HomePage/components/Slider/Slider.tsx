@@ -16,7 +16,7 @@ interface BannerData {
   img: string;
   description: string;
   alt: string;
-  link: string;
+  to: string;
 }
 
 export const Slider = () => {
@@ -33,6 +33,7 @@ export const Slider = () => {
 
         setBanners(data);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Failed to fetch banners:', error);
       } finally {
         setIsLoading(false);
@@ -55,7 +56,7 @@ export const Slider = () => {
   };
 
   if (isLoading) {
-    return <div className={styles.loader}>Loading...</div>;
+    return <div className={styles.loader}>Loading...</div>; //замінити на лоадер або видалити
   }
 
   return (
@@ -82,6 +83,7 @@ export const Slider = () => {
                 img={banner.img}
                 description={banner.description}
                 alt={banner.alt}
+                to={banner.to}
               />
             </SwiperSlide>
           ))}
