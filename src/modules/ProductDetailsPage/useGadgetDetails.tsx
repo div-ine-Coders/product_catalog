@@ -96,8 +96,8 @@ export const useGadgetDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  const displayGadget = gadget || previousGadget.current;
-  const displayProduct = product || previousProduct.current;
+  const displayGadget = gadget;
+  const displayProduct = product;
 
   return {
     gadget: displayGadget,
