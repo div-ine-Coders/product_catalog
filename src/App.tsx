@@ -16,13 +16,16 @@ export const App = () => {
 
   return (
     <div className="App">
-      {isLoading && <Loader />}
-
       <header>
         <Header />
       </header>
 
-      <main>
+      <main className="main">
+        {isLoading && (
+          <div>
+            <Loader />
+          </div>
+        )}
         <Outlet />
       </main>
 
