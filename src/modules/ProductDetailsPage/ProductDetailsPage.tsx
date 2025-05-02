@@ -71,7 +71,7 @@ export const ProductDetailsPage = () => {
         </div>
       )}
 
-      {errorMessage && <div>{errorMessage}</div>}
+      {!isLoading && errorMessage && <div>{errorMessage}</div>}
     </div>
   );
 };
