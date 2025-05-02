@@ -13,10 +13,14 @@ import { useGadgetDetails } from './useGadgetDetails';
 import { RouterEnum } from '@constants/RouterEnum';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import noProduct from '../../assets/no-product.webp';
+import { GadgetCategory } from '@models/common/GadgetCategory';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store';
 
 export const ProductDetailsPage = () => {
-  const { gadget, isLoading, errorMessage, product } = useGadgetDetails();
+  const { gadget, errorMessage, product } = useGadgetDetails();
   const navigate = useNavigate();
+  const isLoading = useSelector((state: RootState) => state.loader.isLoading);
 
   const goBack = () => {
     navigate(-1);
@@ -43,11 +47,9 @@ export const ProductDetailsPage = () => {
 
           <TechSpecs gadget={gadget} />
 
-          <Recomendation />
+          <Recomendation gadgetCategory={product.category as GadgetCategory} />
         </>
       )}
-
-      {isLoading && !gadget && <div>Loading...</div>}
 
       {!isLoading && !gadget && !errorMessage && (
         <div className={styles.productDetailNoProduct}>
@@ -69,7 +71,7 @@ export const ProductDetailsPage = () => {
         </div>
       )}
 
-      {!isLoading && errorMessage && <div>{errorMessage}</div>}
+      {errorMessage && <div>{errorMessage}</div>}
     </div>
   );
 };

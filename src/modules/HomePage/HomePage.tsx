@@ -7,7 +7,7 @@ import { BrandNewModels } from './components/NewModels';
 
 export const HomePage = () => {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <h1 className={styles.visuallyHidden}>Product Catalog</h1>
       <div className={styles.bannerTitle}>
         <h1 className={styles.bannerTitleText}>
@@ -37,6 +37,6 @@ export const HomePage = () => {
       <section className={styles.pageSectionSpecificate}>
         <HotPrices />
       </section>
-    </main>
+    </div>
   );
 };

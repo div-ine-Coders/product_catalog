@@ -1,8 +1,10 @@
 import { ProductCategories } from '@constants/productsCategories';
 import { Gadget } from '@models/dto/Gadget';
 import { Product } from '@models/dto/Product';
+import { hideLoader, showLoader } from 'app/slices/loaderSlice';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export const useGadgetDetails = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -13,8 +15,8 @@ export const useGadgetDetails = () => {
 
   const [gadget, setGadget] = useState<Gadget | null>(null);
   const [product, setProduct] = useState<Product | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const dispatch = useDispatch();
 
   const getValidUrl = () => {
     switch (gadgetCategory) {
@@ -75,7 +77,7 @@ export const useGadgetDetails = () => {
 
   useEffect(() => {
     const loadDetails = async () => {
-      setIsLoading(true);
+      dispatch(showLoader());
       const result = await fetchGadgetDetails(productId);
       const resultProduct = await fetchProductByItemId(productId);
 
@@ -89,7 +91,7 @@ export const useGadgetDetails = () => {
 
       setGadget(result);
       setProduct(resultProduct);
-      setIsLoading(false);
+      dispatch(hideLoader());
     };
 
     loadDetails();
@@ -101,7 +103,6 @@ export const useGadgetDetails = () => {
 
   return {
     gadget: displayGadget,
-    isLoading,
     errorMessage,
     product: displayProduct,
   };
