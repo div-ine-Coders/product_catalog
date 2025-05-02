@@ -130,8 +130,8 @@ export const ProductCatalogPage = () => {
     data,
     sortBy,
     {
-      'Newest': 'year',
-      'Price': 'price',
+      Newest: 'year',
+      Price: 'price',
       'A-Z': 'name',
     },
     perPage,
