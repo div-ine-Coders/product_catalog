@@ -16,19 +16,18 @@ export const App = () => {
 
   return (
     <div className="App">
-      {isLoading && <Loader />}
+      <Header />
 
-      <header>
-        <Header />
-      </header>
-
-      <main>
+      <main className="main">
+        {isLoading && (
+          <div>
+            <Loader />
+          </div>
+        )}
         <Outlet />
       </main>
 
-      <footer className="footer">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
