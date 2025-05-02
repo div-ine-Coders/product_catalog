@@ -58,7 +58,6 @@
 .thumbs .swiper-slide {
   width: 50px !important;
 
-
   @include on-tablet {
     width: 100% !important;
     height: auto !important;
@@ -75,14 +74,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: border-color 0.3s ease
-
+  transition: border-color 0.3s ease;
 }
 
 .thumbs .swiper-slide-thumb-active .swiper-slide {
   border: 1px solid white !important;
 }
-
 
 .thumbImage {
   display: block;
