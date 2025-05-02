@@ -31,11 +31,14 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div className={styles.productCard}>
-      <Link className={styles.productCardLink} to={`${category}/${itemId}`}>
+      <Link className={styles.productCardLink} to={`/${category}/${itemId}`}>
         <img src={image} alt={name} className={styles.productCardLinkImage} />
       </Link>
-      <p className={styles.productCardTitle}>{name}</p>
-      {/*here will be Link */}
+      <Link className={styles.productCardTitle} to={`/${category}/${itemId}`}>
+        {name}
+      </Link>
+
+      {/*here will be NavLink */}
 
       <div className={styles.productCardPrices}>
         <h3 className={styles.productCardPricesCurrent}>${price}</h3>
