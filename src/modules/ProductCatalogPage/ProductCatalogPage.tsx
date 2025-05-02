@@ -159,7 +159,7 @@ export const ProductCatalogPage = () => {
     const isNearEnd = currentPage >= totalPages - 1;
 
     if (isNearStart) {
-      return getRange(1,5);
+      return getRange(1, 5);
     }
 
     if (isNearEnd) {
