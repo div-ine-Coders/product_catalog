@@ -1,6 +1,6 @@
 import { Product } from '../dto/Product';
 
-export interface CartItem {
+export interface CartItemType {
   id: number;
   quantity: number;
   product: Product;

@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'app/store';
 import { useEffect } from 'react';
-import { CartItem } from '@models/state/CartItem';
+import { CartItemType } from '@models/state/CartItem';
 import {
   addCart,
   clearCarts,
+  decrementQuantity,
+  incrementQuantity,
   removeCart,
   setCarts,
 } from 'app/slices/cartSlice';
@@ -26,11 +28,19 @@ export const useCartItems = () => {
     dispatch(addCart(product));
   };
 
+  const increment = (id: number) => {
+    dispatch(incrementQuantity(id));
+  };
+
+  const decrement = (id: number) => {
+    dispatch(decrementQuantity(id));
+  };
+
   useEffect(() => {
     const data = localStorage.getItem('cart');
 
     if (data) {
-      const parsed = JSON.parse(data) as CartItem[];
+      const parsed = JSON.parse(data) as CartItemType[];
 
       dispatch(setCarts(parsed));
     }
@@ -43,8 +53,10 @@ export const useCartItems = () => {
   return {
     cards: cartItems,
     isInCart,
-    add: add,
-    remove: remove,
+    addCart: add,
+    removeCart: remove,
+    incrementQuantity: increment,
+    decrementQuantity: decrement,
     clear: () => dispatch(clearCarts()),
   };
 };

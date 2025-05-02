@@ -5,10 +5,10 @@ import styles from './ShopingCart.module.scss';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 
 interface Props {
-  click?: () => void; //function to clear the cart
+  onClear?: () => void;
 }
 
-export const ShopingCartDialog: React.FC<Props> = ({ click }) => {
+export const ShopingCartDialog: React.FC<Props> = ({ onClear }) => {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger
@@ -41,7 +41,7 @@ export const ShopingCartDialog: React.FC<Props> = ({ click }) => {
                 styles.alertDialogControlButtonSubmit,
                 'buttonText',
               )}
-              onClick={click}
+              onClick={onClear}
             >
               Clear
             </AlertDialog.Action>

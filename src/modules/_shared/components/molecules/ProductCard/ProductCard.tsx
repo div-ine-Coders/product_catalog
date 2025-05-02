@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
 import styles from './ProductCard.module.scss';
 import { DefaultButton } from '../../atoms/DefaultButton';
 import { FavouriteButton } from '../../atoms/FavouriteButton';
 import cn from 'classnames';
 import { Product } from '../../../../../types/dto/Product';
+import { useFavoritesItem } from '@hooks/useFavoritesItem';
+import { useCartItems } from '@hooks/useCartStore';
+import React from 'react';
 
 interface Props {
+  product: Product;
   product: Product;
 }
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const { itemId, name, price, fullPrice, screen, capacity, ram, image } =
     product;
-  const [inCart, setInCart] = useState(false);
-  const [isFavourite, setIsFavourite] = useState(false);
+
+  const favorite = useFavoritesItem();
+  const cart = useCartItems();
 
   return (
     <div className={styles.productCard}>
@@ -44,14 +49,17 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </ul>
       <div className={styles.productCardButtons}>
         <div className={styles.productCardButtonsDefault}>
-          <DefaultButton isSelected={inCart} click={() => setInCart(!inCart)}>
-            {inCart ? 'Added' : 'Add to cart'}
+          <DefaultButton
+            isSelected={cart.isInCart(product.id)}
+            click={() => cart.addCart(product)}
+          >
+            {cart.isInCart(product.id) ? 'Added' : 'Add to cart'}
           </DefaultButton>
         </div>
         <div className={styles.productCardButtonsFavourite}>
           <FavouriteButton
-            isFavourite={isFavourite}
-            click={() => setIsFavourite(!isFavourite)}
+            isFavourite={favorite.isFavorite(product.id)}
+            click={() => favorite.setFavorite(product)}
           />
         </div>
       </div>

@@ -3,76 +3,29 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './ShopingCart.module.scss';
 import { BackButton } from 'modules/_shared/components/atoms/BackButton';
-import { CartItem } from 'modules/_shared/components/molecules/CartItem';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
-import { CartItem as CarItemType } from '../../types/state/CartItem';
 import { RouterEnum } from '@constants/RouterEnum';
 import emptyCart from '../../assets/empty-cart.png';
 import { ShopingCartDialog } from './ShopingCartDialog';
-
-const item1 = {
-  id: 1,
-  category: 'phones',
-  itemId: 'apple-iphone-7-32gb-black',
-  name: 'Apple iPhone 7 32GB Black',
-  fullPrice: 400,
-  price: 375,
-  screen: "4.7' IPS",
-  capacity: '32GB',
-  color: 'black',
-  ram: '2GB',
-  year: 2016,
-  image: 'img/phones/apple-iphone-7/black/00.webp',
-};
-
-const item2 = {
-  id: 2,
-  category: 'phones',
-  itemId: 'apple-iphone-7-plus-32gb-black',
-  name: 'Apple iPhone 7 Plus 32GB Black',
-  fullPrice: 540,
-  price: 500,
-  screen: "5.5' IPS",
-  capacity: '32GB',
-  color: 'black',
-  ram: '3GB',
-  year: 2016,
-  image: 'img/phones/apple-iphone-7-plus/black/00.webp',
-};
-
-const item3 = {
-  id: 3,
-  category: 'phones',
-  itemId: 'apple-iphone-8-64gb-gold',
-  name: 'Apple iPhone 8 64GB Gold',
-  fullPrice: 600,
-  price: 550,
-  screen: "4.7' IPS",
-  capacity: '64GB',
-  color: 'gold',
-  ram: '2GB',
-  year: 2017,
-  image: 'img/phones/apple-iphone-8/gold/00.webp',
-};
+import { useCartItems } from '@hooks/useCartStore';
+import { CartItem } from 'modules/_shared/components/molecules/CartItem';
 
 export const ShopingCartPage = () => {
-  const cart: CarItemType[] = [
-    { id: item1.id, quantity: 1, product: item1 },
-    { id: item2.id, quantity: 3, product: item2 },
-    { id: item3.id, quantity: 2, product: item3 },
-  ]; //make the array empty to see the empty cart page)
+  const cart = useCartItems();
 
-  //Values must be taken from the Redux
-
-  const totalPrice = cart.reduce(
+  const totalPrice = cart.cards.reduce(
     (acc, item) => acc + item.quantity * item.product.price,
     0,
   );
-  const totalItemsInCart = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  const totalItemsInCart = cart.cards.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
 
   return (
     <div className={styles.shopingCart}>
-      {cart.length ? (
+      {cart.cards.length ? (
         <>
           <div className={styles.shopingCartBack}>
             <Link to={'../'} aria-label="Go back">
@@ -82,11 +35,13 @@ export const ShopingCartPage = () => {
           </div>
 
           <div className={styles.shopingCartCards}>
-            {cart.map(item => (
+            {cart.cards.map(item => (
               <CartItem
                 key={item.id}
-                good={item.product}
-                quantity={item.quantity}
+                item={item}
+                onMinus={cart.decrementQuantity}
+                onPlus={cart.incrementQuantity}
+                onRemoveCartItem={cart.removeCart}
               />
             ))}
           </div>
@@ -100,7 +55,7 @@ export const ShopingCartPage = () => {
               </p>
             </div>
             <hr />
-            <ShopingCartDialog />
+            <ShopingCartDialog onClear={cart.clear} />
           </div>
         </>
       ) : (

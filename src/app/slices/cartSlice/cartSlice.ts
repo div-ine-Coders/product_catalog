@@ -1,9 +1,9 @@
 import { Product } from '@models/dto/Product';
-import { CartItem } from '@models/state/CartItem';
+import { CartItemType } from '@models/state/CartItem';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface CartItemStateType {
-  cardItems: CartItem[];
+  cardItems: CartItemType[];
 }
 
 const initialState: CartItemStateType = {
@@ -35,15 +35,42 @@ const cartSlice = createSlice({
       );
     },
 
-    setCarts: (state, action: PayloadAction<CartItem[]>) => {
+    setCarts: (state, action: PayloadAction<CartItemType[]>) => {
       state.cardItems = action.payload;
     },
 
     clearCarts: state => {
       state.cardItems = [];
     },
+    incrementQuantity: (state, action: PayloadAction<number>) => {
+      const item = state.cardItems.find(i => i.id === action.payload);
+
+      if (item) {
+        item.quantity++;
+      }
+    },
+
+    decrementQuantity: (state, action: PayloadAction<number>) => {
+      const item = state.cardItems.find(i => i.id === action.payload);
+
+      if (item) {
+        item.quantity--;
+        if (item.quantity <= 0) {
+          state.cardItems = state.cardItems.filter(
+            i => i.id !== action.payload,
+          );
+        }
+      }
+    },
   },
 });
 
-export const { addCart, clearCarts, removeCart, setCarts } = cartSlice.actions;
+export const {
+  addCart,
+  clearCarts,
+  removeCart,
+  setCarts,
+  decrementQuantity,
+  incrementQuantity,
+} = cartSlice.actions;
 export default cartSlice;
