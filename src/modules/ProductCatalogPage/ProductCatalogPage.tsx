@@ -8,7 +8,6 @@ import styles from './ProductCatalogPage.module.scss';
 import { Dropdown } from 'modules/_shared/components/atoms/Dropdown';
 import { ArrowButton } from 'modules/_shared/components/atoms/ArrowButton';
 import { ArrowDirection } from '@constants/ArrowDirection';
-import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import cn from 'classnames';
 import { PaginationPerPage } from '@constants/PaginationPerPage';
 import { sortAndPaginate } from '@hooks/factoryHooks/sortAndPagination';
@@ -19,6 +18,17 @@ import { useAccessories } from '@hooks/useAccessories';
 import { usePhones } from '@hooks/usePhones';
 import { useTablets } from '@hooks/useTablets';
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
+import { PageSelectButton } from 'modules/_shared/components/atoms/PageSelectButton';
+
+function getRange(start: number, end: number): number[] {
+  const result: number[] = [];
+
+  for (let i = start; i <= end; i++) {
+    result.push(i);
+  }
+
+  return result;
+}
 
 export const ProductCatalogPage = () => {
   useSyncSearchParamsWithStore();
@@ -140,27 +150,23 @@ export const ProductCatalogPage = () => {
   const getPaginationButtons = (
     totalPages: number,
     currentPage: number,
-  ): (number | string)[] => {
+  ): number[] => {
     if (totalPages <= 5) {
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    const buttons: (number | string)[] = [];
-
     const isNearStart = currentPage <= 2;
     const isNearEnd = currentPage >= totalPages - 1;
 
-    buttons.push(1);
-
     if (isNearStart) {
-      buttons.push(2, 3, '...', totalPages);
-    } else if (isNearEnd) {
-      buttons.push('...', totalPages - 2, totalPages - 1, totalPages);
-    } else {
-      buttons.push('...', currentPage, '...', totalPages);
+      return getRange(1,5);
     }
 
-    return buttons;
+    if (isNearEnd) {
+      return getRange(totalPages - 4, totalPages);
+    }
+
+    return getRange(currentPage - 2, currentPage + 2);
   };
 
   const totalPages =
@@ -246,21 +252,15 @@ export const ProductCatalogPage = () => {
             </div>
 
             <div className={styles.catalogPageSwitchButtonsPage}>
-              {paginationButtons.map((item, index) =>
-                typeof item === 'number' ? (
-                  <DefaultButton
-                    key={index}
-                    isSelected={perPage.page !== item}
-                    click={() => handlePageChange(item)}
-                  >
-                    {item}
-                  </DefaultButton>
-                ) : (
-                  <span key={index} className={styles.paginationDots}>
-                    ...
-                  </span>
-                ),
-              )}
+              {paginationButtons.map(item => (
+                <PageSelectButton
+                  key={item}
+                  isSelected={perPage.page === item}
+                  click={() => handlePageChange(item)}
+                >
+                  {item}
+                </PageSelectButton>
+              ))}
             </div>
 
             <div className={styles.catalogPageSwitchButtonsArrow}>
