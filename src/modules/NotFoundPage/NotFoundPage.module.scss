@@ -1,12 +1,11 @@
 @import './../../App.scss';
 
 .content {
-  position: relative; // Додаємо позиціонування
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; // Щоб відео займало весь екран
-  background-color: #fff;
+  height: 100vh;
 }
 
 .video {
