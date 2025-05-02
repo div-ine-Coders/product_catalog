@@ -14,7 +14,6 @@ export const Root = () => (
     <Routes>
       <Route path={RouterEnum.HOME} element={<App />}>
         <Route index element={<HomePage />} />
-        <Route index element={<HomePage />} />
         <Route
           path="/home"
           element={<Navigate to={RouterEnum.HOME} replace={true} />}
@@ -22,17 +21,17 @@ export const Root = () => (
 
         <Route path={RouterEnum.PHONES}>
           <Route index element={<ProductCatalogPage />} />
-          <Route path=":Id" element={<ProductDetailsPage />} />
+          <Route path=":productId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.TABLETS}>
           <Route index element={<ProductCatalogPage />} />
-          <Route path=":Id" element={<ProductDetailsPage />} />
+          <Route path=":productId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.ACCESSORIES}>
           <Route index element={<ProductCatalogPage />} />
-          <Route path=":Id" element={<ProductDetailsPage />} />
+          <Route path=":productId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path={RouterEnum.FAVORITES} element={<FavouritePage />} />

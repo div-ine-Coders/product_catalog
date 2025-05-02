@@ -22,7 +22,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </a>
 
       <p className={styles.productCardTitle}>{name}</p>
-      {/*here will be NavLink */}
+      {/*here will be Link */}
 
       <div className={styles.productCardPrices}>
         <h3 className={styles.productCardPricesCurrent}>${price}</h3>

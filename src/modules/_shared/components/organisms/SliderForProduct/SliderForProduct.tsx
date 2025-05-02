@@ -80,8 +80,16 @@ export const SliderForProduct: React.FC<Props> = ({ products, title }) => {
             slidesPerView: 1.5,
             spaceBetween: 16,
           },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+          },
           640: {
             slidesPerView: 2.5,
+            spaceBetween: 16,
+          },
+          770: {
+            slidesPerView: 3,
             spaceBetween: 16,
           },
           900: {

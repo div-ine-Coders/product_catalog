@@ -8,7 +8,6 @@ import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 import { CartItem as CarItemType } from '../../types/state/CartItem';
 import { RouterEnum } from '@constants/RouterEnum';
 import emptyCart from '../../assets/empty-cart.png';
-// import { AlertDialog } from 'radix-ui';
 import { ShopingCartDialog } from './ShopingCartDialog';
 
 const item1 = {
