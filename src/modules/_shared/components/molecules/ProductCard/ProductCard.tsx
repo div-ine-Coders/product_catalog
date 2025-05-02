@@ -6,6 +6,7 @@ import { Product } from '../../../../../types/dto/Product';
 import { useFavoritesItem } from '@hooks/useFavoritesItem';
 import { useCartItems } from '@hooks/useCartStore';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
   product: Product;
@@ -13,19 +14,26 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { itemId, name, price, fullPrice, screen, capacity, ram, image } =
-    product;
+  const {
+    itemId,
+    category,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+    image,
+  } = product;
 
   const favorite = useFavoritesItem();
   const cart = useCartItems();
 
   return (
     <div className={styles.productCard}>
-      <a href={itemId} className={styles.productCardLink}>
+      <Link className={styles.productCardLink} to={`${category}/${itemId}`}>
         <img src={image} alt={name} className={styles.productCardLinkImage} />
-      </a>
-
+      </Link>
       <p className={styles.productCardTitle}>{name}</p>
       {/*here will be Link */}
 

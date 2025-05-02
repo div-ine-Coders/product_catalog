@@ -1,6 +1,6 @@
 import { Product } from '@models/dto/Product';
 import { useEffect } from 'react';
-import { add, remove, set } from 'app/slices/favoritesSlice';
+import { add, remove } from 'app/slices/favoritesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'app/store';
 
@@ -21,16 +21,6 @@ export const useFavoritesItem = () => {
       dispatch(add(product));
     }
   };
-
-  useEffect(() => {
-    const data = localStorage.getItem('favorites');
-
-    if (data) {
-      const parsed = JSON.parse(data) as Product[];
-
-      dispatch(set(parsed));
-    }
-  }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));

@@ -6,8 +6,10 @@ export interface CartItemStateType {
   cardItems: CartItemType[];
 }
 
+const stored = localStorage.getItem('cardItem');
+
 const initialState: CartItemStateType = {
-  cardItems: [],
+  cardItems: stored ? (JSON.parse(stored) as CartItemType[]) : [],
 };
 
 const cartSlice = createSlice({

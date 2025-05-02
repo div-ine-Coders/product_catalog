@@ -5,8 +5,9 @@ export interface FavType {
   favorites: Product[];
 }
 
+const stored = localStorage.getItem('favorites');
 const initialState: FavType = {
-  favorites: [],
+  favorites: stored ? (JSON.parse(stored) as Product[]) : [],
 };
 
 export const favoritesSlice = createSlice({

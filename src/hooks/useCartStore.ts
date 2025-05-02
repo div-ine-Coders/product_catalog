@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'app/store';
 import { useEffect } from 'react';
-import { CartItemType } from '@models/state/CartItem';
 import {
   addCart,
   clearCarts,
   decrementQuantity,
   incrementQuantity,
   removeCart,
-  setCarts,
 } from 'app/slices/cartSlice';
 import { Product } from '@models/dto/Product';
 
@@ -37,17 +35,7 @@ export const useCartItems = () => {
   };
 
   useEffect(() => {
-    const data = localStorage.getItem('cart');
-
-    if (data) {
-      const parsed = JSON.parse(data) as CartItemType[];
-
-      dispatch(setCarts(parsed));
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+    localStorage.setItem('cardItem', JSON.stringify(cartItems));
   }, [cartItems]);
 
   return {
