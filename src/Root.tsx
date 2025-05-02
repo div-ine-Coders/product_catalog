@@ -2,17 +2,18 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { App } from './App';
 import { RouterEnum } from './constants/RouterEnum';
 import React from 'react';
-import { HomePage } from 'modules/HomePage';
 import { ProductCatalogPage } from 'modules/ProductCatalogPage';
 import { ProductDetailsPage } from 'modules/ProductDetailsPage';
 import { NotFoundPage } from 'modules/NotFoundPage';
 import { ShopingCartPage } from 'modules/ShoppingCartPage';
+import { HomePage } from 'modules/HomePage/HomePage';
 import { FavouritePage } from 'modules/FavoritesProductsPage';
 
 export const Root = () => (
   <HashRouter>
     <Routes>
       <Route path={RouterEnum.HOME} element={<App />}>
+        <Route index element={<HomePage />} />
         <Route index element={<HomePage />} />
         <Route
           path="/home"

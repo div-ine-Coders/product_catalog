@@ -1,15 +1,19 @@
 @use '../../../../../App.scss' as *;
 
-.carouselContainer {
-  @include content-padding-in-line();
-}
-
 .carouselHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
   margin-bottom: 24px;
+  padding-right: 16px;
+
+  @include on-tablet {
+    padding-right: 24px;
+  }
+
+  @include on-desktop {
+    padding-right: 0;
+  }
 }
 
 .carouselNavButtons {
@@ -28,7 +32,6 @@
 .swiperSlide {
   height: 100%;
   width: 100%;
-  padding: 26px;
   overflow: visible !important;
   box-sizing: border-box;
 }

@@ -1,4 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { showLoader, hideLoader } from 'app/slices/loaderSlice/loaderSlice';
+
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -6,19 +9,41 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './Slider.module.scss';
 
-import { ArrowButton } from '../../atoms/ArrowButton';
-import { ArrowDirection } from '../../../../../constants/ArrowDirection';
+import { ArrowButton } from '../../../_shared/components/atoms/ArrowButton';
+import { ArrowDirection } from '../../../../constants/ArrowDirection';
 import { Swiper as SwiperType } from 'swiper/types';
+import { Banner } from 'modules/_shared/components/molecules/Banner';
 
-const images = [
-  '/img/banner-accessories.png',
-  '/img/banner-phones.png',
-  '/img/banner-tablets.png',
-];
+interface BannerData {
+  title: string;
+  img: string;
+  description: string;
+  alt: string;
+  to: string;
+}
 
 export const Slider = () => {
   const swiperRef = useRef<SwiperRef | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [banners, setBanners] = useState<BannerData[]>([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        dispatch(showLoader());
+
+        const response = await fetch('/api/banners.json');
+        const data = await response.json();
+
+        setBanners(data);
+      } finally {
+        dispatch(hideLoader());
+      }
+    };
+
+    fetchBanners();
+  }, [dispatch]);
 
   const handleNext = () => {
     swiperRef.current?.swiper.slideNext();
@@ -49,12 +74,14 @@ export const Slider = () => {
           }
           className={styles.customSliderSwiper}
         >
-          {images.map((src, index) => (
-            <SwiperSlide key={src}>
-              <img
-                src={src}
-                alt={`Slide ${index + 1}`}
-                className={styles.customSliderImage}
+          {banners.map((banner, index) => (
+            <SwiperSlide key={index}>
+              <Banner
+                title={banner.title}
+                img={banner.img}
+                description={banner.description}
+                alt={banner.alt}
+                to={banner.to}
               />
             </SwiperSlide>
           ))}
@@ -66,7 +93,7 @@ export const Slider = () => {
       </div>
 
       <div className={styles.customPagination}>
-        {images.map((_, index) => (
+        {banners.map((_, index) => (
           <div
             key={index}
             className={`${styles.customPaginationBullet} ${

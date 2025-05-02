@@ -1,13 +1,12 @@
 @use '../../../../App.scss' as *;
 
 .shopByCategory {
-  @include content-padding-in-line();
-  @include grid-layout;
   row-gap: 24px;
 
   &Title {
     grid-column: 1 / -1;
     text-align: left;
+    margin-bottom: 24px;
   }
 
   &Container {
