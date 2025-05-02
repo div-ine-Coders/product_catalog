@@ -27,7 +27,7 @@ export const Info: React.FC<Props> = ({ gadget, product }) => {
     color => color.replaceAll(' ', '-') as Color,
   );
   const currentColor = gadget.color.replaceAll(' ', '-') as Color;
-  const { isInCart, add } = useCartItems();
+  const { isInCart, addCart: add } = useCartItems();
   const { isFavorite, setFavorite } = useFavoritesItem();
 
   const addToCart = () => {

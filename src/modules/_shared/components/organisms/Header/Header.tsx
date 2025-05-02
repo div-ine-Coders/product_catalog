@@ -9,8 +9,12 @@ import { IconWithCounter } from '../../atoms/Icons/IconWithCounter';
 import { Link, NavLink } from 'react-router-dom';
 import { RouterEnum } from '@constants/RouterEnum';
 import { getNavLinkClass, getIconLinkClass } from '../../../utils/ActiveState';
+import { useFavoritesItem } from '@hooks/useFavoritesItem';
+import { useCartItems } from '@hooks/useCartStore';
 
 export const Header: React.FC = () => {
+  const favorites = useFavoritesItem();
+  const cart = useCartItems();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -80,14 +84,22 @@ export const Header: React.FC = () => {
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Favorites"
           >
-            <IconWithCounter icon={iconFavorite} count={3} alt="Favorites" />
+            <IconWithCounter
+              icon={iconFavorite}
+              count={favorites.items.length}
+              alt="Favorites"
+            />
           </NavLink>
           <NavLink
             to={RouterEnum.CART}
             className={({ isActive }) => getIconLinkClass(styles, { isActive })}
             aria-label="Go to Shopping Bag"
           >
-            <IconWithCounter icon={iconBag} count={5} alt="Shopping Bag" />
+            <IconWithCounter
+              icon={iconBag}
+              count={cart.cards.length}
+              alt="Shopping Bag"
+            />
           </NavLink>
           <button
             onClick={() => setIsMenuOpen(true)}

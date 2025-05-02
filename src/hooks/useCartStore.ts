@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'app/store';
 import { useEffect } from 'react';
-import { CartItem } from '@models/state/CartItem';
 import {
   addCart,
   clearCarts,
+  decrementQuantity,
+  incrementQuantity,
   removeCart,
-  setCarts,
 } from 'app/slices/cartSlice';
 import { Product } from '@models/dto/Product';
 
@@ -26,25 +26,25 @@ export const useCartItems = () => {
     dispatch(addCart(product));
   };
 
-  useEffect(() => {
-    const data = localStorage.getItem('cart');
+  const increment = (id: number) => {
+    dispatch(incrementQuantity(id));
+  };
 
-    if (data) {
-      const parsed = JSON.parse(data) as CartItem[];
-
-      dispatch(setCarts(parsed));
-    }
-  }, [dispatch]);
+  const decrement = (id: number) => {
+    dispatch(decrementQuantity(id));
+  };
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+    localStorage.setItem('cardItem', JSON.stringify(cartItems));
   }, [cartItems]);
 
   return {
     cards: cartItems,
     isInCart,
-    add: add,
-    remove: remove,
+    addCart: add,
+    removeCart: remove,
+    incrementQuantity: increment,
+    decrementQuantity: decrement,
     clear: () => dispatch(clearCarts()),
   };
 };
