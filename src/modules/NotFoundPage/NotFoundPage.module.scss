@@ -28,8 +28,8 @@
   position: absolute;
   align-self: center;
   top: 210px;
-  // left: 120px;
-  padding: 15px 100px;
+  height: 50px;
+  width: 250px;
   font-size: 16px;
   font-weight: bold;
   background-color: $color-accent;
@@ -41,7 +41,8 @@
   @include on-tablet {
     top: 210px;
     left: 120px;
-    padding: 25px 200px;
+    height: 70px;
+    width: 450px;
     font-size: 16px;
   }
 }
