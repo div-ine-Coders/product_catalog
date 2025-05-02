@@ -67,7 +67,7 @@ export const Slider = () => {
         <Swiper
           ref={swiperRef}
           modules={[Autoplay]}
-          autoplay={{ delay: 10000, disableOnInteraction: false }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop={true}
           onSlideChange={(swiper: SwiperType) =>
             setActiveIndex(swiper.realIndex)
