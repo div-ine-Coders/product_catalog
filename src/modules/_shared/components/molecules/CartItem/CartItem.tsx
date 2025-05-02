@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './CartItem.module.scss';
 import cn from 'classnames';
 import { CartItemType } from '@models/state/CartItem';
+import { Link } from 'react-router-dom';
 
 interface Props {
   item: CartItemType;
@@ -28,15 +29,23 @@ export const CartItem: React.FC<Props> = ({
             className={styles.cartItemRemove}
             onClick={() => onRemoveCartItem(product.id)}
           />
-          <a className={styles.cartItemLink} href={product.itemId}>
+          <Link
+            className={styles.cartItemLink}
+            to={`/${product.category}/${product.itemId}`}
+          >
             <img
               className={styles.cartItemImage}
               src={product.image}
               alt={product.name}
             />
-          </a>
+          </Link>
         </div>
-        <p>{product.name}</p>
+        <Link
+          className={styles.cartItemBlockInfoTitle}
+          to={`/${product.category}/${product.itemId}`}
+        >
+          {product.name}
+        </Link>
       </div>
 
       <div className={styles.cartItemBlockControl}>

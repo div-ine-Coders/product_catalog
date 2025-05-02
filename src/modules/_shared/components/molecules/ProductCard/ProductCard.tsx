@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 
 interface Props {
   product: Product;
-  product: Product;
 }
 
 export const ProductCard: React.FC<Props> = ({ product }) => {

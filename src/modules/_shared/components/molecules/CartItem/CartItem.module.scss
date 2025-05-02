@@ -42,6 +42,13 @@
         gap: 24px;
       }
     }
+
+    &Title {
+      color: $color-text-main;
+      &:hover {
+        color:$color-text-secondary ;
+      }
+    }
   }
 
   &BlockControl {
