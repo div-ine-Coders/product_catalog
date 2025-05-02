@@ -16,9 +16,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <header>
-        <Header />
-      </header>
+      <Header />
 
       <main className="main">
         {isLoading && (
@@ -29,9 +27,7 @@ export const App = () => {
         <Outlet />
       </main>
 
-      <footer className="footer">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
