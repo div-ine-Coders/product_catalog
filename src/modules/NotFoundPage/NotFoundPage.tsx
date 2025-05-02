@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './NotFoundPage.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -21,9 +22,9 @@ export const NotFoundPage = () => {
           Looks like you’ve <br /> wandered off the map.
         </h1>
 
-        <button className={styles.backButton} onClick={() => navigate(-1)}>
-          ← Back
-        </button>
+        <div className={styles.backButton}>
+          <DefaultButton click={() => navigate(-1)}>← Back</DefaultButton>
+        </div>
       </div>
     </div>
   );
