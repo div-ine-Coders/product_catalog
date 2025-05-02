@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux';
 import { RootState } from 'app/store';
 import { useEffect, useMemo } from 'react';
-import { ProductsStateType } from '@models/state/productsStateType';
 // eslint-disable-next-line max-len
 import { fetchPhones } from 'app/slices/phonesSlice/phonesSliceAsyncThunk';
 import { sortFieldMap } from '@constants/sortFieldMap';
 import { useAppDispatch } from './factoryHooks/useAppDispatch';
 import { sortAndPaginate } from './factoryHooks/sortAndPagination';
-
-export const usePhones = (): ProductsStateType => {
+/*                        here: ProductsStateType */
+export const usePhones = () => {
   const dispatch = useAppDispatch();
 
   const data = useSelector((state: RootState) => state.phones.phones);
@@ -30,5 +29,5 @@ export const usePhones = (): ProductsStateType => {
       : data;
   }, [data, sort, pagination]);
 
-  return { data: processedData, isLoading, error };
+  return { data: processedData, isLoading, error, totalLength: data.length };
 };
