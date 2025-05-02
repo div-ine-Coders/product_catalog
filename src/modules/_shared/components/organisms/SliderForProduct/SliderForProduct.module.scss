@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
   padding-right: 16px;
 
   @include on-tablet {
@@ -30,8 +29,13 @@
 }
 
 .swiperSlide {
-  height: 100%;
-  width: 100%;
-  overflow: visible !important;
-  box-sizing: border-box;
+  height: 540px;
+
+  @include on-tablet {
+    height: 570px;
+  }
+  
+  display: flex;
+  align-items: center;
+
 }
