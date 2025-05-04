@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import styles from './DefaultButton.module.scss';
 import cn from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CartAnimation } from '../CartAnimation';
+import { CartAnimation } from '../CartAnimation/CartAnimation';
 
 interface Props {
   isSelected?: boolean;
