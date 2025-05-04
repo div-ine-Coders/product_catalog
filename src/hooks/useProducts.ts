@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from './factoryHooks/useAppDispatch';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { fetchPhones } from 'app/slices/phonesSlice/phonesSliceAsyncThunk';
 import { fetchTablets } from 'app/slices/tabletsSlice/tabletSliceAsyncThunk';
 // eslint-disable-next-line max-len
@@ -43,9 +43,11 @@ export const useProducts = () => {
     }
   });
 
-  const processedData = pagination
-    ? sortAndPaginate(state.data, sort, SortFieldMap, pagination)
-    : state.data;
+  const processedData = useMemo(() => {
+    return pagination
+      ? sortAndPaginate(state.data, sort, SortFieldMap, pagination)
+      : state.data;
+  }, [state.data, sort, pagination]);
 
   useEffect(() => {
     switch (category) {
@@ -61,7 +63,7 @@ export const useProducts = () => {
       default:
         break;
     }
-  }, [dispatch, category]);
+  }, [dispatch, category, sort, pagination]);
 
   return {
     data: processedData,
