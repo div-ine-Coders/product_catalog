@@ -165,3 +165,14 @@
     text-align: right;
   }
 }
+
+.removing {
+  animation: slideOutLeft 0.4s forwards;
+}
+
+@keyframes slideOutLeft {
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}

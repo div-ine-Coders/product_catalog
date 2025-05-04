@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './CartItem.module.scss';
 import cn from 'classnames';
 import { CartItemType } from '@models/state/CartItem';
@@ -17,18 +17,28 @@ export const CartItem: React.FC<Props> = ({
   onPlus,
   onRemoveCartItem,
 }) => {
+  const [isRemoving, setIsRemoving] = useState(false);
+
   const { quantity, product } = item;
   const isDisabled = quantity === 1;
   const totalPrice = quantity * product.price;
 
+  const handleRemove = () => {
+    setIsRemoving(true);
+    setTimeout(() => {
+      onRemoveCartItem(product.id);
+    }, 300);
+  };
+
   return (
-    <div className={styles.cartItem}>
+    <div
+      className={cn(styles.cartItem, {
+        [styles.removing]: isRemoving,
+      })}
+    >
       <div className={styles.cartItemBlockInfo}>
         <div className={styles.cartItemBlockInfoLeft}>
-          <button
-            className={styles.cartItemRemove}
-            onClick={() => onRemoveCartItem(product.id)}
-          />
+          <button className={styles.cartItemRemove} onClick={handleRemove} />
           <Link
             className={styles.cartItemLink}
             to={`/${product.category}/${product.itemId}`}
