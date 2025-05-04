@@ -88,28 +88,6 @@ export const Slider = () => {
             ))}
           </Swiper>
         )}
-        <Swiper
-          ref={swiperRef}
-          modules={[Autoplay]}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop={true}
-          onSlideChange={(swiper: SwiperType) =>
-            setActiveIndex(swiper.realIndex)
-          }
-          className={styles.customSliderSwiper}
-        >
-          {banners.map((banner, index) => (
-            <SwiperSlide key={index}>
-              <Banner
-                title={banner.title}
-                img={banner.img}
-                description={banner.description}
-                alt={banner.alt}
-                to={banner.to}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
 
         <div className={styles.arrowButtonWrapper}>
           <ArrowButton direction={ArrowDirection.Right} click={handleNext} />
