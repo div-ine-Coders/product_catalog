@@ -95,3 +95,13 @@
     }
   }
 }
+
+.slideInLeft {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.slideInLeftActive {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1s ease;
+}

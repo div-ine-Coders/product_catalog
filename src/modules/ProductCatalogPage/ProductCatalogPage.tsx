@@ -7,7 +7,7 @@ import { PaginationPerPage } from '@constants/PaginationPerPage';
 
 // eslint-disable-next-line max-len
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
 
@@ -26,6 +26,18 @@ export const ProductCatalogPage = () => {
 
   const { data, error, totalLength, isLoading } = useProducts();
   const { pagination, sort, updateSearchParams } = useSearchParamsNavigation();
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    setIsVisible(false);
+
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [pagination.page]);
 
   const handleSortChange = (key: string) => {
     updateSearchParams({ sort: sortFiels[key as keyof typeof sortFiels] });
@@ -87,10 +99,17 @@ export const ProductCatalogPage = () => {
         </div>
       </div>
 
-      <div className={styles.catalogPageList}>
+      <div
+        className={cn(styles.catalogPageList, {
+          [styles.slideInLeft]: !isVisible,
+          [styles.slideInLeftActive]: isVisible,
+        })}
+      >
         {isLoading && <div>Loading products...</div>}
         {error && <div>Error loading products: {error}</div>}
-        {!isLoading && !error && <CatalogList products={data} />}
+        {!isLoading && !error && (
+          <CatalogList products={data} />
+        )}
       </div>
 
       {pagination && pagination.perPage !== PaginationPerPage.All && (
