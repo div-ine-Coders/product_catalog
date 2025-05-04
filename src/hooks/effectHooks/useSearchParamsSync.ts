@@ -54,4 +54,8 @@ export const useSyncSearchParamsWithStore = () => {
       window.removeEventListener('hashchange', syncParams);
     };
   }, [dispatch, location.pathname]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location.search]);
 };
