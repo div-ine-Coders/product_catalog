@@ -1,204 +1,55 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-/* eslint-disable prettier/prettier */
-/* eslint-disable max-len */
-
 import { CatalogList } from 'modules/_shared/components/molecules/CatalogList';
-import { useEffect, useMemo, useState } from 'react';
 import styles from './ProductCatalogPage.module.scss';
 import { Dropdown } from 'modules/_shared/components/atoms/Dropdown';
-import { ArrowButton } from 'modules/_shared/components/atoms/ArrowButton';
-import { ArrowDirection } from '@constants/ArrowDirection';
+
 import cn from 'classnames';
 import { PaginationPerPage } from '@constants/PaginationPerPage';
-import { sortAndPaginate } from '@hooks/factoryHooks/sortAndPagination';
+
+// eslint-disable-next-line max-len
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useAccessories } from '@hooks/useAccessories';
-import { usePhones } from '@hooks/usePhones';
-import { useTablets } from '@hooks/useTablets';
+
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
-import { PageSelectButton } from 'modules/_shared/components/atoms/PageSelectButton';
 
-function getRange(start: number, end: number): number[] {
-  const result: number[] = [];
+import { useProducts } from '@hooks/useProducts';
+import { PaginationButtons } from './components/PaginationButtons';
+import { useSearchParamsNavigation } from '@hooks/useCustomSearchParams';
 
-  for (let i = start; i <= end; i++) {
-    result.push(i);
-  }
-
-  return result;
-}
+const sortFiels = {
+  Newest: 'age',
+  Alphabetically: 'title',
+  Cheapest: 'price',
+} as const;
 
 export const ProductCatalogPage = () => {
   useSyncSearchParamsWithStore();
 
-  const [sortBy, setSortBy] = useState<string>('Newest');
-  const [perPage, setPerPage] = useState({
-    page: 1,
-    perPage: PaginationPerPage.All,
-  });
+  const { data, error, totalLength, isLoading } = useProducts();
+  const { pagination, sort, updateSearchParams } = useSearchParamsNavigation();
 
-  const phones = usePhones();
-  const tablets = useTablets();
-  const accessories = useAccessories();
-
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-
-    params.delete('sort');
-    params.delete('page');
-    params.delete('perPage');
-
-    navigate(
-      {
-        pathname: location.pathname,
-        search: params.toString(),
-      },
-      { replace: true },
-    );
-
-    setSortBy('Newest');
-    setPerPage({
-      page: 1,
-      perPage: PaginationPerPage.All,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, navigate]);
-
-  const updateUrlParams = (
-    newParams: Record<string, string | number | undefined | null>,
-    options: { replace?: boolean } = { replace: true },
-  ) => {
-    const params = new URLSearchParams(location.search);
-
-    Object.entries(newParams).forEach(([key, value]) => {
-      const shouldDelete =
-        value === undefined ||
-        value === null ||
-        (key === 'sort' && value === 'Newest') ||
-        (key === 'page' && value === 1) ||
-        (key === 'perPage' && value === PaginationPerPage.All);
-
-      if (shouldDelete) {
-        params.delete(key);
-      } else {
-        params.set(key, String(value));
-      }
-    });
-
-    navigate(
-      { pathname: location.pathname, search: params.toString() },
-      { replace: options.replace },
-    );
+  const handleSortChange = (key: string) => {
+    updateSearchParams({ sort: sortFiels[key as keyof typeof sortFiels] });
   };
 
-  const handleSortChange = (value: string) => {
-    setSortBy(value);
-    updateUrlParams({ sort: value });
+  const handlePerPageChange = (key: string) => {
+    updateSearchParams({ perPage: key, page: '1' });
   };
 
-  const handlePerPageChange = (value: string) => {
-    const updated = {
-      page: 1,
-      perPage: value as PaginationPerPage,
-    };
-
-    setPerPage(updated);
-    updateUrlParams({ page: 1, perPage: updated.perPage });
+  const handlePageChange = (number: number) => {
+    updateSearchParams({ page: number.toString() });
   };
 
-  const handlePageChange = (newPage: number) => {
-    if (newPage < 1 || newPage > totalPages) {
-      return;
-    }
-
-    setPerPage(prev => ({ ...prev, page: newPage }));
-    updateUrlParams({ page: newPage });
-  };
-
-  const { data, isLoading, error, totalLength } = useMemo(() => {
-    if (location.pathname.includes('phones')) {
-      return phones;
-    }
-
-    if (location.pathname.includes('tablets')) {
-      return tablets;
-    }
-
-    if (location.pathname.includes('accessories')) {
-      return accessories;
-    }
-
-    return { data: [], isLoading: false, error: null, totalLength: 0 };
-  }, [phones, tablets, accessories, location.pathname]);
-
-  const sortedAndPaginatedData = sortAndPaginate(
-    data,
-    sortBy,
-    {
-      Newest: 'year',
-      Price: 'price',
-      'A-Z': 'name',
-    },
-    perPage,
-  );
-
-  const getPaginationButtons = (
-    totalPages: number,
-    currentPage: number,
-  ): number[] => {
-    if (totalPages <= 5) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
-
-    const isNearStart = currentPage <= 2;
-    const isNearEnd = currentPage >= totalPages - 1;
-
-    if (isNearStart) {
-      return getRange(1, 5);
-    }
-
-    if (isNearEnd) {
-      return getRange(totalPages - 4, totalPages);
-    }
-
-    return getRange(currentPage - 2, currentPage + 2);
-  };
-
-  const totalPages =
-    perPage.perPage === 'All'
+  const getPagesCount = () => {
+    return pagination?.perPage === 'All'
       ? 1
-      : Math.ceil(totalLength / Number(perPage.perPage));
-
-  const paginationButtons = getPaginationButtons(totalPages, perPage.page);
-
-  const getCategoryTitle = () => {
-    if (location.pathname.includes('phones')) {
-      return 'Mobile phones';
-    }
-
-    if (location.pathname.includes('tablets')) {
-      return 'Tablets';
-    }
-
-    if (location.pathname.includes('accessories')) {
-      return 'Accessories';
-    }
-
-    return 'Products';
+      : Math.ceil(totalLength / Number(pagination?.perPage));
   };
 
   return (
     <div className={styles.catalogPage}>
       <Breadcrumbs />
       <div className={styles.catalogPageQuantity}>
-        <h1 className={styles.catalogPageQuantityTitle}>
-          {getCategoryTitle()}
-        </h1>
+        <h1 className={styles.catalogPageQuantityTitle}>{data[0]?.category}</h1>
         <span className={styles.catalogPageQuantityItems}>
           {isLoading ? 'Loading...' : `${totalLength} items`}
         </span>
@@ -211,8 +62,12 @@ export const ProductCatalogPage = () => {
           </span>
           <div className={styles.catalogPageSortByButton}>
             <Dropdown
-              items={['Newest', 'Price', 'A-Z']}
-              activeItem={sortBy}
+              items={Object.keys(sortFiels)}
+              activeItem={
+                Object.entries(sortFiels).find(
+                  ([, value]) => value === sort,
+                )?.[0] || 'Alphabetically'
+              }
               onSelect={handleSortChange}
             />
           </div>
@@ -225,7 +80,7 @@ export const ProductCatalogPage = () => {
           <div className={styles.catalogPageSortByButton}>
             <Dropdown
               items={Object.values(PaginationPerPage)}
-              activeItem={perPage.perPage}
+              activeItem={pagination?.perPage}
               onSelect={handlePerPageChange}
             />
           </div>
@@ -235,43 +90,15 @@ export const ProductCatalogPage = () => {
       <div className={styles.catalogPageList}>
         {isLoading && <div>Loading products...</div>}
         {error && <div>Error loading products: {error}</div>}
-        {!isLoading && !error && (
-          <CatalogList products={sortedAndPaginatedData} />
-        )}
+        {!isLoading && !error && <CatalogList products={data} />}
       </div>
 
-      {totalPages > 1 && (
-        <div className={styles.catalogPageSwitch}>
-          <div className={styles.catalogPageSwitchButtons}>
-            <div className={styles.catalogPageSwitchButtonsArrow}>
-              <ArrowButton
-                direction={ArrowDirection.Left}
-                isDisabled={perPage.page === 1}
-                click={() => handlePageChange(perPage.page - 1)}
-              />
-            </div>
-
-            <div className={styles.catalogPageSwitchButtonsPage}>
-              {paginationButtons.map(item => (
-                <PageSelectButton
-                  key={item}
-                  isSelected={perPage.page === item}
-                  click={() => handlePageChange(item)}
-                >
-                  {item}
-                </PageSelectButton>
-              ))}
-            </div>
-
-            <div className={styles.catalogPageSwitchButtonsArrow}>
-              <ArrowButton
-                direction={ArrowDirection.Right}
-                isDisabled={perPage.page >= totalPages}
-                click={() => handlePageChange(perPage.page + 1)}
-              />
-            </div>
-          </div>
-        </div>
+      {pagination && pagination.perPage !== PaginationPerPage.All && (
+        <PaginationButtons
+          currentPage={pagination.page}
+          totalPages={getPagesCount()}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );
