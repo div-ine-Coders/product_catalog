@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Product } from '../../../../../types/dto/Product';
 import { useFavoritesItem } from '@hooks/useFavoritesItem';
 import { useCartItems } from '@hooks/useCartStore';
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -25,19 +25,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     image,
   } = product;
 
-  const [clicked, setClicked] = useState(false);
   const favorite = useFavoritesItem();
   const cart = useCartItems();
-
-  const handleAddToCart = () => {
-    if (!cart.isInCart(product.id)) {
-      setClicked(true);
-      cart.addCart(product);
-      setTimeout(() => {
-        setClicked(false);
-      }, 800);
-    }
-  };
 
   return (
     <div className={styles.productCard}>
@@ -70,8 +59,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         <div className={styles.productCardButtonsDefault}>
           <DefaultButton
             isSelected={cart.isInCart(product.id)}
-            click={handleAddToCart}
-            animateClick={clicked}
+            click={() => cart.addCart(product)}
           >
             {cart.isInCart(product.id) ? 'Added' : 'Add to cart'}
           </DefaultButton>
