@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAccessories } from './accessoriesSliceAsyncThunk';
-import { AccessoryStateType } from './AccessoriesStateType';
+import { ProductsStateType } from '@models/state/productsStateType';
 
-const initialState: AccessoryStateType = {
-  accessory: [],
-  isLoading: false,
+const initialState: ProductsStateType = {
+  data: [],
   error: null,
 };
 
@@ -15,16 +14,13 @@ const accessoriesSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchAccessories.pending, state => {
-        state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchAccessories.rejected, (state, action) => {
-        state.isLoading = false;
         state.error = action.error.message || 'Something went wrong';
       })
       .addCase(fetchAccessories.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.accessory = action.payload;
+        state.data = action.payload;
       });
   },
 });
