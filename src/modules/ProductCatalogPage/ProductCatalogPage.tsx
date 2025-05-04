@@ -3,201 +3,189 @@
 /* eslint-disable max-len */
 
 import { CatalogList } from 'modules/_shared/components/molecules/CatalogList';
-import { useEffect, useMemo, useState } from 'react';
 import styles from './ProductCatalogPage.module.scss';
 import { Dropdown } from 'modules/_shared/components/atoms/Dropdown';
-import { ArrowButton } from 'modules/_shared/components/atoms/ArrowButton';
-import { ArrowDirection } from '@constants/ArrowDirection';
+
 import cn from 'classnames';
 import { PaginationPerPage } from '@constants/PaginationPerPage';
-import { sortAndPaginate } from '@hooks/factoryHooks/sortAndPagination';
+
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useAccessories } from '@hooks/useAccessories';
-import { usePhones } from '@hooks/usePhones';
-import { useTablets } from '@hooks/useTablets';
+
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
-import { PageSelectButton } from 'modules/_shared/components/atoms/PageSelectButton';
 
-function getRange(start: number, end: number): number[] {
-  const result: number[] = [];
-
-  for (let i = start; i <= end; i++) {
-    result.push(i);
-  }
-
-  return result;
-}
+import { useProducts } from '@hooks/useProducts';
 
 export const ProductCatalogPage = () => {
   useSyncSearchParamsWithStore();
 
-  const [sortBy, setSortBy] = useState<string>('Newest');
-  const [perPage, setPerPage] = useState({
-    page: 1,
-    perPage: PaginationPerPage.All,
-  });
+  const { data , error, totalLength, isLoading } = useProducts();
 
-  const phones = usePhones();
-  const tablets = useTablets();
-  const accessories = useAccessories();
+  // const [sortBy, setSortBy] = useState<string>('Newest');
+  // const [perPage, setPerPage] = useState({
+  //   page: 1,
+  //   perPage: PaginationPerPage.All,
+  // });
 
-  const location = useLocation();
-  const navigate = useNavigate();
+  // const phones = usePhones();
+  // const tablets = useTablets();
+  // const accessories = useAccessories();
 
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
+  // const location = useLocation();
+  // const navigate = useNavigate();
 
-    params.delete('sort');
-    params.delete('page');
-    params.delete('perPage');
+  // useEffect(() => {
+  //   const params = new URLSearchParams(location.search);
 
-    navigate(
-      {
-        pathname: location.pathname,
-        search: params.toString(),
-      },
-      { replace: true },
-    );
+  //   params.delete('sort');
+  //   params.delete('page');
+  //   params.delete('perPage');
 
-    setSortBy('Newest');
-    setPerPage({
-      page: 1,
-      perPage: PaginationPerPage.All,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, navigate]);
+  //   navigate(
+  //     {
+  //       pathname: location.pathname,
+  //       search: params.toString(),
+  //     },
+  //     { replace: true },
+  //   );
 
-  const updateUrlParams = (
-    newParams: Record<string, string | number | undefined | null>,
-    options: { replace?: boolean } = { replace: true },
-  ) => {
-    const params = new URLSearchParams(location.search);
+  //   setSortBy('Newest');
+  //   setPerPage({
+  //     page: 1,
+  //     perPage: PaginationPerPage.All,
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [location.pathname, navigate]);
 
-    Object.entries(newParams).forEach(([key, value]) => {
-      const shouldDelete =
-        value === undefined ||
-        value === null ||
-        (key === 'sort' && value === 'Newest') ||
-        (key === 'page' && value === 1) ||
-        (key === 'perPage' && value === PaginationPerPage.All);
+  // const updateUrlParams = (
+  //   newParams: Record<string, string | number | undefined | null>,
+  //   options: { replace?: boolean } = { replace: true },
+  // ) => {
+  //   const params = new URLSearchParams(location.search);
 
-      if (shouldDelete) {
-        params.delete(key);
-      } else {
-        params.set(key, String(value));
-      }
-    });
+  //   Object.entries(newParams).forEach(([key, value]) => {
+  //     const shouldDelete =
+  //       value === undefined ||
+  //       value === null ||
+  //       (key === 'sort' && value === 'Newest') ||
+  //       (key === 'page' && value === 1) ||
+  //       (key === 'perPage' && value === PaginationPerPage.All);
 
-    navigate(
-      { pathname: location.pathname, search: params.toString() },
-      { replace: options.replace },
-    );
-  };
+  //     if (shouldDelete) {
+  //       params.delete(key);
+  //     } else {
+  //       params.set(key, String(value));
+  //     }
+  //   });
 
-  const handleSortChange = (value: string) => {
-    setSortBy(value);
-    updateUrlParams({ sort: value });
-  };
+  //   navigate(
+  //     { pathname: location.pathname, search: params.toString() },
+  //     { replace: options.replace },
+  //   );
+  // };
 
-  const handlePerPageChange = (value: string) => {
-    const updated = {
-      page: 1,
-      perPage: value as PaginationPerPage,
-    };
+  // const handleSortChange = (value: string) => {
+  //   setSortBy(value);
+  //   updateUrlParams({ sort: value });
+  // };
 
-    setPerPage(updated);
-    updateUrlParams({ page: 1, perPage: updated.perPage });
-  };
+  // const handlePerPageChange = (value: string) => {
+  //   const updated = {
+  //     page: 1,
+  //     perPage: value as PaginationPerPage,
+  //   };
 
-  const handlePageChange = (newPage: number) => {
-    if (newPage < 1 || newPage > totalPages) {
-      return;
-    }
+  //   setPerPage(updated);
+  //   updateUrlParams({ page: 1, perPage: updated.perPage });
+  // };
 
-    setPerPage(prev => ({ ...prev, page: newPage }));
-    updateUrlParams({ page: newPage });
-  };
+  // const handlePageChange = (newPage: number) => {
+  //   if (newPage < 1 || newPage > totalPages) {
+  //     return;
+  //   }
 
-  const { data, isLoading, error, totalLength } = useMemo(() => {
-    if (location.pathname.includes('phones')) {
-      return phones;
-    }
+  //   setPerPage(prev => ({ ...prev, page: newPage }));
+  //   updateUrlParams({ page: newPage });
+  // };
 
-    if (location.pathname.includes('tablets')) {
-      return tablets;
-    }
+  // const { data, isLoading, error, totalLength } = useMemo(() => {
+  //   if (location.pathname.includes('phones')) {
+  //     return phones;
+  //   }
 
-    if (location.pathname.includes('accessories')) {
-      return accessories;
-    }
+  //   if (location.pathname.includes('tablets')) {
+  //     return tablets;
+  //   }
 
-    return { data: [], isLoading: false, error: null, totalLength: 0 };
-  }, [phones, tablets, accessories, location.pathname]);
+  //   if (location.pathname.includes('accessories')) {
+  //     return accessories;
+  //   }
 
-  const sortedAndPaginatedData = sortAndPaginate(
-    data,
-    sortBy,
-    {
-      Newest: 'year',
-      Price: 'price',
-      'A-Z': 'name',
-    },
-    perPage,
-  );
+  //   return { data: [], isLoading: false, error: null, totalLength: 0 };
+  // }, [phones, tablets, accessories, location.pathname]);
 
-  const getPaginationButtons = (
-    totalPages: number,
-    currentPage: number,
-  ): number[] => {
-    if (totalPages <= 5) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
+  // const sortedAndPaginatedData = sortAndPaginate(
+  //   data,
+  //   sortBy,
+  //   {
+  //     Newest: 'year',
+  //     Price: 'price',
+  //     'A-Z': 'name',
+  //   },
+  //   perPage,
+  // );
 
-    const isNearStart = currentPage <= 2;
-    const isNearEnd = currentPage >= totalPages - 1;
+  // const getPaginationButtons = (
+  //   totalPages: number,
+  //   currentPage: number,
+  // ): number[] => {
+  //   if (totalPages <= 5) {
+  //     return Array.from({ length: totalPages }, (_, i) => i + 1);
+  //   }
 
-    if (isNearStart) {
-      return getRange(1, 5);
-    }
+  //   const isNearStart = currentPage <= 2;
+  //   const isNearEnd = currentPage >= totalPages - 1;
 
-    if (isNearEnd) {
-      return getRange(totalPages - 4, totalPages);
-    }
+  //   if (isNearStart) {
+  //     return getRange(1, 5);
+  //   }
 
-    return getRange(currentPage - 2, currentPage + 2);
-  };
+  //   if (isNearEnd) {
+  //     return getRange(totalPages - 4, totalPages);
+  //   }
 
-  const totalPages =
-    perPage.perPage === 'All'
-      ? 1
-      : Math.ceil(totalLength / Number(perPage.perPage));
+  //   return getRange(currentPage - 2, currentPage + 2);
+  // };
 
-  const paginationButtons = getPaginationButtons(totalPages, perPage.page);
+  // const totalPages =
+  //   perPage.perPage === 'All'
+  //     ? 1
+  //     : Math.ceil(totalLength / Number(perPage.perPage));
 
-  const getCategoryTitle = () => {
-    if (location.pathname.includes('phones')) {
-      return 'Mobile phones';
-    }
+  // const paginationButtons = getPaginationButtons(totalPages, perPage.page);
 
-    if (location.pathname.includes('tablets')) {
-      return 'Tablets';
-    }
+  // const getCategoryTitle = () => {
+  //   if (location.pathname.includes('phones')) {
+  //     return 'Mobile phones';
+  //   }
 
-    if (location.pathname.includes('accessories')) {
-      return 'Accessories';
-    }
+  //   if (location.pathname.includes('tablets')) {
+  //     return 'Tablets';
+  //   }
 
-    return 'Products';
-  };
+  //   if (location.pathname.includes('accessories')) {
+  //     return 'Accessories';
+  //   }
+
+  //   return 'Products';
+  // };
 
   return (
     <div className={styles.catalogPage}>
       <Breadcrumbs />
       <div className={styles.catalogPageQuantity}>
         <h1 className={styles.catalogPageQuantityTitle}>
-          {getCategoryTitle()}
+          {/* {getCategoryTitle()} */}
         </h1>
         <span className={styles.catalogPageQuantityItems}>
           {isLoading ? 'Loading...' : `${totalLength} items`}
@@ -212,8 +200,8 @@ export const ProductCatalogPage = () => {
           <div className={styles.catalogPageSortByButton}>
             <Dropdown
               items={['Newest', 'Price', 'A-Z']}
-              activeItem={sortBy}
-              onSelect={handleSortChange}
+              // activeItem={sortBy}
+              // onSelect={handleSortChange}
             />
           </div>
         </div>
@@ -225,8 +213,8 @@ export const ProductCatalogPage = () => {
           <div className={styles.catalogPageSortByButton}>
             <Dropdown
               items={Object.values(PaginationPerPage)}
-              activeItem={perPage.perPage}
-              onSelect={handlePerPageChange}
+              // activeItem={perPage.perPage}
+              // onSelect={handlePerPageChange}
             />
           </div>
         </div>
@@ -236,11 +224,11 @@ export const ProductCatalogPage = () => {
         {isLoading && <div>Loading products...</div>}
         {error && <div>Error loading products: {error}</div>}
         {!isLoading && !error && (
-          <CatalogList products={sortedAndPaginatedData} />
+          <CatalogList products={data} />
         )}
       </div>
 
-      {totalPages > 1 && (
+      {/* {totalPages > 1 && (
         <div className={styles.catalogPageSwitch}>
           <div className={styles.catalogPageSwitchButtons}>
             <div className={styles.catalogPageSwitchButtonsArrow}>
@@ -272,7 +260,7 @@ export const ProductCatalogPage = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
