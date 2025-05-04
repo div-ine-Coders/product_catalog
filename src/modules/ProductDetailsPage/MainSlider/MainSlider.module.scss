@@ -66,19 +66,24 @@
 
 .thumbContainer {
   cursor: pointer;
-  width: 80px;
-  height: 80px;
-  border: 3px solid $color-element;
+  width: 55px;
+  height: 55px;
+  border: 2px solid $color-element;
   padding: 7px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: border-color 0.3s ease;
+
+  @include on-tablet {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .thumbs :global(.swiper-slide-thumb-active) .thumbContainer {
-  border: 3px solid white;
+  border: 2px solid $color-text-main;
 }
 
 .thumbImage {
