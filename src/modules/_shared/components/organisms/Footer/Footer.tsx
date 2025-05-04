@@ -4,11 +4,10 @@ import * as React from 'react';
 import cn from 'classnames';
 import { ArrowButton } from '../../atoms/ArrowButton';
 import { ArrowDirection } from '@constants/ArrowDirection';
-import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const handleBackClick = () => {
-    window.scrollTo({ top: 0 }); // <-- if Global smooth not working - add (behavior: 'smooth')
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -19,29 +18,31 @@ export const Footer = () => {
         </div>
 
         <div className={styles.footerNavContainer}>
-          <Link
-            to="#"
+          <a
+            href="https://github.com/div-ine-Coders/product_catalog"
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="Visit GitHub page"
           >
             GitHub
-          </Link>
+          </a>
 
-          <Link
-            to="#"
+          <a
+            href="tel:+38000000000"
             className={cn('uppercase', styles.footerNavContainerLink)}
-            aria-label="Contact us"
+            aria-label="Call us"
           >
             Contacts
-          </Link>
+          </a>
 
-          <Link
-            to="#"
+          <a
+            href="#"
             className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="View rights information"
           >
             Rights
-          </Link>
+          </a>
         </div>
 
         <div className={styles.footerBackContainer}>
