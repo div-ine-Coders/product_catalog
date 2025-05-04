@@ -37,7 +37,7 @@ export const ProductCatalogPage = () => {
     }, 0);
 
     return () => clearTimeout(timeout);
-  }, [pagination.page]);
+  }, [pagination]);
 
   const handleSortChange = (key: string) => {
     updateSearchParams({ sort: sortFiels[key as keyof typeof sortFiels] });
@@ -107,9 +107,7 @@ export const ProductCatalogPage = () => {
       >
         {isLoading && <div>Loading products...</div>}
         {error && <div>Error loading products: {error}</div>}
-        {!isLoading && !error && (
-          <CatalogList products={data} />
-        )}
+        {!isLoading && !error && <CatalogList products={data} />}
       </div>
 
       {pagination && pagination.perPage !== PaginationPerPage.All && (
