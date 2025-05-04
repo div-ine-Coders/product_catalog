@@ -1,20 +1,33 @@
-import * as React from 'react';
+import React from 'react';
 import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
+import { Outlet } from 'react-router-dom';
+// eslint-disable-next-line max-len
+import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
+// eslint-disable-next-line max-len
+import { Loader } from './modules/_shared/components/atoms/Loader/Loader';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store';
 
 export const App = () => {
+  useSyncSearchParamsWithStore();
+  const isLoading = useSelector((state: RootState) => state.loader.isLoading);
+
   return (
     <div className="App">
       <Header />
 
-      <div className="main">
-        {/* тут можна тестити поки немає -> <Outlet /> */}
-      </div>
+      <main className="main">
+        {isLoading && (
+          <div>
+            <Loader />
+          </div>
+        )}
+        <Outlet />
+      </main>
 
-      <div className="footer">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

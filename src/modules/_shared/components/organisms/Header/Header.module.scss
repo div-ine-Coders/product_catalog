@@ -10,6 +10,7 @@
   justify-content: space-between;
   box-shadow: 0px 1px 0px 0px $color-element;
   height: 48px;
+  z-index: 10;
 
   @include on-desktop {
     height: 64px;
@@ -52,7 +53,7 @@
   display: flex;
   align-items: center;
 
-  img {
+  &Img {
     width: 64px;
     height: auto;
 
@@ -72,17 +73,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-
-  &Item {
-    margin-right: 32px;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    column-gap: 32px;
 
     @include on-desktop {
-      margin-right: 64px;
+      column-gap: 64px;
     }
   }
 
@@ -137,6 +131,9 @@
     height: 100%;
     box-shadow: -1px 0 0 0 $color-element;
     text-decoration: none;
+  }
+  @include on-desktop {
+    width: 64px;
   }
 }
 

@@ -1,29 +1,26 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './ColorSelector.module.scss';
+import { Color } from '../../../../../types/common/Color';
+import { ColorMapping } from '../../../utils/ColorMapping';
 
 interface Props {
   isActive?: boolean;
-  color?: string; //It must be enum with all colors
-  click?: () => void;
+  color?: Color;
 }
 
 export const ColorSelectorButton: React.FC<Props> = ({
   isActive = false,
   color = 'red',
-  click,
 }) => {
   return (
-    <div
-      className={cn(styles.colorSelector, {
-        [styles.colorSelectorActive]: isActive,
-      })}
-    >
-      <a
-        style={{ backgroundColor: color }}
+    <button className={cn(styles.colorSelector)} disabled={isActive}>
+      <div
+        style={{
+          backgroundColor: ColorMapping(color),
+        }}
         className={styles.colorSelectorLink}
-        onClick={click}
-      ></a>
-    </div>
+      ></div>
+    </button>
   );
 };

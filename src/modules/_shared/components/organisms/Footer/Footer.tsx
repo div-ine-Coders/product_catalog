@@ -7,7 +7,7 @@ import { ArrowDirection } from '@constants/ArrowDirection';
 
 export const Footer = () => {
   const handleBackClick = () => {
-    window.scrollTo({ top: 0 }); // <-- if Global smooth not working - add (behavior: 'smooth')
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -19,7 +19,9 @@ export const Footer = () => {
 
         <div className={styles.footerNavContainer}>
           <a
-            href="#"
+            href="https://github.com/div-ine-Coders/product_catalog"
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn('uppercase', styles.footerNavContainerLink)}
             aria-label="Visit GitHub page"
           >
@@ -27,9 +29,9 @@ export const Footer = () => {
           </a>
 
           <a
-            href="#"
+            href="tel:+38000000000"
             className={cn('uppercase', styles.footerNavContainerLink)}
-            aria-label="Contact us"
+            aria-label="Call us"
           >
             Contacts
           </a>

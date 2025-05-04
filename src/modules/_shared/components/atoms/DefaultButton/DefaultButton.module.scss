@@ -1,17 +1,33 @@
 @import '../../../../../App.scss';
 
 .defaultButton {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   background-color: $color-accent;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &:hover {
+  &:not([disabled]):hover {
     background-color: #a378ff;
   }
+}
 
-  &Selected {
-    background-color: $color-card;
-  }
+.defaultButtonSelected {
+  background-color: $color-card;
+  cursor: auto;
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  color: $color-text-main;
 }

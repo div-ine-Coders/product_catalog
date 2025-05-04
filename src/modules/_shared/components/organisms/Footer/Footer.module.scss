@@ -17,6 +17,7 @@
   &Container {
     @include content-padding-in-line();
     @include grid-layout;
+    row-gap: 32px;
   }
 
   &Logo {
@@ -24,7 +25,7 @@
     grid-column: 1/-1;
 
     @include on-tablet {
-      grid-column: 1/5;
+      grid-column: 1/4;
     }
 
     @include on-desktop {
@@ -39,18 +40,19 @@
   &NavContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 16px;
+    justify-content: space-around;
+    row-gap: 16px;
     grid-column: 1/-1;
 
     @include on-tablet {
       flex-direction: row;
       align-items: center;
-      grid-column: 5/9;
+      grid-column: 4/10;
     }
 
     @include on-desktop {
       grid-column: 8/17;
+      justify-content: space-between;
     }
 
     &Link {
@@ -69,7 +71,7 @@
     grid-column: 1/-1;
 
     @include on-tablet {
-      grid-column: 9/-1;
+      grid-column: 10/-1;
       justify-content: flex-end;
     }
 
