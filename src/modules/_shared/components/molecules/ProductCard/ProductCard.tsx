@@ -37,8 +37,6 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         {name}
       </Link>
 
-      {/*here will be NavLink */}
-
       <div className={styles.productCardPrices}>
         <h3 className={styles.productCardPricesCurrent}>${price}</h3>
         <h3 className={styles.productCardPricesFull}>${fullPrice}</h3>
