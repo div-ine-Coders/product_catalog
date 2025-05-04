@@ -1,11 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import styles from './DefaultButton.module.scss';
 import cn from 'classnames';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CartAnimation } from '../CartAnimation/CartAnimation';
 
 interface Props {
   isSelected?: boolean;
   click?: () => void;
-  children: ReactNode | ReactNode[];
+  children: ReactNode;
 }
 
 export const DefaultButton: React.FC<Props> = ({
@@ -13,15 +15,40 @@ export const DefaultButton: React.FC<Props> = ({
   click,
   children,
 }) => {
+  const [animateClick, setAnimateClick] = useState(false);
+
+  const handleClick = () => {
+    if (isSelected) {
+      return;
+    }
+
+    setAnimateClick(true);
+    click?.();
+
+    setTimeout(() => {
+      setAnimateClick(false);
+    }, 800);
+  };
+
   return (
     <button
       className={cn('buttonText', styles.defaultButton, {
         [styles.defaultButtonSelected]: isSelected,
       })}
-      onClick={click}
+      onClick={handleClick}
       disabled={isSelected}
     >
-      {children}
+      <motion.span
+        className={styles.text}
+        animate={
+          animateClick ? { x: '100%', opacity: 0 } : { x: 0, opacity: 1 }
+        }
+        transition={{ duration: 0.4 }}
+      >
+        {children}
+      </motion.span>
+
+      <AnimatePresence>{animateClick && <CartAnimation />}</AnimatePresence>
     </button>
   );
 };
