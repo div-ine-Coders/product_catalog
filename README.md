@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+DEMO -> https://produtcatalog.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🧩 Technologies
+React + TypeScript
 
-## Available Scripts
+SCSS Modules
 
-In the project directory, you can run:
+React Router
 
-### `npm start`
+Context API (for Cart & Favorites)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Eslint, Prettier, Husky (code quality)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+📱 Catalog Pages
+/phones, /tablets, /accessories
 
-### `npm test`
+Sorting: Newest, Alphabetically, Cheapest
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pagination: 4 / 8 / 16 / All
 
-### `npm run build`
+Products from local phones.json and similar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🔍 Search
+Search by name with debounce
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Query saved in URL: ?query=...
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+❤️ Favorites
+Add/remove to/from favorites
 
-### `npm run eject`
+State synced with localStorage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Favorites count shown in header
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🛒 Shopping Cart
+Add products to cart from ProductCard or ProductDetails
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Change quantity or remove items
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Total quantity & price shown
 
-## Learn More
+Saved in localStorage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Simulated checkout flow (with confirmation modal)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🏠 Home Page
+Image slider
+
+Hot prices (products with discount)
+
+Brand new (no-discount items)
+
+Shop by category block
+
+📄 Product Details
+Detailed info by :productId
+
+Breadcrumbs navigation
+
+Random "You may also like" section
+
+🧭 Navigation
+Sticky header with logo, nav, cart & favorites icons
+
+Smooth scroll-to-top button
+
+NotFoundPage for unknown URLs
