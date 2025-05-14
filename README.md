@@ -1,67 +1,107 @@
-DEMO -> https://produtcatalog.netlify.app/
+# 🛒 Product Catalog — Dark Theme SPA
 
-🧩 Technologies
-React + TypeScript
+A modern **dark-themed** product catalog built with **React + TypeScript**, following the **Atomic Design** methodology.  
+Deployed as a frontend-only app using local `.json` data.
 
-SCSS Modules
+🔗 **Live Demo**: [https://produtcatalog.netlify.app/](https://produtcatalog.netlify.app/)
 
-React Router
+---
 
-Context API (for Cart & Favorites)
+## 🧩 Technologies
 
-Eslint, Prettier, Husky (code quality)
+- ⚛️ **React** + **TypeScript**
+- 🎨 **SCSS Modules**
+- 🚦 **React Router**
+- 🧠 **Context API** (Cart & Favorites)
+- ✅ **ESLint**, **Prettier**, **Husky** (for code quality)
 
-📱 Catalog Pages
-/phones, /tablets, /accessories
+---
 
-Sorting: Newest, Alphabetically, Cheapest
+## 🧱 Architecture (Atomic Design)
 
-Pagination: 4 / 8 / 16 / All
 
-Products from local phones.json and similar
+---
 
-🔍 Search
-Search by name with debounce
+## 📱 Catalog Pages
 
-Query saved in URL: ?query=...
+**Routes**:  
+`/phones` | `/tablets` | `/accessories`
 
-❤️ Favorites
-Add/remove to/from favorites
+- 📄 Sort by: `Newest`, `Alphabetically`, `Cheapest`
+- 🔢 Pagination: `4`, `8`, `16`, or `All` items per page
+- 📂 Data comes from static `.json` files
 
-State synced with localStorage
+---
 
-Favorites count shown in header
+## 🔍 Search Functionality
 
-🛒 Shopping Cart
-Add products to cart from ProductCard or ProductDetails
+- 🔎 Real-time **search by product name**
+- ⏳ Includes **debounce** for performance
+- 🔗 Search query stored in the URL: `?query=value`
+- 😢 "No results" message if query fails
 
-Change quantity or remove items
+---
 
-Total quantity & price shown
+## ❤️ Favorites
 
-Saved in localStorage
+- ❤️ Add/remove products via heart icon
+- 🧠 State is **persisted in localStorage**
+- 🔢 Favorites count shown in the header
 
-Simulated checkout flow (with confirmation modal)
+---
 
-🏠 Home Page
-Image slider
+## 🛒 Shopping Cart
 
-Hot prices (products with discount)
+- ➕ Add items from `ProductCard` or `ProductDetails`
+- ➖ Modify quantity or ❌ remove items
+- 🧾 Simulated **checkout modal** (confirmation only)
+- 💾 Cart saved in **localStorage**
+- 📦 Totals auto-calculated (quantity + price)
 
-Brand new (no-discount items)
+---
 
-Shop by category block
+## 🏠 Home Page Features
 
-📄 Product Details
-Detailed info by :productId
+- 🖼️ **Image Slider** (autoplays every 5s)
+- 🔥 **Hot Prices** — discounted products (by biggest discount)
+- 🆕 **Brand New** — no-discount products, sorted by price
+- 🧭 **Shop by Category** — links to phones, tablets, accessories
 
-Breadcrumbs navigation
+---
 
-Random "You may also like" section
+## 📄 Product Details Page
 
-🧭 Navigation
-Sticky header with logo, nav, cart & favorites icons
+📍 Route: `/product/:productId`
 
-Smooth scroll-to-top button
+- 🧭 **Breadcrumbs**: Home / Category / Product
+- 🖼️ Image gallery
+- 📝 Description & selected tech specs
+- 🎲 Random “You may also like” section
+- 🔙 **Back button** simulates browser history
+- ❗ "Product not found" message for invalid ID
 
-NotFoundPage for unknown URLs
+---
+
+## 🧭 Navigation & UI
+
+- 📌 Sticky header (logo + nav + cart + favorites)
+- ⬆️ Scroll-to-top button with smooth behavior
+- 🚫 `NotFoundPage` for unknown URLs
+- 🧊 All **hover effects** are animated smoothly
+- 🔍 Product images scale **+10%** on hover
+
+---
+
+## 🌐 Deployment
+
+- 🚀 Hosted on **Netlify**
+- 🔗 [https://produtcatalog.netlify.app/](https://produtcatalog.netlify.app/)
+- 🧪 Fully frontend-only (no backend, no DB)
+
+---
+
+# 2. Install dependencies
+npm install
+
+# 3. Start dev server
+npm run dev
