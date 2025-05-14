@@ -100,8 +100,3 @@ Deployed as a frontend-only app using local `.json` data.
 
 ---
 
-# 2. Install dependencies
-npm install
-
-# 3. Start dev server
-npm run dev
