@@ -10,14 +10,16 @@
   height: 100%;
   box-shadow: -1px 0 0 0 var(--color-element);
   text-decoration: none;
-  color: #56447d;
+  background-image: url(../../../../../assets/icons/icon-moon.png);
+  background-position: center;
+  background-repeat: no-repeat;
 
   @include on-desktop {
     width: 64px;
   }
 
   &Dark {
-    color: #ffd700;
+    background-image: url(../../../../../assets/icons/icon-sun.svg);
   }
 }
 

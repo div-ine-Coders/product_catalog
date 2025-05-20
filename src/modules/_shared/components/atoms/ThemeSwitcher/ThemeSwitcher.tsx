@@ -1,7 +1,6 @@
 import { toggleTheme } from 'app/slices/themeSlice';
 import { RootState } from 'app/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaMoon, FaSun } from 'react-icons/fa';
 import cn from 'classnames';
 import styles from './ThemeSwitcher.module.scss';
 
@@ -17,8 +16,6 @@ export const ThemeSwitcher = () => {
       className={cn(styles.themeSwitcher, {
         [styles.themeSwitcherDark]: isDark,
       })}
-    >
-      {isDark ? <FaSun /> : <FaMoon />}
-    </button>
+    ></button>
   );
 };
