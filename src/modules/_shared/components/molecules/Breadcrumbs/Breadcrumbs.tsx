@@ -1,8 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 import homeIcon from '@assets/icons/icon-home.svg';
+import homeIconDark from '@assets/icons/icon-home-dark.svg';
 import arrowIcon from '@assets/icons/icon-arrow-left-grey.svg';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store';
 
 const nameMap: Record<string, string> = {
   products: 'Products',
@@ -16,11 +19,13 @@ const nameMap: Record<string, string> = {
 export const Breadcrumbs: React.FC = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
+  const { activeTheme } = useSelector((state: RootState) => state.theme);
+  const isDark = activeTheme === 'dark';
 
   return (
     <div className={styles.breadcrumbs}>
       <Link to="/" className={styles.breadcrumbsLink}>
-        <img src={homeIcon} alt="Home" />
+        <img src={isDark ? homeIcon : homeIconDark} alt="Home" />
       </Link>
 
       {pathnames.map((segment, index) => {

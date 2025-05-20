@@ -1,4 +1,3 @@
-import React from 'react';
 import { BackButton } from 'modules/_shared/components/atoms/BackButton';
 import styles from './ProductDetailsPage.module.scss';
 import cn from 'classnames';

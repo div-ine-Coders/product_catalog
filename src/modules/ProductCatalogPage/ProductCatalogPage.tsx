@@ -7,7 +7,7 @@ import { PaginationPerPage } from '@constants/PaginationPerPage';
 
 // eslint-disable-next-line max-len
 import { useSyncSearchParamsWithStore } from '@hooks/effectHooks/useSearchParamsSync';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
 

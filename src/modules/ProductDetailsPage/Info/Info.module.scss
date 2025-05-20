@@ -24,7 +24,7 @@
     width: 100%;
 
     &Text {
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
     }
 
     &Buttons {
@@ -33,17 +33,17 @@
 
       &Capacity {
         padding-inline: 8px;
-        border: 1px solid $color-icon;
+        border: 1px solid var(--color-icon);
         cursor: pointer;
         height: 32px;
 
         &:not([disabled]):hover {
-          background-color: $color-element;
+          background-color: var(--color-element);
         }
 
         &:disabled {
-          color: $color-bg;
-          background-color: $color-text-main;
+          color: var(--color-bg);
+          background-color: var(--color-text-main);
           cursor: default;
         }
       }
@@ -63,7 +63,7 @@
 
     &Full {
       text-decoration: line-through;
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
       font-weight: 600;
       font-size: 22px;
     }
@@ -96,11 +96,11 @@
     &Text {
       display: flex;
       justify-content: space-between;
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
     }
 
     &Text span {
-      color: $color-text-main;
+      color: var(--color-text-main);
     }
   }
 }

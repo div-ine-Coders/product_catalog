@@ -16,7 +16,7 @@
   height: 12px;
   border-radius: 50%;
   display: block;
-  color: #fff;
+  color: var(--color-text-main);
   box-sizing: border-box;
   animation: animloader 2s linear infinite;
 }

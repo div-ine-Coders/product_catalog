@@ -3,15 +3,15 @@
 .pageSelectButton {
   width: 32px;
   height: 32px;
-  background-color: $color-surface;
+  background-color: var(--color-surface);
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: $color-element;
+    background-color: var(--color-element);
   }
 
   &Selected {
-    background-color: $color-accent;
+    background-color: var(--color-accent);
   }
 }

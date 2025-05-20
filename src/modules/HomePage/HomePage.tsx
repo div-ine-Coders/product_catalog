@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './HomePage.module.scss';
 import { Slider } from './components/Slider/Slider';
 import { ShopByCategory } from './components/ShopByCategory';

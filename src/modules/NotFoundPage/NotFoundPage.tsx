@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './NotFoundPage.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from 'modules/_shared/components/atoms/DefaultButton';

@@ -12,8 +12,8 @@
   box-sizing: border-box;
 
   padding: 16px;
-  background-color: $color-surface;
-  color: $color-text-main;
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
 
   @include on-tablet {
     flex-direction: row;
@@ -44,9 +44,9 @@
     }
 
     &Title {
-      color: $color-text-main;
+      color: var(--color-text-main);
       &:hover {
-        color: $color-text-secondary;
+        color: var(--color-text-secondary);
       }
     }
   }
@@ -82,7 +82,7 @@
     cursor: pointer;
 
     &:hover {
-      background-image: url(../../../../../assets/icons/icon-close.svg);
+      opacity: 0.5;
     }
   }
 
@@ -115,7 +115,7 @@
   }
 
   &BtnMinus {
-    background-color: $color-card;
+    background-color: var(--color-card);
     border: none;
     cursor: pointer;
 
@@ -129,17 +129,17 @@
     &Disabled {
       background-image: url(../../../../../assets/icons/icon-minus-grey.svg);
       background-color: inherit;
-      border: 1px solid $color-element;
+      border: 1px solid var(--color-element);
       cursor: auto;
     }
 
     &:not([disabled]):hover {
-      background-color: $color-icon;
+      background-color: var(--color-icon);
     }
   }
 
   &BtnPlus {
-    background-color: $color-card;
+    background-color: var(--color-card);
     border: none;
     cursor: pointer;
 
@@ -151,7 +151,7 @@
     width: 32px;
 
     &:hover {
-      background-color: $color-icon;
+      background-color: var(--color-icon);
     }
   }
 

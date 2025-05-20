@@ -22,7 +22,7 @@
   }
 
   &:hover {
-    color: $color-accent;
+    color: var(--color-accent);
 
     .backArrow {
       background-image: url(../../../../../assets/icons/icon-arrow-left-purple.svg);

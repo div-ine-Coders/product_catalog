@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import logo from '@assets/icons/Logo.png';
+import logoDark from '@assets/icons/LogoDark.png';
 import iconFavorite from '@assets/icons/icon-favorite-heart.svg';
+import iconFavoriteDark from '@assets/icons/icon-favorite-heart-dark.svg';
 import iconBag from '@assets/icons/icon-shopping-bag.svg';
+import iconBagDark from '@assets/icons/icon-shopping-bag-dark.svg';
 import cn from 'classnames';
 import { IconWithCounter } from '../../atoms/Icons/IconWithCounter';
 import { Link, NavLink } from 'react-router-dom';
@@ -10,6 +13,8 @@ import { RouterEnum } from '@constants/RouterEnum';
 import { getNavLinkClass, getIconLinkClass } from '../../../utils/ActiveState';
 import { useFavoritesItem } from '@hooks/useFavoritesItem';
 import { useCartItems } from '@hooks/useCartStore';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store';
 
 interface Props {
   onClose: () => void;
@@ -19,6 +24,8 @@ interface Props {
 export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
   const favorites = useFavoritesItem();
   const cart = useCartItems();
+  const { activeTheme } = useSelector((state: RootState) => state.theme);
+  const isDark = activeTheme === 'dark';
 
   useEffect(() => {
     if (isOpen) {
@@ -37,13 +44,19 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
       <div className={styles.container}>
         <div className={styles.menuTop}>
           <Link to="/" className={styles.logoLink}>
-            <img src={logo} alt="Logo" className={styles.logo} />
+            <img
+              src={isDark ? logo : logoDark}
+              alt="Logo"
+              className={styles.logo}
+            />
           </Link>
 
           <div className={styles.headerIcons}>
             <button
               onClick={onClose}
-              className={cn(styles.icon, styles.iconClose)}
+              className={cn(styles.icon, styles.iconClose, {
+                [styles.iconCloseDark]: isDark,
+              })}
               aria-label="Close Menu"
             />
           </div>
@@ -108,7 +121,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
             aria-label="Go to Favorites"
           >
             <IconWithCounter
-              icon={iconFavorite}
+              icon={isDark ? iconFavorite : iconFavoriteDark}
               count={favorites.items.length}
               alt="Favorites"
             />
@@ -120,7 +133,7 @@ export const Navbar: React.FC<Props> = ({ onClose, isOpen }) => {
             aria-label="Go to Shopping Bag"
           >
             <IconWithCounter
-              icon={iconBag}
+              icon={isDark ? iconBag : iconBagDark}
               count={cart.cards.length}
               alt="Shopping Bag"
             />

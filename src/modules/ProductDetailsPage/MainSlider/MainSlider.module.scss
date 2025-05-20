@@ -68,7 +68,7 @@
   cursor: pointer;
   width: 55px;
   height: 55px;
-  border: 2px solid $color-element;
+  border: 2px solid var(--color-element);
   padding: 7px;
   box-sizing: border-box;
   display: flex;
@@ -83,7 +83,7 @@
 }
 
 .thumbs :global(.swiper-slide-thumb-active) .thumbContainer {
-  border: 2px solid $color-text-main;
+  border: 2px solid var(--color-text-main);
 }
 
 .thumbImage {
