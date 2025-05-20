@@ -1,46 +1,102 @@
-# Getting Started with Create React App
+# 🛒 Product Catalog — Dark Theme SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern **dark-themed** product catalog built with **React + TypeScript**, following the **Atomic Design** methodology.  
+Deployed as a frontend-only app using local `.json` data.
 
-## Available Scripts
+🔗 **Live Demo**: [https://produtcatalog.netlify.app/](https://produtcatalog.netlify.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧩 Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ⚛️ **React** + **TypeScript**
+- 🎨 **SCSS Modules**
+- 🚦 **React Router**
+- 🧠 **Context API** (Cart & Favorites)
+- ✅ **ESLint**, **Prettier**, **Husky** (for code quality)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧱 Architecture (Atomic Design)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📱 Catalog Pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Routes**:  
+`/phones` | `/tablets` | `/accessories`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 📄 Sort by: `Newest`, `Alphabetically`, `Cheapest`
+- 🔢 Pagination: `4`, `8`, `16`, or `All` items per page
+- 📂 Data comes from static `.json` files
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🔍 Search Functionality
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 🔎 Real-time **search by product name**
+- ⏳ Includes **debounce** for performance
+- 🔗 Search query stored in the URL: `?query=value`
+- 😢 "No results" message if query fails
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## ❤️ Favorites
 
-## Learn More
+- ❤️ Add/remove products via heart icon
+- 🧠 State is **persisted in localStorage**
+- 🔢 Favorites count shown in the header
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛒 Shopping Cart
+
+- ➕ Add items from `ProductCard` or `ProductDetails`
+- ➖ Modify quantity or ❌ remove items
+- 🧾 Simulated **checkout modal** (confirmation only)
+- 💾 Cart saved in **localStorage**
+- 📦 Totals auto-calculated (quantity + price)
+
+---
+
+## 🏠 Home Page Features
+
+- 🖼️ **Image Slider** (autoplays every 5s)
+- 🔥 **Hot Prices** — discounted products (by biggest discount)
+- 🆕 **Brand New** — no-discount products, sorted by price
+- 🧭 **Shop by Category** — links to phones, tablets, accessories
+
+---
+
+## 📄 Product Details Page
+
+📍 Route: `/product/:productId`
+
+- 🧭 **Breadcrumbs**: Home / Category / Product
+- 🖼️ Image gallery
+- 📝 Description & selected tech specs
+- 🎲 Random “You may also like” section
+- 🔙 **Back button** simulates browser history
+- ❗ "Product not found" message for invalid ID
+
+---
+
+## 🧭 Navigation & UI
+
+- 📌 Sticky header (logo + nav + cart + favorites)
+- ⬆️ Scroll-to-top button with smooth behavior
+- 🚫 `NotFoundPage` for unknown URLs
+- 🧊 All **hover effects** are animated smoothly
+- 🔍 Product images scale **+10%** on hover
+
+---
+
+## 🌐 Deployment
+
+- 🚀 Hosted on **Netlify**
+- 🔗 [https://produtcatalog.netlify.app/](https://produtcatalog.netlify.app/)
+- 🧪 Fully frontend-only (no backend, no DB)
+
+---
+
