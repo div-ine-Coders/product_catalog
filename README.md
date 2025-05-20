@@ -1,6 +1,6 @@
 # 🛒 Product Catalog — Dark Theme SPA
 
-A modern **dark-themed** product catalog built with **React + TypeScript**, following the **Atomic Design** methodology.  
+A modern **dark-themed** product catalog built with **React + TypeScript**, following the **Atomic Design** methodology.
 Deployed as a frontend-only app using local `.json` data.
 
 🔗 **Live Demo**: [https://produtcatalog.netlify.app/](https://produtcatalog.netlify.app/)
@@ -24,7 +24,7 @@ Deployed as a frontend-only app using local `.json` data.
 
 ## 📱 Catalog Pages
 
-**Routes**:  
+**Routes**:
 `/phones` | `/tablets` | `/accessories`
 
 - 📄 Sort by: `Newest`, `Alphabetically`, `Cheapest`
@@ -99,4 +99,3 @@ Deployed as a frontend-only app using local `.json` data.
 - 🧪 Fully frontend-only (no backend, no DB)
 
 ---
-

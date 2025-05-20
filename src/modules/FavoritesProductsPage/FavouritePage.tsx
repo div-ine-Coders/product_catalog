@@ -18,7 +18,6 @@ export const FavouritePage = () => {
   const { activeTheme } = useSelector((state: RootState) => state.theme);
   const isDark = activeTheme === 'dark';
 
-
   return (
     <>
       <div className={styles.favouritePage}>
