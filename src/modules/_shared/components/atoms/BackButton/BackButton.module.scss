@@ -7,6 +7,7 @@
   gap: 4px;
   padding: 0;
   cursor: pointer;
+  width: fit-content;
 
   &Text {
     display: flex;
@@ -16,9 +17,13 @@
   &Arrow {
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../../../../../assets/icons/icon-arrow-left-white.svg);
+    background-image: url(../../../../../assets/icons/icon-arrow-left-grey.svg);
     height: 14px;
     width: 12px;
+
+    &Dark {
+      background-image: url(../../../../../assets/icons/icon-arrow-left-white.svg);
+    }
   }
 
   &:hover {

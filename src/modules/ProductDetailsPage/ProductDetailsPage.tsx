@@ -20,6 +20,8 @@ export const ProductDetailsPage = () => {
   const { gadget, errorMessage, product } = useGadgetDetails();
   const navigate = useNavigate();
   const isLoading = useSelector((state: RootState) => state.loader.isLoading);
+  const { activeTheme } = useSelector((state: RootState) => state.theme);
+  const isDark = activeTheme === 'dark';
 
   const goBack = () => {
     navigate(-1);
@@ -33,7 +35,7 @@ export const ProductDetailsPage = () => {
             <Breadcrumbs />
 
             <div className={styles.productDetailTitle}>
-              <BackButton click={goBack} />
+              <BackButton isDark={isDark} click={goBack} />
               <h2>{gadget.name}</h2>
             </div>
           </div>
