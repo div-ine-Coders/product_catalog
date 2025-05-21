@@ -25,6 +25,7 @@
 .selectIcon {
   display: flex;
   align-items: center;
+  width: 16px;
   transition: transform 0.2s ease;
 
   .selectTrigger[data-state='open'] & {
@@ -56,8 +57,4 @@
     background-color: var(--color-card);
     color: var(--color-text-main);
   }
-}
-
-svg {
-  width: 15px;
 }

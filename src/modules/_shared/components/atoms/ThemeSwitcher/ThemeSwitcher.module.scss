@@ -10,20 +10,14 @@
   height: 100%;
   box-shadow: -1px 0 0 0 var(--color-element);
   text-decoration: none;
-  background-image: url(../../../../../assets/icons/icon-moon.png);
-  background-position: center;
-  background-repeat: no-repeat;
 
   @include on-desktop {
     width: 64px;
   }
 
-  &Dark {
-    background-image: url(../../../../../assets/icons/icon-sun.svg);
+  &Icon {
+    height: 24px;
+    width: 24px;
   }
 }
 
-svg {
-  height: 30%;
-  width: 30%;
-}
