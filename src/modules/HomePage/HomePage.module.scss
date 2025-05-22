@@ -38,7 +38,7 @@
     font-size: 32px;
     font-weight: 800;
     line-height: 41px;
-    color: $color-text-main;
+    color: var(--color-text-main);
     white-space: normal;
 
     @include on-tablet {

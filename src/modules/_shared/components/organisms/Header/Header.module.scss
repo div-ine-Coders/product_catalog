@@ -4,11 +4,11 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: $color-bg;
+  background-color: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 1px 0px 0px $color-element;
+  box-shadow: 0px 1px 0px 0px var(--color-element);
   height: 48px;
   z-index: 10;
 
@@ -83,7 +83,7 @@
   &Link {
     display: none;
     align-items: center;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -98,7 +98,7 @@
     }
 
     &:hover {
-      color: $color-text-main;
+      color: var(--color-text-main);
     }
   }
 }
@@ -106,7 +106,7 @@
 //is-active
 .isActive {
   position: relative;
-  color: $color-text-main;
+  color: var(--color-text-main);
 
   &::after {
     content: '';
@@ -115,7 +115,7 @@
     height: 3px;
     left: 0;
     bottom: 0;
-    background: $color-text-main;
+    background: var(--color-text-main);
   }
 }
 
@@ -129,7 +129,7 @@
     justify-content: center;
     width: 48px;
     height: 100%;
-    box-shadow: -1px 0 0 0 $color-element;
+    box-shadow: -1px 0 0 0 var(--color-element);
     text-decoration: none;
   }
   @include on-desktop {
@@ -142,14 +142,19 @@
   display: block;
   width: 48px;
   height: 100%;
-  background: url('../../../../../assets/icons/icon-burger-menu.svg')
+  background: url('../../../../../assets/icons/icon-burger-menu-dark.svg')
     center/16px no-repeat;
   background-color: transparent;
   border: none;
-  box-shadow: -1px 0px 0px 0px $color-element;
+  box-shadow: -1px 0px 0px 0px var(--color-element);
   cursor: pointer;
 
   @include on-tablet {
     display: none;
+  }
+
+  &Dark {
+    background: url('../../../../../assets/icons/icon-burger-menu.svg')
+      center/16px no-repeat;
   }
 }

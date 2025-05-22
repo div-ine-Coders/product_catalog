@@ -10,10 +10,13 @@ import noFavourite from '../../assets/shopping-bag.svg';
 import cn from 'classnames';
 import { Breadcrumbs } from 'modules/_shared/components/molecules/Breadcrumbs';
 import { useFavoritesItem } from '@hooks/useFavoritesItem';
-import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store';
 
 export const FavouritePage = () => {
   const { items } = useFavoritesItem();
+  const { activeTheme } = useSelector((state: RootState) => state.theme);
+  const isDark = activeTheme === 'dark';
 
   return (
     <>
@@ -35,7 +38,9 @@ export const FavouritePage = () => {
         ) : (
           <div className={styles.favouritePageEmpty}>
             <img
-              className={styles.favouritePageEmptyImage}
+              className={cn(styles.favouritePageEmptyImage, {
+                [styles.favouritePageEmptyImageDark]: isDark,
+              })}
               src={noFavourite}
               alt="Empty Cart"
             />

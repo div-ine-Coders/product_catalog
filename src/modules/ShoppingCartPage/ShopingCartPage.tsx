@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './ShopingCart.module.scss';
@@ -9,9 +8,13 @@ import emptyCart from '../../assets/empty-cart.png';
 import { ShopingCartDialog } from './ShopingCartDialog';
 import { useCartItems } from '@hooks/useCartStore';
 import { CartItem } from 'modules/_shared/components/molecules/CartItem';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app/store';
 
 export const ShopingCartPage = () => {
   const cart = useCartItems();
+  const { activeTheme } = useSelector((state: RootState) => state.theme);
+  const isDark = activeTheme === 'dark';
 
   const totalPrice = cart.cards.reduce(
     (acc, item) => acc + item.quantity * item.product.price,
@@ -29,7 +32,7 @@ export const ShopingCartPage = () => {
         <>
           <div className={styles.shopingCartBack}>
             <Link to={'../'} aria-label="Go back">
-              <BackButton />
+              <BackButton isDark={isDark} />
             </Link>
             <h1>Cart</h1>
           </div>

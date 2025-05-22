@@ -27,7 +27,7 @@
     }
 
     &Items {
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
     }
   }
 
@@ -46,7 +46,7 @@
       max-width: 136px;
 
       &Text {
-        color: $color-text-secondary;
+        color: var(--color-text-secondary);
       }
     }
   }

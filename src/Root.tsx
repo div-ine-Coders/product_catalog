@@ -1,7 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { App } from './App';
 import { RouterEnum } from './constants/RouterEnum';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ProductCatalogPage } from 'modules/ProductCatalogPage';
 import { ProductDetailsPage } from 'modules/ProductDetailsPage';
 import { NotFoundPage } from 'modules/NotFoundPage';

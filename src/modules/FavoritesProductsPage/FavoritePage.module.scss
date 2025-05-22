@@ -27,7 +27,7 @@
     }
 
     &Items {
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
     }
   }
 
@@ -49,8 +49,11 @@
 
     &Image {
       max-width: 40%;
-      filter: invert(99%) sepia(24%) saturate(4305%) hue-rotate(180deg)
-        brightness(110%) contrast(93%);
+
+      &Dark {
+        filter: invert(99%) sepia(24%) saturate(4305%) hue-rotate(180deg)
+          brightness(110%) contrast(93%);
+      }
     }
 
     &Button {
@@ -81,6 +84,6 @@
 
   &Current {
     font-weight: 700;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
   }
 }

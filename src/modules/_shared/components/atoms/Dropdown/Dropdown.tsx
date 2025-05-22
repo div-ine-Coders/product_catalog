@@ -7,23 +7,17 @@ import styles from './Dropdown.module.scss';
 interface Props {
   items: string[] | number[];
   activeItem?: string | number;
-  isBig?: boolean;
   onSelect?: (value: string) => void;
 }
 
 export const Dropdown: React.FC<Props> = ({
   items = ['Item 1', 'Item 2', 'Item 3'],
   activeItem = 'Item 2',
-  isBig = true,
   onSelect,
 }) => {
   return (
     <Select.Root value={activeItem.toString()} onValueChange={onSelect}>
-      <Select.Trigger
-        className={cn('buttonText', styles.selectTrigger, {
-          [styles.selectTriggerBig]: isBig,
-        })}
-      >
+      <Select.Trigger className={cn('buttonText', styles.selectTrigger)}>
         <Select.Value />
         <Select.Icon className={styles.selectIcon}>
           <ChevronDownIcon />
@@ -37,9 +31,7 @@ export const Dropdown: React.FC<Props> = ({
               <Select.Item
                 key={label}
                 value={label.toString()}
-                className={cn(styles.selectItem, {
-                  [styles.selectItemBig]: isBig,
-                })}
+                className={cn(styles.selectItem)}
               >
                 <Select.ItemText>{label}</Select.ItemText>
               </Select.Item>

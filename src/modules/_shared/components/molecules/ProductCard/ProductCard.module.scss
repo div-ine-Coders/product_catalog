@@ -4,14 +4,14 @@
   width: 100%;
   min-width: 212px;
   height: 440px;
-  background-color: $color-surface;
+  background-color: var(--color-surface);
   display: flex;
   flex-direction: column;
   justify-self: center;
   gap: 8px;
   padding: 32px;
   box-sizing: border-box;
-  border: 1px solid $color-surface;
+  border: 1px solid var(--color-surface);
   @include img-hover-scale();
 
   @include on-tablet {
@@ -19,7 +19,7 @@
   }
 
   &:hover {
-    border-color: $color-card;
+    border-color: var(--color-card);
   }
 
   &Link {
@@ -38,9 +38,9 @@
 
   &Title {
     padding-top: 16px;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
     &:hover {
-      color: $color-text-main;
+      color: var(--color-text-main);
     }
   }
 
@@ -51,13 +51,13 @@
 
     &Full {
       text-decoration: line-through;
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
       font-weight: 600;
     }
   }
 
   &Border {
-    background-color: $color-card;
+    background-color: var(--color-card);
     height: 1px;
     width: 100%;
     border: none;
@@ -72,11 +72,11 @@
     &Text {
       display: flex;
       justify-content: space-between;
-      color: $color-text-secondary;
+      color: var(--color-text-secondary);
     }
 
     &Text span {
-      color: $color-text-main;
+      color: var(--color-text-main);
     }
   }
 

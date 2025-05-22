@@ -15,7 +15,6 @@
   }
 
   &Back {
-    grid-column: 1 / -1;
     margin-top: 24px;
     align-content: start;
     display: flex;
@@ -50,7 +49,7 @@
     box-sizing: border-box;
 
     padding: 24px;
-    border: 1px solid $color-element;
+    border: 1px solid var(--color-element);
 
     @include on-desktop {
       grid-column: 17 / -1;
@@ -63,7 +62,7 @@
       align-items: center;
 
       &Count {
-        color: $color-text-secondary;
+        color: var(--color-text-secondary);
       }
     }
 
@@ -100,7 +99,7 @@
 
 hr {
   width: 100%;
-  border-color: $color-element;
+  border-color: var(--color-element);
   margin: 0;
 }
 
@@ -110,6 +109,13 @@ hr {
     height: 48px;
     padding: 0;
     border: none;
+    cursor: pointer;
+    background-color: var(--color-accent);
+    color: var(--color-text-buttons);
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &Overlay {
@@ -119,8 +125,8 @@ hr {
   }
 
   &Content {
-    background: $color-surface;
-    border: 2px solid $color-element;
+    background: var(--color-surface);
+    border: 2px solid var(--color-element);
     padding: 32px;
     width: 70%;
     max-width: 400px;
@@ -147,8 +153,8 @@ hr {
     &ButtonCancel {
       width: 40%;
       padding: 0;
-      background-color: $color-success;
-      border: 2px solid $color-success;
+      background-color: var(--color-success);
+      border: 2px solid var(--color-success);
       cursor: pointer;
 
       &:hover {
@@ -158,8 +164,8 @@ hr {
 
     &ButtonSubmit {
       width: 40%;
-      background-color: $color-error;
-      border: 2px solid $color-error;
+      background-color: var(--color-error);
+      border: 2px solid var(--color-error);
       cursor: pointer;
       padding: 0;
 

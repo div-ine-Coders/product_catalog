@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import './App.scss';
 import { Header } from 'modules/_shared/components/organisms/Header';
 import { Footer } from 'modules/_shared/components/organisms/Footer';
@@ -13,6 +13,11 @@ import { RootState } from 'app/store';
 export const App = () => {
   useSyncSearchParamsWithStore();
   const isLoading = useSelector((state: RootState) => state.loader.isLoading);
+  const { activeTheme } = useSelector((state: RootState) => state.theme);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', activeTheme);
+  }, [activeTheme]);
 
   return (
     <div className="App">

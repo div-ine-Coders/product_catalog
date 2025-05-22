@@ -14,7 +14,7 @@
 
   display: flex;
   flex-direction: column;
-  background-color: $color-bg;
+  background-color: var(--color-bg);
   @include on-tablet {
     display: none;
   }
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid $color-element;
+  border-bottom: 1px solid var(--color-element);
 }
 
 //Logo
@@ -69,14 +69,18 @@
 }
 
 .iconClose {
-  background-image: url('../../../../../assets/icons/icon-close.svg');
+  background-image: url('../../../../../assets/icons/icon-close-grey.svg');
   background-color: transparent;
   background-size: 16px 16px;
   background-position: center;
   background-repeat: no-repeat;
   border: none;
-  box-shadow: -1px 0px 0px 0px $color-element;
+  box-shadow: -1px 0px 0px 0px var(--color-element);
   transition: background-color 0.2s ease;
+
+  &Dark {
+    background-image: url('../../../../../assets/icons/icon-close.svg');
+  }
 }
 
 // Bottom section of the menu
@@ -107,12 +111,12 @@
 
   &Link {
     text-decoration: none;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     transition: color 0.3s ease;
 
     &:hover {
-      color: $color-text-main;
+      color: var(--color-text-main);
     }
   }
 }
@@ -120,7 +124,7 @@
 //is-active
 .isActive {
   position: relative;
-  color: $color-text-main;
+  color: var(--color-text-main);
 
   &::after {
     content: '';
@@ -129,7 +133,7 @@
     height: 2px;
     left: 0;
     bottom: -6px;
-    background: $color-text-main;
+    background: var(--color-text-main);
     transition: background 0.3s ease;
   }
 }
@@ -140,7 +144,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid $color-element;
+  border-top: 1px solid var(--color-element);
   height: 64px;
 
   .icon {
@@ -153,7 +157,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px 16px;
-    border-left: 1px solid $color-element;
+    border-left: 1px solid var(--color-element);
     text-decoration: none;
 
     &:first-child {
@@ -168,7 +172,7 @@
       bottom: 0;
       width: 100%;
       height: 3px;
-      background-color: $color-text-main;
+      background-color: var(--color-text-main);
     }
   }
 }
